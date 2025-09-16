@@ -1,0 +1,188 @@
+ion-content {
+  --background: #fff;
+}
+
+.tab-header {
+    padding: 6px;
+    background: #dde5e5;
+    border-radius: 13px;
+    margin: 11px;  
+  ion-segment {
+    width: 100%;
+    --background: #E8E8E8;
+    --indicator-box-shadow: none;
+    --indicator-color: #fff;
+    --color-checked: #000;
+    border-radius: 6px;
+    font-size: 12px;
+    .segment-button-checked {
+      background: #fff;
+    --indicator-color: transparent; /* Remove underline */
+    font-size: 13px;
+      
+    /* width: 17%; */
+    padding: 0px;
+    // margin: 5px;
+    border-radius: 6px;
+    --height: 10px;
+          --border-style: none; /* No border */
+
+    }
+  }
+   ion-segment-button {
+    color: black;      /* Inactive text */
+    --height: 34px; /* ✅ Button height */
+    min-height: 34px; /* fallback */
+    line-height: 34px; /* centers text vertically */
+    font-size: 14px;
+    text-transform: initial;
+
+    &.segment-button-checked {
+      --border-style: none; /* No border */
+      font-size: 14px;
+    text-transform: initial;
+
+    }
+  }
+
+}
+.ticket-card {
+  margin: 20px 12px 0 12px;
+  padding: 10px;
+  border-radius: 10px;
+  background: #fff; // default background
+  box-shadow: 0 2px 12px 0 #f7e9ce4a;
+
+  .ticket-header {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 1.1em;
+    font-weight: 500;
+  }
+
+  .ticket-title {
+    margin-top: 8px;
+    font-family: 'Lato', sans-serif;
+    color: #1A1A1A;
+font-weight: 700;
+font-style: Bold;
+font-size: 16px;
+line-height: 100%;
+letter-spacing: 0%;
+vertical-align: middle;
+
+  }
+
+  .ticket-dates {
+    display: flex;
+    gap: 25px;
+    margin: 10px 0 0 0;
+    font-size: 0.9em;
+
+    label {
+      color: #7b7b7b;
+      margin-right: 2px;
+      font-size: 0.82em;
+    }
+  }
+
+  .ticket-status {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+
+
+    span {
+      font-size: 1em;
+      font-weight: 500;
+    }
+
+    ion-button {
+      margin-left: auto;
+    }
+  }
+}
+.inpro{
+  margin-left: auto;
+    color: #ED9622;
+    // background: #ED9622;
+    border-radius: 39px;
+    height: 40px;
+    width: 40px;
+    background: #ffffff;
+}
+.open{
+  margin-left: auto;
+    color: #08ada9;
+    // background: #A8AFAA;
+    border-radius: 39px;
+    height: 40px;
+    width: 40px;
+    background: #ffffff;
+
+}
+.new{
+   margin-left: auto;
+    color: #26dd5a;
+    // background: #A8AFAA;
+    border-radius: 39px;
+    height: 40px;
+    width: 40px;
+    background: #ffffff;
+}
+/* ✅ Now variations work */
+.ticket-card.Inprogress {
+  border: 1.4px solid #FFF6EA;
+  background: #fff8e7;
+}
+.ticket-card.Open {
+  border: 1.4px solid #e9e9e9;
+  background: #eaf3ff;
+}
+.ticket-card.New {
+  border: 1.4px solid #e9e9e9;
+  background: #e1ffe3;
+}
+
+/* Text colors */
+.ticket-card.Inprogress .ticket-status span {
+  color: #e6b23a;
+  margin-left: 2%;
+}
+.ticket-card.Open .ticket-status span {
+  color: #08ada9;
+  margin-left: 2%;
+
+}
+.ticket-card.New .ticket-status span {
+  color: #26dd5a;
+  margin-left: 2%;
+
+}
+.ticket-id {
+  font-family: 'Lato', sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+  color: #858585;
+}
+.bgdiv{
+  background: #ffffff;
+    padding: 14px;
+    border-radius: 10px;
+}
+
+.add-ticket-footer {
+  padding: 16px 0 10px 0;
+  background: transparent;
+  ion-button.add-ticket-btn {
+    --background: #dc3545;
+    --background-hover: #d1a02c;
+    --border-radius: 25px;
+    width: 43%;
+    justify-self: center;
+    font-weight: 500;
+    font-size: 12px;
+    box-shadow: 0 2px 10px 0 #f7e9ce60;
+  }
+}

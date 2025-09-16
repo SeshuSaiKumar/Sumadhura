@@ -1,0 +1,202 @@
+    ion-toolbar{
+        --background: #D4AC51 !important;
+        color: rgb(255, 255, 255);
+        font-size: 1.2rem;
+        font-weight: 500;
+    }
+    .content-md {
+        color: #000;
+        background-color: #fff;
+        border: solid 1px blue;
+        border-radius:10px;
+        }
+    .modaldivcls {
+        border: 1px solid #ddd !important;
+        background: rgba(0,0,0,0.5);
+        border-radius: 5px;
+        z-index: 99999;
+      }
+      .modalheadcls{
+        font-size: 14px !important;
+        height: 37px;
+        left: 0px;
+        top: 0px;
+        position: absolute;
+        padding: 7px;
+        background-color: #c7c7c7;
+         width: 100%;
+        font-family:"Helvetica Neue", "Roboto", sans-serif;
+      }
+      .editicondwncls{
+        padding-right: 5px;
+        padding-left: 6px;
+    }
+    .submitbtncls{
+      
+        left:30%;
+        background-image: linear-gradient(-90deg, #f6821f, #ed1b24) ;
+        margin-bottom: 10px;
+        height: auto !important;
+        padding:6px 8px !important;
+        bottom: 6px;
+        position: absolute;
+    }
+    .descriptioncls{
+        width: 100%;
+
+        overflow: hidden;
+        border-top:none;
+    }
+    .listcls{
+        margin: 40px 0 32px;
+        width:100%;
+    }
+    .itemcls{border-top:none !important;}
+    .text-input-ios {
+
+        height:130px !important;
+    }
+    .text-input-md {
+
+        height:20px !important;
+    }
+    // .sample-modal-page{
+    //     border-radius: 10px;
+    // }
+    .list-header-md{
+        padding-left: 16px;
+        margin-bottom: 13px;
+        min-height: 4.5rem;
+        border-top: 1px solid #fff;
+        font-size: 1.8rem;
+        color: #ffffff;
+        width: 100%;
+        background-color: #242a9b !important;
+        border-radius: 15px;
+    }
+    .closemodal{
+        float: right;
+        font-size: 22px;
+        margin-top: -8px;
+        padding: 6px;
+        color: red;
+    }
+    ::-webkit-scrollbar {
+        width: 3px;
+    }
+    ::-webkit-scrollbar-thumb {
+        background-color: black;
+    }
+
+ion-item.selected {
+  background: #e0f7ff;
+  border-left: 4px solid #16ad25;
+}
+ion-radio {
+  --color: rgba(var(--ion-text-color-rgb, 0, 0, 0), 0.6); /* Unchecked color */
+  --color-checked: #16ad25; /* Checked color */
+  --border-width: 2px;
+  --border-style: solid;
+  --border-color: rgba(0, 0, 0, 0.2); /* optional */
+  --border-radius: 50%; /* Makes the radio round */
+  --size: 20px; /* Optional: Customize size */
+  margin-inline-end: 8px;
+}
+ion-item {
+  --padding-start: 10px;
+  --inner-padding-end: 10px;
+  --inner-padding-start: 10px;
+  align-items: center;
+}
+
+ion-label {
+  font-size: 16px;
+  font-family: 'Lato', sans-serif;
+  color: #000;
+}
+.modaldivcls {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+
+  ion-header {
+    flex: 0 0 auto;
+
+    .header-title {
+      font-weight: 700;
+      text-align: center;
+      width: 100%;
+    }
+
+    .close-btn {
+      width: 50px;
+    }
+  }
+
+  ion-content.sample-modal-page {
+    flex: 1 1 auto;
+    --padding-start: 0;
+    --padding-end: 0;
+    --background: #f9f9f9;
+
+    ion-list {
+      margin: 0;
+      padding: 0;
+
+      ion-radio-group.radio-group {
+        width: 100%;
+
+        ion-item {
+          --min-height: 48px;
+          --inner-padding-end: 12px;
+          cursor: pointer;
+          border-bottom: 1px solid #ddd;
+
+          &.selected {
+            background-color: #e6f7ff;
+          }
+
+          ion-label {
+            font-size: 1rem;
+            padding-left: 12px;
+          }
+        }
+      }
+    }
+  }
+
+  ion-footer {
+    flex: 0 0 auto;
+    padding: 8px 16px;
+    background: #fff;
+    
+    ion-toolbar {
+      ion-buttons.confirm-btn-container {
+        width: 100%;
+
+        ion-button {
+          --border-radius: 6px;
+          font-weight: 600;
+          width: 100%;
+          --background: #3880ff;
+          --color: #fff;
+
+          &[disabled] {
+            --background: #cdd4db;
+            --color: #7a7a7a;
+          }
+        }
+      }
+    }
+  }
+}
+
+.sendotpbtncls {
+    --background: linear-gradient(-90deg, #f6821f, #ed1b24);
+    width: 100%;
+    margin: 0 auto;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+    color: white;
+    --border-radius: 59px !important;
+}

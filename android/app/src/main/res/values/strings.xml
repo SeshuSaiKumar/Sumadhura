@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Sumadhura</string>
+    <string name="title_activity_main">Sumadhura</string>
+    <string name="package_name">com.app.sumadhura</string>
+    <string name="custom_url_scheme">com.app.sumadhura</string>
+</resources>

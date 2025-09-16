@@ -1,0 +1,130 @@
+<ion-content class="pppy5 bg-image ion-padding">
+  <div>
+    <div text-center class="logo_img">
+      <img class="img" src="assets/imgs/sum-tagline.png" />
+    </div>
+
+    <div text-center>
+      <img class="img2" src="assets\imgs\_new_dashboard\vector.png">
+    </div>
+    <div text-center>
+      <img class="img3" src="assets\imgs\_new_dashboard\vector2.png">
+    </div>
+    <div class="progress-bar">
+      <div class="step active"></div>
+      <div class="step active"></div>
+      <div class="step active"></div>
+    </div>
+    <div text-center class="logo_img2">
+      <img src="assets/imgs/newscreen/Paychain.png" class="email-icon" />
+    </div>
+
+
+    <p class="mpinotp">Set Your 4 Digit Pin</p>
+
+    <ion-grid>
+      <ion-row style="display: flex;justify-content: center;">
+        <ion-col size="2.4">
+          <ion-item class="transparent" lines="none" padding="0">
+            <ion-input type="number" style="display: flex;align-items: center;height: 52px;
+    background: white;width: 52px;--padding-bottom: 1px;
+    --padding-start: 1px;font-size: 16px;
+    border: 1px solid #D4AC51;
+    border-radius: 10px;" pattern="\d" #a [(ngModel)]="mpin1" maxlength="1" tabindex="1" (ionFocus)="checkFocus()"
+              (keyup)="moveFocus(b, $event, 1)"></ion-input>
+          </ion-item>
+        </ion-col>
+        <ion-col size="2.4">
+          <ion-item class="transparent" lines="none">
+            <ion-input type="number" style="display: flex;align-items: center;height: 52px;
+    background: white;width: 52px;--padding-bottom: 1px;
+    --padding-start: 1px;font-size: 16px;
+    border: 1px solid #D4AC51;
+    border-radius: 10px;" pattern="\d" [(ngModel)]="mpin2" maxlength="1" tabindex="2" (ionFocus)="checkFocus()" #b
+              (keyup)="moveFocus(c, $event, 2)"></ion-input>
+          </ion-item>
+        </ion-col>
+        <ion-col size="2.4">
+          <ion-item class="transparent" lines="none">
+            <ion-input type="number" style="    display: flex;align-items: center;height: 52px;
+    background: white;width: 52px;--padding-bottom: 1px;
+    --padding-start: 1px;font-size: 16px;
+    border: 1px solid #D4AC51;
+    border-radius: 10px;" pattern="\d" [(ngModel)]="mpin3" maxlength="1" tabindex="3" (ionFocus)="checkFocus()" #c
+              (keyup)="moveFocus(d, $event, 3)"></ion-input>
+          </ion-item>
+        </ion-col>
+        <ion-col size="2.4">
+          <ion-item class="transparent" lines="none">
+            <ion-input type="number" style="display: flex;align-items: center;height: 52px;
+    background: white;width: 52px;--padding-bottom: 1px;
+    --padding-start: 1px;font-size: 16px;
+    border: 1px solid #D4AC51;
+    border-radius: 10px;" pattern="\d" [(ngModel)]="mpin4" maxlength="1" tabindex="4" (ionFocus)="checkFocus()" #d
+              (keyup)="moveFocus(e, $event, 4)"></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+    <p class="mpinotp">Confirm Your 4 Digit Pin</p>
+
+    <ion-grid>
+      <ion-row style="display: flex;justify-content: center;">
+        <ion-col size="2.4">
+          <ion-item class="transparent" lines="none">
+            <ion-input type="number" style="display: flex;align-items: center;height: 52px;
+    background: white;width: 52px;--padding-bottom: 1px;
+    --padding-start: 1px;font-size: 16px;
+    border: 1px solid #D4AC51;
+    border-radius: 10px;" pattern="\d" #e [(ngModel)]="cnmpin1" maxlength="1" tabindex="5" (ionFocus)="checkFocus()"
+              (keyup)="moveFocus(f, $event, 5)"></ion-input>
+          </ion-item>
+        </ion-col>
+        <ion-col size="2.4">
+          <ion-item class="transparent" lines="none">
+            <ion-input type="number" style="display: flex;align-items: center;height: 52px;
+    background: white;width: 52px;--padding-bottom: 1px;
+    --padding-start: 1px;font-size: 16px;
+    border: 1px solid #D4AC51;
+    border-radius: 10px;" pattern="\d" [(ngModel)]="cnmpin2" maxlength="1" tabindex="6" (ionFocus)="checkFocus()" #f
+              (keyup)="moveFocus(g, $event, 6)"></ion-input>
+          </ion-item>
+        </ion-col>
+        <ion-col size="2.4">
+          <ion-item class="transparent" lines="none">
+            <ion-input type="number" style="display: flex;align-items: center;height: 52px;
+    background: white;width: 52px;--padding-bottom: 1px;
+    --padding-start: 1px;font-size: 16px;
+    border: 1px solid #D4AC51;
+    border-radius: 10px;" pattern="\d" [(ngModel)]="cnmpin3" maxlength="1" tabindex="7" (ionFocus)="checkFocus()" #g
+              (keyup)="moveFocus(h, $event, 7)"></ion-input>
+          </ion-item>
+        </ion-col>
+        <ion-col size="2.4">
+          <ion-item class="transparent" lines="none">
+            <ion-input type="number" style="display: flex;align-items: center;height: 52px;
+    background: white;width: 52px;--padding-bottom: 1px;
+    --padding-start: 1px;font-size: 16px;
+    border: 1px solid #D4AC51;
+    border-radius: 10px;" pattern="\d" [(ngModel)]="cnmpin4" maxlength="1" tabindex="8" (ionFocus)="checkFocus()" #h
+              (keyup)="moveFocus(h, $event, 8)"></ion-input>
+
+          </ion-item>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+    <div class="mpinpolicies_cls" (click)="MPIN_Policies_redirection()">MPIN Policies</div><br><br><br>
+
+
+      <div class="submit-btn-wrapper">
+      <ion-button expand="block" class="submit-btn" (click)="signup_three()">
+        Submit & Next →
+      </ion-button>
+    </div>
+
+
+  
+  </div>
+</ion-content>

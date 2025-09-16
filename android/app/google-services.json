@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "178204846103",
+    "firebase_url": "https://sumadhuranotification.firebaseio.com",
+    "project_id": "sumadhuranotification",
+    "storage_bucket": "sumadhuranotification.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:178204846103:android:ae48a28510e3da1a",
+        "android_client_info": {
+          "package_name": "com.app.sumadhura"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "178204846103-vbn3864laa76g4p3s082u0b794qh9s3h.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAtLcqCQ_EVHL5ih1TcZ-fwpG6DbOtwZbg"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

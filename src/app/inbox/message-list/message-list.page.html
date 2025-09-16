@@ -1,0 +1,55 @@
+<app-custom-toolbar [title]="'Inbox'" [showBackButton]="true" [showMenuButton]="false" [showThreeDots]="false"
+  [backUrl]="'/dashboard'">
+</app-custom-toolbar>
+
+<ion-content [fullscreen]="true">
+
+  <div *ngIf="messengerlist?.length" class="search-container" style="margin-top: 23px;">
+    <ion-searchbar [(ngModel)]="search" placeholder="Search messages..." show-clear-button="always" debounce="400"
+      animated="true">
+    </ion-searchbar>
+  </div>
+
+
+
+  <ion-list lines="none" *ngIf="messengerlist?.length">
+    <ion-card class="message-card" *ngFor="let data of messengerlist |filter:search:filterKeys" (click)="goToViewPage(data)"
+      [ngClass]="data.viewCount > 0 ? 'unread' : 'read'">
+
+      <ion-item lines="none">
+        <!-- Avatar with badge overlay -->
+        <div class="avatar-wrapper" slot="start">
+          <ion-avatar>
+            <img [src]="data.location || 'assets/imgs/no_image1.png'" />
+          </ion-avatar>
+          <ion-badge *ngIf="data.viewCount != 0" color="danger" class="unread-badge">
+            {{ data.viewCount }}
+          </ion-badge>
+        </div>
+
+        <!-- Message details -->
+        <ion-label>
+          <h2 class="subject select-text">{{ data.subject }}</h2>
+        <p class="message select-text" [innerHTML]="data.chatMsgWithoutTags"></p>
+          <p class="date">{{ data.lastChattedDate | date : 'dd/MM/yy' }}</p>
+          <p class="department select-text">{{ data.departmentName }}</p>
+        </ion-label>
+      </ion-item>
+    </ion-card>
+  </ion-list>
+
+
+  <ng-container *ngIf="!messengerlist?.length">
+    <ion-card class="empty-card">
+      <ion-card-content>
+        <ion-icon name="chatbubble-ellipses-outline" class="empty-icon"></ion-icon>
+        <h2 class="empty-title">No Messages</h2>
+        <p class="empty-subtitle">Your inbox is empty. Please check back later for new messages.</p>
+      </ion-card-content>
+    </ion-card>
+  </ng-container>
+
+
+
+
+</ion-content>

@@ -1,0 +1,58 @@
+<app-custom-toolbar [title]="'Uploaded Documents'" [showBackButton]="true"
+  [showMenuButton]="false" [showThreeDots]="false" [backUrl]="'/UploadimagesPage'">
+</app-custom-toolbar>
+
+<ion-content [fullscreen]="true">
+ <ion-grid style="margin-top: 6px;">
+  <!-- Note -->
+  <div *ngIf="documentsAvailable?.length" class="note-banner">
+  <ion-icon name="alert-circle-outline"></ion-icon>
+  <span>Only the last 10 uploaded documents / images are displayed.</span>
+</div>
+
+
+  <ion-row>
+    <!-- Document Card -->
+    <ion-col size="6" *ngFor="let item of documentsAvailable">
+      <ion-card class="doc-card" (click)="downloadFile(item.customerBinaryDataUrl, item)">
+        <ion-card-content class="doc-content">
+          <ng-container [ngSwitch]="getFileExtension(item.customerBinaryDataUrl)">
+            <img *ngSwitchCase="'.pdf'" src="assets/imgs/pdf.png" class="doc-icon" />
+            <img *ngSwitchCase="'.xls'" src="assets/imgs/xlsxicon.png" class="doc-icon" />
+            <img *ngSwitchCase="'.xlsx'" src="assets/imgs/xlsxicon.png" class="doc-icon" />
+            <img *ngSwitchCase="'.doc'" src="assets/imgs/wordicon.png" class="doc-icon" />
+            <img *ngSwitchCase="'.docx'" src="assets/imgs/wordicon.png" class="doc-icon" />
+            <img *ngSwitchCase="'.jpg'" src="assets/imgs/defaultImage.png" class="doc-icon" />
+            <img *ngSwitchCase="'.jpeg'" src="assets/imgs/defaultImage.png" class="doc-icon" />
+            <img *ngSwitchCase="'.png'" src="assets/imgs/defaultImage.png" class="doc-icon" />
+            <img *ngSwitchDefault src="assets/imgs/propert.png" class="doc-icon" />
+          </ng-container>
+
+          <div class="doc-info">
+            <p class="doc-title">{{ getFileName(item.customerBinaryDataUrl) }}</p>
+
+            <ion-badge *ngIf="item.fileViewStatus === 'Y'" color="success">
+              Viewed
+            </ion-badge>
+            <ion-badge *ngIf="item.fileViewStatus === 'N'" color="medium">
+              Not Viewed
+            </ion-badge>
+          </div>
+        </ion-card-content>
+      </ion-card>
+    </ion-col>
+
+    <!-- No documents -->
+    <ion-col *ngIf="!documentsAvailable?.length">
+      <ion-card class="empty-card">
+        <ion-card-content>
+          <ion-icon name="document-text-outline" class="empty-icon"></ion-icon>
+          <h2>No Documents Available</h2>
+        </ion-card-content>
+      </ion-card>
+    </ion-col>
+  </ion-row>
+</ion-grid>
+
+
+</ion-content>

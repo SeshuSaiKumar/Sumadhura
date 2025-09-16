@@ -1,0 +1,35 @@
+<app-custom-toolbar [title]="'Faq'" [showBackButton]="true" [showMenuButton]="false" [showThreeDots]="false"
+  [backUrl]="'/dashboard'">
+</app-custom-toolbar>
+
+
+<ion-content class="faq-content">
+  <ion-list lines="none">
+    <ng-container *ngFor="let d of faqData; let i = index">
+      
+      <!-- Main Group -->
+      <ion-item button (click)="toggleGroup(i)" class="faq-group">
+        <ion-label class="faq-title">
+          {{ d.processName }}
+        </ion-label>
+        <ion-icon slot="end" [name]="isGroupShown(i) ? 'chevron-up-outline' : 'chevron-down-outline'"></ion-icon>
+      </ion-item>
+
+      <!-- Sub Q&A -->
+      <ion-accordion-group *ngIf="isGroupShown(i)" class="faq-accordion">
+        <ion-accordion *ngFor="let data of d.qaList">
+          <ion-item slot="header" class="faq-question">
+            <ion-label>{{ data.question }}</ion-label>
+          </ion-item>
+          <div class="faq-answer" slot="content">
+            {{ data.answer }}
+          </div>
+        </ion-accordion>
+      </ion-accordion-group>
+
+    </ng-container>
+  </ion-list>
+</ion-content>
+
+
+

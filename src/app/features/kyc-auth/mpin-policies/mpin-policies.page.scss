@@ -1,0 +1,100 @@
+    /* Set the background color of the toolbar */
+    .toolbar-background {
+      --background: #dc3545 !important;
+    }
+  
+    /* Style for toolbar title on iOS */
+    .titlecls {
+        padding-top: 2px !important;
+        color: #ffffff !important;
+        font-weight: 700;
+    }
+
+  
+    /* Style for the back button icon */
+    .leftarrowiconcls {
+        font-size: 28px;
+        font-weight: 600;
+        margin-left: 4%;
+        color: #f80707 !important;
+        float: left !important;
+        background: white;
+        border-radius: 35px;
+        padding: 0px;
+    }
+  
+    /* Style for toolbar title on Android */
+    .toolbar-title-md {
+      padding-top: 5px !important;
+      float: left !important;
+      color: white !important;
+    }
+  
+    /* Style for ion-label to prevent text from cutting off */
+    ion-label {
+      white-space: normal;
+    }
+  
+  .construction-steps {
+  max-width: 400px;
+  margin: 40px auto;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: transparent;
+}
+
+.construction-steps ul {
+  display: flex;
+  justify-content: space-between;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  border-bottom: 4px solid #ff0000; /* subtle separator line */
+}
+
+.construction-steps ul::before {
+  content: "";
+  position: absolute;
+  left: 8%;
+  right: 8%;
+  bottom: 20px;
+  // border-bottom: 4px dashed #FFC107;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.step {
+  position: relative;
+  text-align: center;
+  width: 100px;
+  padding-bottom: 12px;
+  cursor: default;
+  color: #666;
+  z-index: 1;
+  user-select: none;
+  font-family: 'Lato', sans-serif;
+
+}
+
+.step svg {
+  display: block;
+  margin: 0 auto 8px;
+  pointer-events: none;
+}
+
+.step span {
+  font-weight: 600;
+  font-size: 13px;
+  color: #222;
+  line-height: 1.3;
+}
+
+.step.active span {
+  color: #ff0000;
+  font-weight: 700;
+  font-family: 'Lato', sans-serif;
+
+}
+
+.step.active svg {
+  fill: #ff0000;
+}

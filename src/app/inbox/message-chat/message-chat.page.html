@@ -1,0 +1,91 @@
+<app-custom-toolbar [title]="'Inbox ID: ' + controller.messengerId" [showBackButton]="true" [showMenuButton]="false"
+  [showThreeDots]="false" [backUrl]="'/EcomunicationMessagesPage'">
+</app-custom-toolbar>
+<ion-card class="chat-card">
+  <ion-card-content>
+    <div class="chat-row">
+      <span class="chat-label">Subject:</span>
+      <span class="chat-value select-text">{{ controller.subject }}</span>
+    </div>
+  </ion-card-content>
+</ion-card>
+
+<ion-content class="chat-content">
+
+  <div class=" ppmt2" *ngFor="let item of messenger_details">
+    <div class="chat-bubble" [ngClass]="{
+       'left': item.chatType === 'CUSTOMER',
+       'right': item.chatType === 'MESSEGE_OWNER' || item.chatType === 'cc'
+     }">
+
+      <!-- Message -->
+      <div class="bubble-text" [innerHTML]="item.messege"></div>
+
+      <!-- Files -->
+      <div class="bubble-files" *ngIf="item.fileList?.length">
+        <div class="file-item" *ngFor="let p of item.fileList">
+          <ion-icon *ngIf="getFileIcon(p) === 'video'" name="videocam-outline" class="video-icon"
+            (click)="myimage(p, item)">
+          </ion-icon>
+
+          <img *ngIf="getFileIcon(p) !== 'video'" [src]="getFileIcon(p)" class="bubble-img"
+            (click)="myimage(p, item)" />
+
+          <p class="file-name" (click)="myimage(p, item)">
+            {{ p.docName }}
+          </p>
+        </div>
+      </div>
+
+      <!-- Footer -->
+      <div class="bubble-footer">
+        <span class="bubble-sender">{{ item.createdByName }}</span>
+        <span class="bubble-time">{{ item.createdDate | date:'dd/MM/yy, h:mm a' }}</span>
+      </div>
+
+    </div>
+  </div>
+
+</ion-content>
+
+
+
+<!-- Message Input -->
+<ion-footer class="chat-footer">
+  <div class="chat-input-row">
+    <ion-item lines="none" class="chat-input pppr0">
+
+      <span class="hidden-file">
+        <input type="file" #fileInput ng2FileSelect [uploader]="uploader" (click)="fileInput.value = ''"
+          (change)="onFileSelected($event)"
+          accept="'image', 'pdf', 'txt', 'video', 'doc', 'xls', 'xlsx', 'docx', 'audio'" />
+      </span>
+
+      <img src="assets/imgs/dashboard_new/Path.png" class="ppmr3 wdth6" (click)='chat_attachement(fileInput)'>
+
+      <ion-textarea placeholder="Write a message" style="--padding-start: 10px;
+    --background: #d0d0d0;--border-radius: 6px;--padding-bottom: 50px;--padding-end: 22px;
+    --padding-top: 15px;height: 100px; width: 96%;position: relative;left: 1%;" fill="outline" id="create-textarea"
+       [(ngModel)]="type_your_message" autocomplete="on" autocorrect="on" spellcheck="true" autocapitalize="sentences" (ionInput)="onInputChange($event)"></ion-textarea>
+
+        
+      <ion-button class="send-btn" fill="none" class="ppml0 wdth18 ">
+        <img src="assets/imgs/dashboard_new/Button.png" (click)="chat_submit_fun()">
+      </ion-button>
+    </ion-item>
+
+    <div *ngIf="controllerdata?.length || maincontroller?.length" class="file-chip-container">
+      <ion-chip *ngFor="let p of controllerdata" (click)="removeItem1(p)" class="file-chip">
+        <ion-label>{{ p.name }}</ion-label>
+        <ion-icon name="close-circle" color="danger"></ion-icon>
+      </ion-chip>
+
+      <ion-chip *ngFor="let p of maincontroller" (click)="removeItem1(p)" class="file-chip">
+        <ion-label>{{ p.name }}</ion-label>
+        <ion-icon name="close-circle" color="danger"></ion-icon>
+      </ion-chip>
+    </div>
+
+
+  </div>
+</ion-footer>

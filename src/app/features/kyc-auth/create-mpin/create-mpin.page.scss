@@ -1,0 +1,161 @@
+ion-content {
+    --background: linear-gradient(180deg, #ffffff 35%, #d4ac51f7 140%);
+}
+
+.img {
+    height: 130px !important;
+    position: relative;
+    top: 53%;
+    margin-top: 13%;
+}
+
+.img2 {
+    position: fixed;
+    top: 30%;
+    left: 0%;
+}
+
+.img3 {
+    position: fixed;
+    top: -1%;
+    left: 30%;
+}
+
+.footer-md::before,
+.tabs-md[tabsPlacement='bottom']>.tabbar::before {
+    height: 0px !important;
+}
+
+.logo_img {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo_img2 {
+    margin-bottom: 31px !important;
+    justify-self: center;
+    margin-top: 10%;
+}
+
+.mpinpolicies_cls {
+    float: right;
+    font-size: 15px;
+    color: #f1e6eb;
+    text-decoration: underline;
+    padding: 10px;
+    font-family: initial;
+}
+
+.threelab {
+    margin-bottom: 70px;
+    position: relative;
+    z-index: 9999;
+}
+
+input {
+    text-align: center;
+}
+
+.mpinotp {
+    color: #090000;
+    text-align: center;
+    font-weight: bold;
+    font-family: 'Lato', sans-serif;
+
+}
+
+.mpinAdhar {
+    color: #090000;
+    text-align: center;
+    font-weight: bold;
+    font-family: 'Lato', sans-serif;
+
+}
+
+.loginButton {
+    color: orchid;
+}
+
+.transparent {
+    --background: transparent;
+    color: Black !important;
+    font-size: 200%;
+    text-align: center;
+    font-weight: bold;
+    // border-bottom:1px solid red;
+    font-family: 'Lato', sans-serif;
+    width: 6rem;
+
+}
+
+.progress-bar {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+
+    .step {
+        height: 8px;
+        width: 110px;
+        background: #e0e0e0;
+        margin: 0 5px;
+        border-radius: 10px;
+
+        &.active {
+            background: #c89f36;
+        }
+    }
+}
+
+
+
+.loginbtncls {
+    --background: #dc3545;
+    color: white;
+    margin-top: 20%;
+    border-radius: 30px;
+    height: 40px;
+    width: 80%;
+    /* text-align: center; */
+    // margin-left: 12%;
+    justify-items: center;
+}
+
+.forwordiconcls {
+    padding-left: 1.4em !important;
+}
+
+.mpincls {
+    padding-left: 20px !important;
+}
+
+.SignUp {
+    padding-right: 20px !important;
+}
+
+.item-md.item-block .item-inner {
+    padding-right: 8px;
+    border-bottom: 1px solid red;
+}
+
+.email-icon {
+    width: 90px;
+}
+
+.submit-btn-wrapper {
+    margin-top: 0px;
+    position: relative;
+    top: 0px;
+
+}
+
+.submit-btn {
+    --background: #d4a437; // solid golden background
+    --background-activated: #c3932d;
+    --border-radius: 50px;
+    --box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    font-size: 18px;
+    font-weight: 600;
+    height: 56px;
+    text-transform: none; // Keep original casing
+}

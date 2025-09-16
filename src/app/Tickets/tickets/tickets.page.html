@@ -1,0 +1,717 @@
+<style>
+  .required {
+  position: relative;
+  right: -106px;
+  top: -40px;
+  color: orangered;
+  font-size: 14px;
+  font-weight: bold;
+
+}
+.required2 {
+  position: relative;
+  right: -112px;
+  top: -40px;
+  color: orangered;
+  font-size: 14px;
+  font-weight: bold;
+
+}
+
+ion-select.custom {
+
+  font-style: normal;
+  font-size: 14px;
+  line-height: 20px;
+  color: #2C4DB9;
+  font-weight: 600;
+  position: absolute;
+  top: -23px;
+}
+.hdng{
+
+    font-family: Poppins, sans-serif;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 15.05px;
+  
+  }
+  .ftbgrnd{
+  height: 50px;
+    background-color:rgb(241 241 241 / 50%);
+}
+.my__textoverflow {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 200px;
+  display: block;
+}
+.upload {
+  position: absolute;
+  left: 25.81%;
+  right: 32.81%;
+  top: 22.38%;
+  bottom: 31.25%;
+  font-size: 18px;
+  color: #050e2e;
+}
+.hidden-file {
+  visibility: hidden;
+  position: absolute;
+  overflow: hidden;
+  width: 0px;
+  height: 0px;
+  border: none;
+  margin: 0;
+  padding: 0
+}
+
+.camera_span {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  color: #A29EB6;
+  line-height: 24px;
+  position: relative;
+  left: 4px;
+}
+
+.camera_upload {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  color: #A29EB6;
+  line-height: 24px;
+  position: relative;
+  left: 4px;
+}
+
+
+.has-focus {
+  border: 0px solid transparent !important;
+}
+
+ion-item.item-has-focus {
+  --highlight-background: transparent !important;
+}
+
+.item-inner {
+  border-style: unset !important;
+}
+
+ion-item.item-has-focus {
+  ion-label.label-floating {
+      padding: 0px 5px;
+      margin-top: -22px;
+      background: var(--ion-color-light);
+      color: var(--ion-color-danger);
+      position: fixed;
+  }
+}
+.ion-modal {
+    --height: 100%;
+    --width: 100%;
+}
+/* Textarea styling */
+.form-textarea {
+  width: 100%; /* Full width */
+  min-height: 80px; /* Minimum height for the textarea */
+  font-size: 14px;
+  padding: 8px;
+  border: 1px solid #2C4DB9; /* Light gray border */
+  border-radius: 5px; /* Rounded corners */
+  background-color: #ffffff; /* Slightly off-white background */
+  color: #333; /* Text color */
+  resize: none; /* Prevent resizing of the textarea */
+}
+.tlbar {
+      --background: #dc3545;
+    --color: white;
+    --border-radius: 16px;
+    height: 42px !important;
+    width: 50%;
+    justify-self: center;
+
+
+}
+ion-input {
+  --inner-padding: 10px;
+  --padding-start: 10px; /* Padding on the left */
+}
+.custom-placeholder-wrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.custom-placeholder {
+  position: absolute;
+  top: -12px; /* Adjust based on your design */
+  left: 12px; /* Adjust based on your design */
+  font-size: 12px;
+  color: #2C4DB9;
+}
+
+.custom-placeholder .required {
+  color: orangered;
+}
+.custom-select-wrapper {
+  position: relative;
+  margin: 16px 0;
+}
+
+.custom-border {
+  position: relative;
+  border: 1px solid #2C4DB9;
+  border-radius: 8px;
+  margin-bottom: -16px; /* Adjust based on your layout */
+  height: 50px;
+}
+
+.border-label {
+  position: relative;
+    top: -12px;
+    left: 2%;
+    transform: translateX(-50%);
+    background: white;
+    color: #2C4DB9;
+    font-size: 12px;
+    padding: 0 8px;
+}
+
+.select-container {
+  display: flex
+  ;
+      align-items: center;
+      padding: 8px;
+      position: relative;
+      top: 21px;
+}
+.data-column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .circle-image {
+    width: 50px; /* Adjust as needed */
+    height: 50px; /* Adjust as needed */
+    border-radius: 50%;
+    overflow: hidden;
+    margin-bottom: 10px; /* Space below the image */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .circle-image2 {
+    width: 100px; /* Adjust as needed */
+    height: 100px; /* Adjust as needed */
+    // border-radius: 50%;
+    overflow: hidden;
+    margin-bottom: 10px; /* Space below the image */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+
+  .header-md {
+    -webkit-box-shadow:none!important;
+    box-shadow: none!important;
+}
+
+  .circle-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .announcement-details {
+    margin-top: 10px; /* Space between the image and details */
+    margin-bottom: 10px;
+
+  }
+  
+  .announcement-name {
+    font-size: 16px;
+    font-weight: bold;
+    margin: 0 0 5px 0; /* Space below */
+  }
+  
+  .announcement-type {
+    font-size: 14px;
+    color: gray;
+    margin: 0 0 5px 0; /* Space below */
+  }
+  
+  .announcement-date {
+    font-size: 12px;
+    color: darkgray;
+    margin: 0; /* No additional margin */
+  }
+  .announcement-row {
+    border: 1px solid rgb(194, 193, 190); /* Orange border */
+    border-radius: 10px;     /* Rounded corners */
+    margin-bottom: 10px;     /* Space between rows */
+  }
+  
+  /* Center align content in columns */
+  .data-column {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .data-column2 {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+  }
+  .spancls {
+    position: relative;
+    top: -8px;
+    z-index: 100000000000000000;
+    left: 4px;
+    /* background: #FFF; */
+    padding: 4px;
+    font-family: inherit;
+    width: 98%;
+    margin-left: 1%;
+    color: #344054;
+}
+.field-wrapper {
+  border: 1px solid #D0D5DD;
+  border-radius: 5px;
+  width: 98%;
+  margin-left: 1%;
+}
+ion-select {
+
+  font-style: normal;
+
+  font-size: 14px;
+  line-height: 20px;
+  color: #9FA1A6;
+  font-weight: 600;
+}
+
+ion-select::part(icon) {
+  opacity: 1;
+  z-index: 25000 !important;
+  --content: url(/assets/images/icons/Drop_down.png)!important;
+  width: 16px;
+  height: 16px;
+  position: absolute;
+  right: 10px;
+}
+/* Row styling for form elements */
+.form-row {
+  margin-bottom: 20px; /* Space between rows */
+  
+}
+
+/* Label styling */
+.form-label {
+  font-size: 14px;
+  font-weight: bold;
+  color: #333; /* Darker text color */
+  margin-bottom: 8px;
+  display: block; /* Ensures the label is on its own line */
+}
+
+/* Input field styling */
+.form-input {
+  width: 100%; /* Full width */
+  height: 50px;
+  font-size: 14px;
+  padding: 8px;
+  border: 1px solid #2C4DB9; /* Light gray border */
+  border-radius: 5px; /* Rounded corners */
+  background-color: #ffffff; /* Slightly off-white background */
+  color: #333; /* Text color */
+}
+
+ion-toolbar {
+  --background: #fff;
+  --color: #000;
+  font-weight: bold;
+}
+
+ion-title {
+  font-size: 20px;
+  font-weight: 600;
+  text-align: center;
+}
+
+.required {
+  color: red;
+}
+
+.custom-input {
+  --highlight-color-focused: #d4ac51;
+  --highlight-color-invalid: red;
+  --highlight-color-valid: #d4ac51;
+  border-radius: 10px;
+  margin-bottom: 16px;
+}
+
+ion-select, ion-textarea {
+  --padding-start: 10px;
+  font-size: 15px;
+}
+
+.upload-section {
+  display: flex;
+  justify-content: space-between;
+  margin: 10px 0;
+}
+
+.upload-box {
+  flex: 0 0 48%;
+  background: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  text-align: center;
+  padding: 20px 10px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.upload-box ion-icon {
+  font-size: 32px;
+  color: #555;
+  margin-bottom: 8px;
+}
+
+.upload-text {
+  color: #d4ac51;
+  font-weight: 500;
+}
+
+.submit-btn {
+  --background: #d4ac51;
+  --border-radius: 25px;
+  font-weight: bold;
+  font-size: 16px;
+  margin-top: 20px;
+}
+
+
+</style>
+
+<app-custom-toolbar [title]="'Ticketing'" [showBackButton]="true"
+  [showMenuButton]="true" [showThreeDots]="false" [backUrl]="'/dashboard'">
+</app-custom-toolbar>
+
+<ion-content>
+  <div class="tab-header">
+    <ion-segment [(ngModel)]="activeSegment">
+      <ion-segment-button value="all">All</ion-segment-button>
+      <ion-segment-button value="in-progress">In Progress</ion-segment-button>
+      <ion-segment-button value="open">Open</ion-segment-button>
+            <ion-segment-button value="new">New</ion-segment-button>
+
+    </ion-segment>
+  </div>
+
+  <!-- In Progress Ticket -->
+   <ng-container *ngIf="activeSegment === 'all'">
+  <div *ngFor="let ticket of ticketslist" class="ticket-card" [ngClass]="ticket.status" >
+    <div class="bgdiv" (click)="gotoTicketDetails(ticket)" >
+    <div class="ticket-header">
+    <!-- <ion-icon name="bookmark" color="danger"></ion-icon> -->
+               <img class="wdth6" src="assets/imgs/dashboard_new/ticket.png"/>
+
+    <span class="ticket-id">{{ ticket.ticketId }}</span>
+  </div>
+
+  <div class="ticket-title">{{ ticket.title }}</div>
+
+  <div class="ticket-dates">
+    <div class="dv">
+      <label style="color:#B4B4B4 ;">Raised On</label>
+      <span style="color: #717171;">{{ ticket.createdDate| date
+              :'dd/MM/y' }}</span>
+    </div>
+    <div class="dv">
+      <label style="color:#B4B4B4 ;">Escalates On</label>
+      <span style="color: #717171;">{{ ticket.estimatedResolvedDate| date
+                :'dd/MM/y' }}</span>
+    </div>
+  </div>
+</div>
+  <div class="ticket-status" [ngClass]="ticket.status">
+    <span>{{ ticket.status }}</span>
+    <!-- <ion-button  fill="clear" size="small" > -->
+<ion-icon name="arrow-forward-circle-sharp" [ngClass]="{
+  'inpro': ticket.status === 'Inprogress',
+  'new': ticket.status === 'New',
+  'open': ticket.status === 'Open'
+}"></ion-icon>
+    <!-- </ion-button> -->
+  </div>
+</div>
+</ng-container>
+ <ng-container *ngIf="activeSegment === 'in-progress'">
+    <ng-container *ngFor="let ticket of ticketslist" >
+
+<div  class="ticket-card" [ngClass]="ticket.status"  *ngIf="ticket.status === 'Inprogress'" >
+    <div class="bgdiv" (click)="gotoTicketDetails(ticket)">
+    <div class="ticket-header">
+    <!-- <ion-icon name="bookmark" color="danger"></ion-icon> -->
+               <img class="wdth6" src="assets/imgs/dashboard_new/ticket.png"/>
+
+    <span class="ticket-id">{{ ticket.ticketId }}</span>
+  </div>
+
+  <div class="ticket-title">{{ ticket.title }}</div>
+
+  <div class="ticket-dates">
+    <div class="dv">
+      <label style="color:#B4B4B4 ;">Raised On</label>
+      <span style="color: #717171;">{{ ticket.createdDate| date
+              :'dd/MM/y' }}</span>
+    </div>
+    <div class="dv">
+      <label style="color:#B4B4B4 ;">Escalates On</label>
+      <span style="color: #717171;">{{ ticket.estimatedResolvedDate| date
+                :'dd/MM/y' }}</span>
+    </div>
+  </div>
+</div>
+  <div class="ticket-status" [ngClass]="ticket.status">
+    <span>{{ ticket.status }}</span>
+    <!-- <ion-button  fill="clear" size="small" > -->
+<ion-icon name="arrow-forward-circle-sharp" [ngClass]="{
+  'inpro': ticket.status === 'Inprogress',
+  'new': ticket.status === 'New',
+  'open': ticket.status === 'Open'
+}"></ion-icon>
+    <!-- </ion-button> -->
+  </div>
+</div>
+</ng-container>
+</ng-container>
+ <ng-container *ngIf="activeSegment === 'open'">
+      <ng-container *ngFor="let ticket of ticketslist" >
+
+  <div *ngIf="ticket.status === 'Open'" class="ticket-card" [ngClass]="ticket.status">
+    <div class="bgdiv" (click)="gotoTicketDetails(ticket)">
+    <div class="ticket-header">
+    <!-- <ion-icon name="bookmark" color="danger"></ion-icon> -->
+               <img class="wdth6" src="assets/imgs/dashboard_new/ticket.png"/>
+
+    <span class="ticket-id">{{ ticket.ticketId }}</span>
+  </div>
+
+  <div class="ticket-title">{{ ticket.title }}</div>
+
+  <div class="ticket-dates">
+    <div class="dv">
+      <label style="color:#B4B4B4 ;">Raised On</label>
+      <span style="color: #717171;">{{ ticket.createdDate| date
+              :'dd/MM/y' }}</span>
+    </div>
+    <div class="dv">
+      <label style="color:#B4B4B4 ;">Escalates On</label>
+      <span style="color: #717171;">{{ ticket.estimatedResolvedDate| date
+                :'dd/MM/y' }}</span>
+    </div>
+  </div>
+</div>
+  <div class="ticket-status" [ngClass]="ticket.status">
+    <span>{{ ticket.status }}</span>
+    <!-- <ion-button  fill="clear" size="small" > -->
+<ion-icon name="arrow-forward-circle-sharp" [ngClass]="{
+  'inpro': ticket.status === 'Inprogress',
+  'new': ticket.status === 'New',
+  'open': ticket.status === 'Open'
+}"></ion-icon>
+    <!-- </ion-button> -->
+  </div>
+</div>
+</ng-container>
+</ng-container>
+ <ng-container *ngIf="activeSegment === 'new'">
+      <ng-container *ngFor="let ticket of ticketslist" >
+
+  <div *ngIf="ticket.status === 'New'" class="ticket-card" [ngClass]="ticket.status" >
+    <div class="bgdiv" (click)="gotoTicketDetails(ticket)">
+    <div class="ticket-header">
+    <!-- <ion-icon name="bookmark" color="danger"></ion-icon> -->
+               <img class="wdth6" src="assets/imgs/dashboard_new/ticket.png"/>
+
+    <span class="ticket-id">{{ ticket.ticketId }}</span>
+  </div>
+
+  <div class="ticket-title">{{ ticket.title }}</div>
+
+  <div class="ticket-dates">
+    <div class="dv">
+      <label style="color:#B4B4B4 ;">Raised On</label>
+      <span style="color: #717171;">{{ ticket.createdDate| date
+              :'dd/MM/y' }}</span>
+    </div>
+    <div class="dv">
+      <label style="color:#B4B4B4 ;">Escalates On</label>
+      <span style="color: #717171;">{{ ticket.estimatedResolvedDate| date
+                :'dd/MM/y' }}</span>
+    </div>
+  </div>
+</div>
+  <div class="ticket-status" [ngClass]="ticket.status">
+    <span>{{ ticket.status }}</span>
+    <!-- <ion-button  fill="clear" size="small" > -->
+<ion-icon name="arrow-forward-circle-sharp" [ngClass]="{
+  'inpro': ticket.status === 'Inprogress',
+  'new': ticket.status === 'New',
+  'open': ticket.status === 'Open'
+}"></ion-icon>
+    <!-- </ion-button> -->
+  </div>
+</div>
+</ng-container>
+</ng-container>
+</ion-content>
+  <!-- Add New Ticket Button -->
+  <ion-footer class="add-ticket-footer">
+    <ion-button (click)="groupmdl()" expand="block" class="add-ticket-btn" shape="round">
+      <ion-icon name="add" slot="start"></ion-icon>
+      Add New Ticket
+    </ion-button>
+  </ion-footer>
+
+
+
+<ion-modal #groupmodal id="groupmodal" class="ion-modal">
+<ng-template>
+
+
+  <ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-row style="margin: 10px;width: 352px;">
+      <ion-col size="2" style="display: flex;align-items: center;justify-content: start;">
+        <div routerLink="/announcements-list">
+          <ion-icon (click)="dismissModal()" style="font-size: 24px;
+    border: 1px solid #d7d2d2;
+    border-radius: 9px;
+    padding: 5px;
+" name="chevron-back-outline"></ion-icon>
+        </div>
+
+      </ion-col>
+      <ion-col size="10" style="display: flex;align-items: center;">
+        <label class="hdng">Raise Ticket</label>
+      </ion-col>
+
+    </ion-row>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-grid>
+    <ion-list lines="none" style="width: 98%;margin-left: 1%;margin-right: 1%;">
+      <div style="width: 98%;margin-left: 1%;margin-right: 1%;">
+        <span class="spancls">Choose Your Query<span style="color: orangered;">*</span> </span>
+        <ion-item fill="outline" class="field-wrapper">
+          <ion-select placeholder="Choose any one" aria-label="Select Company" style="min-width: 79vw!important;" id="companySelect" value="-1"
+            interface="popover" >
+            <ion-select-option >
+              companyName 
+            </ion-select-option>
+          </ion-select>
+        </ion-item>
+      </div>
+    </ion-list>
+
+    <ion-list lines="none" style="width: 98%; margin-left: 1%; margin-right: 1%;">
+      <div style="width: 98%; margin-left: 1%; margin-right: 1%;">
+        <span class="spancls">Select Specifics<span style="color: orangered;">*</span></span>
+        <ion-item fill="outline" class="field-wrapper">
+          <ion-select placeholder="Choose any one" aria-label="Select Company" style="min-width: 79vw!important;" id="companySelect" value="-1"
+            interface="popover" >
+            <ion-select-option value="Group">Group</ion-select-option>
+            <!-- <ion-select-option value="Company">Company</ion-select-option> -->
+          </ion-select>
+        </ion-item>
+      </div>
+    </ion-list>
+
+    <!-- Group Names Section -->
+    
+
+
+
+    <ion-list lines="none" style="width: 98%; margin-left: 1%; margin-right: 1%;">
+      <div style="width: 98%; margin-left: 1%; margin-right: 1%;">
+        <span class="spancls">Choose Your Query<span style="color: orangered;">*</span></span>     
+
+      <ion-select [(ngModel)]="purposetype" (ionChange)="purposeChange($event)" style="min-width: 79vw!important;">
+        <ion-select-option *ngFor="let item of mypurposeres" [value]="item">{{item.ticketMainType}}</ion-select-option>
+      </ion-select>
+      </div>
+      </ion-list>
+    <ion-list lines="none" style="width: 98%; margin-left: 1%; margin-right: 1%;">
+      <div style="width: 98%; margin-left: 1%; margin-right: 1%;">
+        <span class="spancls">Select Specifics<span style="color: orangered;">*</span></span>     
+      <ion-label style="color: gray;font-size: 18px;" floating>Select Specifics</ion-label>
+      <ion-select [(ngModel)]="subpurposetype" (ionChange)="onchange($event)" style="min-width: 79vw!important;">
+        <ion-select-option *ngFor="let item of mySubPurposeType"
+          [value]="item.ticketTypeId+','+item.ticketType+','+item.resolutionDayTime">{{item.ticketType}}</ion-select-option>
+      </ion-select>
+      </div>
+      </ion-list>
+
+    <ion-grid>
+
+
+
+      <ion-grid style="border: 1px solid #D0D5DD;height: 173px;
+           width: 96%; margin-top: 22px;border-radius: 16px;">
+        <span style="top: -31px;left: -5px;" class="spancls">Description<span
+            style="color: orangered;">*</span></span>
+        <ion-row>
+          <ion-col size="12">
+            <ion-textarea [(ngModel)]="mesag" fill="outline" id="create-textarea" autocomplete="on" autocorrect="on" spellcheck="true"
+            autocapitalize="sentences" placeholder="Describe Your Problem"
+            style="border:none;white-space: pre-wrap;--padding-bottom: 60px;" ></ion-textarea>
+          </ion-col>
+        </ion-row>
+
+      </ion-grid>
+
+      
+    </ion-grid>
+  </ion-grid>
+
+
+  <!-- Upload Options -->
+  <div class="upload-section pppx5">
+    <div class="upload-box">
+      <ion-icon name="cloud-upload-outline"></ion-icon>
+      <p class="upload-text">Click to upload</p>
+      <small>PNG, JPG (max. 5Mb)</small>
+    </div>
+    <div class="upload-box">
+      <ion-icon name="camera-outline"></ion-icon>
+      <p class="upload-text">Click Image</p>
+    </div>
+  </div>
+
+
+    </ion-content>
+
+    <ion-footer>
+      <ion-row class="form-row">
+        <ion-col size="12">
+          <ion-button (click)="uploadWebFun()" class="tlbar" expand="block">
+            Submit
+          </ion-button>
+        </ion-col>
+      </ion-row>
+  </ion-footer>
+
+
+</ng-template>
+
+</ion-modal>

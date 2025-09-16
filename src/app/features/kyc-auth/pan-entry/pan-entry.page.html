@@ -1,0 +1,40 @@
+<ion-content class="bg-image ion-padding">
+  <div>
+    <div text-center class="logo_img">
+      <img class="img" src="assets/imgs/sum-tagline.png" />
+    </div>
+    <div class="progress-container">
+      <div class="step done"></div>
+      <div class="step"></div>
+      <div class="step"></div>
+    </div>
+    <div text-center>
+      <img class="img2" src="assets\imgs\_new_dashboard\vector.png">
+    </div>
+    <div text-center>
+      <img class="img3" src="assets\imgs\_new_dashboard\vector2.png">
+    </div>
+
+    <ion-grid style="margin-top: 20%;">
+      <label class="title">Enter Your PAN</label>
+      <ion-row>
+        <ion-col>
+          <ion-item class="pan-item" style="margin-left: 0px;">
+            <ion-input style="text-align: center!important;" type="text" maxlength="10" placeholder=".........."
+              [(ngModel)]="pan_num" (ionInput)="panvalidation($event)" >
+            </ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+    <div class="policies_cls" (click)="redirectToPolicies()"><label>Privacy Policy</label></div>
+    <div class="submit-btn-wrapper">
+      <ion-button expand="block" class="submit-btn" (click)="signup_one()">
+        Submit & Next →
+      </ion-button>
+    </div>
+  </div>
+
+
+</ion-content>

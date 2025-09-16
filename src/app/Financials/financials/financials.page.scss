@@ -1,0 +1,169 @@
+.finance-page {
+  --padding-start: 6px;
+  --padding-end: 6px;
+
+  .total-label {
+    color: #8e8e93;
+    font-size: 14px;
+    text-align: center;
+  }
+
+  .total-value {
+    font-size: 28px;
+    font-weight: bold;
+    margin-top: 4px;
+    color: #1c1c1e;
+    text-align: center;
+
+  }
+ion-range.custom-range {
+  --bar-background: #a4a4a4;         /* Filled portion color */
+  --bar-background-active: #D4AC51;  /* Filled color when active */
+  --bar-border-radius: 8px;
+
+  --knob-background: #D4AC51;        /* Knob color */
+  --knob-border-radius: 50%;
+  --knob-size: 20px;
+  --knob-box-shadow: 0 0 0 2px #ffffff;
+
+  --pin-background: #D4AC51;         /* Popup pin color */
+  --pin-color: white;
+
+  --track-background: #e0e0e0;     /* Unfilled track color */
+  --track-height: 6px;             /* Track thickness */
+}
+
+  .amount-summary {
+    margin-top: 10px;
+border: 1px solid #e7e7e7;
+border-radius: 10px;
+    .percentage-paid, .due-amount {
+      font-weight: 700;
+    font-size: 14px;
+    color: black;
+font-family: 'Lato', sans-serif;
+font-style: Regular;
+line-height: 135%;
+letter-spacing: 0px;
+
+    }
+
+    .text-right {
+      text-align: right;
+    }
+  }
+
+  .interest-value {
+    font-weight: bold;
+    color: rgb(0, 0, 0);
+    font-size: 14px;
+font-family: 'Lato', sans-serif;
+font-style: Regular;
+line-height: 135%;
+letter-spacing: 0px;
+  }
+
+  .doc-icon {
+    margin-right: 6px;
+  }
+
+  .doc-label {
+    font-size: 12px;
+    text-align: center;
+  }
+
+  .footer-tabs ion-button {
+    flex-direction: column;
+    font-size: 11px;
+    min-width: 25%;
+  }
+
+  ion-segment-button {
+    font-weight: 600;
+    margin: 6px;
+  }
+  .custom-segment {
+  --background: transparent;
+  box-shadow: none;
+      border: 1px solid #E7E7E7;
+    border-radius: 70px;
+    margin-top: 10px;
+
+
+  ion-segment-button {
+    background: white; /* Inactive background */
+    color: black;      /* Inactive text */
+    --border-radius: 50px; /* Rounded corners */
+    --border-style: none;
+    --indicator-color: transparent; /* Remove underline */
+    --height: 34px; /* ✅ Button height */
+    min-height: 34px; /* fallback */
+    line-height: 34px; /* centers text vertically */
+
+    &.segment-button-checked {
+      background: #D4AC51; /* Active background */
+      color: white;      /* Active text */
+      --border-style: none; /* No border */
+    }
+  }
+}
+
+}
+.doc-card {
+  --box-shadow: none;
+  border: 1px solid #e6e6e6;
+  border-radius: 15px;
+  
+}
+
+.doc-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+  font-size: 15px;
+  color: #333;
+}
+
+.doc-icon {
+  width: 32px;
+  height: 32px;
+}
+
+.doc-title {
+  font-family: 'Lato', sans-serif;
+  font-size: 14px;
+  color: #444;
+}
+
+.doc-item {
+  text-align: center;
+  margin-top: 6px;
+}
+
+.doc-icon-box {
+  background: #f7f9fc;
+  border-radius: 12px;
+  padding: 10px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.doc-icon-box ion-icon {
+  color: #3b82f6; /* blue */
+  font-size: 24px;
+}
+
+.doc-label {
+  margin-top: 6px;
+  font-size: 12px;
+  color: #555;
+  font-family: 'Lato', sans-serif;
+}
+.sas{
+  background: #F7F7F7!important;
+    box-shadow: none!important;
+    border-radius: 10px!important;
+    border: 1px solid #d3e2e9!important;
+}

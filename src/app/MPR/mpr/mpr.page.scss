@@ -1,0 +1,95 @@
+.cardcls {
+  margin: 10px;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.mpr-title {
+  font-weight: 600;
+  font-size: 1rem;
+  margin: 0;
+}
+
+.pdf-icon {
+  width: 40px;
+  cursor: pointer;
+}
+.mpr-page {
+  --background: #f7f8fa; // light background for contrast
+}
+
+.mpr-item {
+  margin: 8px 12px;
+  border-radius: 12px;
+  background: #fff;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  padding: 12px;
+}
+
+.mpr-title {
+  font-weight: 600;
+  font-size: 1rem;
+  color: #333;
+  margin: 0;
+}
+
+.mpr-subtitle {
+  font-size: 0.8rem;
+  color: #888;
+  margin: 2px 0 0;
+}
+
+.pdf-icon {
+  font-size: 1.8rem;
+  color: #d9534f; // red for PDF
+}
+.empty-card {
+  text-align: center;
+  margin: 20px;
+  border-radius: 16px;
+  box-shadow: none;
+  background: #f9f9f9;
+}
+
+.empty-icon {
+  font-size: 48px;
+  color: var(--ion-color-medium);
+  margin-bottom: 12px;
+}
+
+.empty-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: #333;
+  margin: 8px 0;
+}
+
+.empty-subtitle {
+  font-size: 14px;
+  color: #666;
+}
+.empty-card {
+  text-align: center;
+  margin: 20px;
+  border-radius: 15px;
+  box-shadow: none;
+  border: 1px solid #d1dce1;
+}
+
+.empty-icon {
+  font-size: 48px;
+  color: #a0aec0;
+  margin-bottom: 10px;
+}
+
+.empty-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: #444;
+  margin: 5px 0;
+}
+
+.empty-subtitle {
+  font-size: 14px;
+  color: #777;
+}

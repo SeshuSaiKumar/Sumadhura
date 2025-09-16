@@ -1,0 +1,629 @@
+/*
+ * App Global CSS
+ * ----------------------------------------------------------------------------
+ * Put style rules here that you want to apply globally. These styles are for
+ * the entire app and not just one component. Additionally, this file can be
+ * used as an entry point to import other CSS/Sass files to be included in the
+ * output CSS.
+ * For more information on global stylesheets, visit the documentation:
+ * https://ionicframework.com/docs/layout/global-stylesheets
+ */
+
+/* Core CSS required for Ionic components to work properly */
+@import "@ionic/angular/css/core.css";
+
+/* Basic CSS for apps built with Ionic */
+@import "@ionic/angular/css/normalize.css";
+@import "@ionic/angular/css/structure.css";
+@import "@ionic/angular/css/typography.css";
+@import "@ionic/angular/css/display.css";
+
+/* Optional CSS utils that can be commented out */
+@import "@ionic/angular/css/padding.css";
+@import "@ionic/angular/css/float-elements.css";
+@import "@ionic/angular/css/text-alignment.css";
+@import "@ionic/angular/css/text-transformation.css";
+@import "@ionic/angular/css/flex-utils.css";
+
+@import "swiper/scss";
+@import "swiper/scss/navigation";
+@import "swiper/scss/pagination";
+@import 'swiper/css/zoom'; // Only if you’re using zoom
+
+
+@import "./theme/mixins";
+@import "./theme/fonts.scss";
+@import './theme/custom.scss';
+
+.input-highlight.sc-ion-input-md {
+  background: transparent !important;
+}
+
+:host(.item-fill-outline) .item-native {
+  --native-padding-left: 16px;
+  --border-radius: 4px;
+  --border-color: transparent !important;
+}
+
+
+:host(.item-interactive.ion-invalid) {
+  --highlight-background: transparent;
+}
+
+:host {
+  .item-interactive.ion-invalid {
+    --highlight-background: transparent;
+  }
+
+  .item-interactive.ion-valid {
+    --highlight-background: transparent;
+  }
+}
+
+.item-has-focus {
+  --highlight-background: transparent;
+}
+
+:host {
+  ion-item {
+    --highlight-background: transparent;
+  }
+}
+
+
+
+.my-dialog-modal-css {
+  --height: 36%;
+  --top: 240px;
+  --position: absolute;
+  --display: block;
+  --width: 90%;
+  --border-radius: 10px;
+  --border: 1px solid #2C4DB9;
+  --box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+}
+
+.view-dialog-modal-css {
+  --height: 250px;
+  --top: 320px;
+  --position: absolute;
+  --display: block;
+  --width: 90%;
+  --border-radius: 10px;
+  --border: 1px solid #2C4DB9;
+  --box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+}
+
+
+.Approve-custom-modal-css {
+  --height: 490px;
+  --top: 139px;
+  --position: absolute;
+  --display: block;
+  --width: 94%;
+  --border-radius: 10px;
+}
+
+
+.dialog-modal-css {
+  --height: 380px;
+  --top: 250px;
+  --position: absolute;
+  --display: block;
+  --width: 90%;
+  --border-radius: 10px;
+  --border: 1px solid #2C4DB9 !important;
+  --box-shadow: 0 19px 38px rgba(0, 0, 0, 0.30), 0 15px 12px rgba(0, 0, 0, 0.22) !important;
+}
+
+.head-dialog-modal-css {
+  --height: 230px;
+  --top: 56px;
+  --position: absolute;
+  --box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  --width: 64%;
+  --border-radius: 10px;
+  --right: 12px;
+  --margin-left: 17%;
+
+}
+
+.edit-modal-css {
+  --height: 300px;
+  --top: 56px;
+  --position: absolute;
+  --box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  --width: 90%;
+  --border-radius: 10px;
+  --right: 12px;
+  --margin-left: 5%;
+}
+
+.head2-dialog-modal-css {
+  --height: 250px !important;
+  --top: 56px !important;
+  --position: absolute !important;
+  --box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  --width: 60% !important;
+  --border-radius: 10px !important;
+  --right: 12px !important;
+  --margin-left: 38% !important;
+}
+
+
+.onload_model {
+
+  --height: 92% !important;
+  --top: 56px !important;
+  --position: absolute !important;
+  --box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  --width: 97% !important;
+  --border-radius: 10px !important;
+  --right: 12px !important;
+
+}
+
+.view-cc_dialog {
+  --height: 300px !important;
+  --top: 56px !important;
+  --position: absolute !important;
+  --box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  --width: 94% !important;
+  --border-radius: 10px !important;
+  --right: 12px !important;
+  --margin-left: 2% !important;
+}
+
+ion-popover [popover]:not(:popover-open):not(dialog[open]) {
+  --display: contents;
+}
+
+
+.sc-ion-searchbar-md-h {
+  --box-shadow: none;
+}
+
+.sc-ion-modal-md-h {
+  --width: 80%;
+  --min-width: auto;
+  --max-width: auto;
+  --height: 50%;
+  --min-height: auto;
+  --max-height: auto;
+  --overflow: hidden;
+  --border-radius: 5px;
+  --border-width: 0;
+  --border-style: none;
+  --border-color: transparent;
+  --background: var(--ion-background-color, #fff);
+  --box-shadow: none;
+  --backdrop-opacity: 0;
+  --left: 0;
+  --right: 0;
+  --top: 0;
+  --bottom: 0 !important;
+  --display: -ms-flexbox;
+  --display: flex;
+  --position: absolute;
+  --ms-flex-align: center;
+  --align-items: center;
+  --ms-flex-pack: center;
+  --justify-content: center;
+  --contain: strict;
+}
+
+.ionic-selectable-modal ion-header ion-toolbar:first-of-type {
+  --padding-top: var(--ion-safe-area-top, 0);
+  --display: none;
+}
+
+.ionic-selectable-value-item {
+  --line-height: 20px;
+  --color: #2C4DB9;
+  --font-weight: 600;
+}
+
+.ionic-selectable-value-item {
+  --text-overflow: ellipsis !important;
+  --overflow: hidden !important;
+  --white-space: nowrap !important;
+  --width: 250px !important;
+}
+
+ .show-more-container {
+  display: flex;
+  justify-content: center;
+  padding: 1rem 0;
+  z-index: 9999;
+}
+
+.show-more-chip {
+  --background: #484bf3;    /* light blue */
+  --color: #ffffff;         /* dark blue text/icon */
+  padding: 0.25rem 1rem;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+
+  ion-icon {
+    margin-right: 0.5rem;
+    font-size: 24px;
+    color: rgb(255, 255, 255);
+  }
+
+  &:hover:not(.disabled) {
+    --background: #2d29e7;  /* brighter on hover */
+  }
+
+  &.disabled,
+  &:disabled {
+    --background: #998aeb;
+    --color: #ffffff;
+    cursor: not-allowed;
+    pointer-events: none;
+  }
+}
+
+#ends_on,
+ion-datetime {
+  --color: #2C4DB9 !important;
+
+}
+
+:host {
+  --background-color: rgba(0, 0, 0, 0.12) !important;
+  --box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23) !important;
+}
+
+ion-modal {
+  &.center {
+    --width: calc(100% - 2em);
+    --align-items: center;
+    --height: auto;
+
+    .ion-page {
+      --position: relative;
+      --display: block;
+      --contain: content;
+    }
+  }
+}
+
+.has-focus.ion-valid.sc-ion-textarea-md-h,
+.ion-touched.ion-invalid.sc-ion-textarea-md-h {
+  --border-color: transparent !important;
+  --border: none !important;
+  --outline: 0 !important;
+}
+
+.ion-touched.ion-invalid.sc-ion-textarea-md-h {
+  --border-color: transparent !important;
+  --border: none !important;
+  --outline: 0 !important;
+
+}
+
+.ion-valid.sc-ion-textarea-md-h {
+  --outline: 0 !important;
+
+}
+
+.sc-ion-textarea-md-h {
+  --highlight-color-focused: transparent !important;
+
+  --highlight-color-valid: #FFF !important;
+
+  --highlight-color-invalid: #FFF !important;
+
+  --highlight-color: #000 !important;
+  --border: none !important
+}
+
+.ion-textarea {
+  --border-color: transparent !important;
+  --border: none !important;
+  --outline: 0 !important;
+
+}
+
+.textarea-fill-outline.sc-ion-textarea-md-h {
+  --border-color: #fff !important;
+  --border-radius: 4px;
+  --padding-start: 16px;
+  --padding-end: 16px;
+  min-height: 56px;
+}
+
+
+#create_snag , .textarea-fill-outline.sc-ion-textarea-md-h {
+  --border-color: #fff !important;
+  --border-radius: 4px;
+  --padding-start: 16px;
+  --padding-end: 16px;
+  min-height: 100px;
+}
+
+
+#create_snag , .textarea-wrapper.sc-ion-textarea-md textarea.sc-ion-textarea-md {
+  transition: none;
+  height: 100px!important;
+}
+
+.radio-icon {
+  --margin: 0px;
+  --border-width: var(--border-width);
+  --border-style: var(--border-style);
+  --border-color: #FFF !important;
+  --display: none !important;
+}
+
+ion-radio {
+  --color: #FFF;
+}
+
+:host(.radio-checked) .radio-icon {
+  border-color: #fff !important;
+}
+
+.radio-inner {
+
+  background: #FFF !important;
+}
+
+:host {
+  --color: rgb(var(--ion-text-color-rgb, 0, 0, 0), 0.6);
+  --color-checked: #fff !important;
+  --border-width: 0.125rem;
+  --border-style: solid;
+  --border-radius: 50%;
+}
+
+.header-md {
+  --box-shadow: none;
+}
+
+// .searchbar-input-container.sc-ion-searchbar-md {
+//   display: block!important;
+//   position: relative!important;
+//   -ms-flex-negative: 1!important;
+//   flex-shrink: 1!important;
+//   width: 100%!important;
+//   border: 1px solid #f2f2f2!important;
+//   border-radius: 3px!important;
+//   position: relative!important;
+//   top: 10px!important;
+//   background: #b3b3b3!important;
+// }
+
+ion-modal {
+  --height: 70%;
+  --border-radius: 16px;
+  --box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  --width: 90%;
+}
+
+ion-modal::part(backdrop) {
+  background: rgba(209, 213, 219);
+  opacity: 1;
+}
+
+ion-modal ion-toolbar {
+  --background: #D4AC51;
+  --color: white;
+}
+
+.head_share_image {
+  --height: 100%;
+  --top: 56px;
+  --position: absolute;
+  --box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  --width: 100%;
+  --border-radius: 0;
+  --right: 12px;
+  --margin-left: 25%;
+
+}
+
+.chat_edit_option_cls {
+  background-color: rgba(0, 0, 0, 0.23);
+  backdrop-filter: blur(3px);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+
+.chat_edit_option_cls{
+  --height: 100%;
+  --border-radius: 0px;
+  --box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  --width: 100%;
+  opacity: 0.96;
+}
+
+
+.chat_edit_option_cls1 {
+ // background-color: rgba(0, 0, 0, 0.23);
+  //backdrop-filter: blur(3px);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+
+.chat_edit_option_cls1{
+  --height: 100%;
+  --border-radius: 0px;
+  --box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  --width: 100%;
+ // opacity: 0.96;
+}
+
+
+// .chat_edit_option_cls , .modal-wrapper{
+//   transform: translate3d(0px, 40px, 0px);
+//   opacity: 1;
+//   position: absolute!important;
+//   bottom: 1px!important;
+// }
+
+
+.my-custom-modal-css {
+  --height: auto !important;
+  --border-radius: 16px;
+  --box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  --width: 94%;
+
+}
+
+.alert-checkbox-label.sc-ion-alert-md {
+  -webkit-padding-start: 53px;
+  padding-inline-start: 53px;
+  -webkit-padding-end: 26px;
+  padding-inline-end: 26px;
+  padding-top: 13px;
+  padding-bottom: 13px;
+  -ms-flex: 1;
+  flex: 1;
+  width: calc(100% - 53px);
+  color: var(--ion-color-step-850, #262626);
+  font-size: 1rem;
+  text-transform: capitalize !important;
+}
+
+.native-wrapper {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-transition: opacity 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: opacity 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: hidden;
+  text-transform: capitalize !important;
+}
+
+.select-text {
+  -ms-flex: 1;
+  flex: 1;
+  min-width: 16px;
+  font-size: inherit;
+  text-overflow: ellipsis;
+  white-space: inherit;
+  overflow: hidden;
+  //text-transform: capitalize!important;
+}
+
+.sc-ion-textarea-md-h .native-textarea.sc-ion-textarea-md {
+  overflow: hidden;
+  text-transform: revert;
+}
+
+.input-wrapper.sc-ion-input-md input.sc-ion-input-md {
+  text-transform: revert !important;
+}
+
+[auto-grow].sc-ion-textarea-md-h .native-textarea.sc-ion-textarea-md {
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+}
+
+.textarea-wrapper.sc-ion-textarea-md textarea.sc-ion-textarea-md {
+  -webkit-transition: none;
+  transition: none;
+}
+
+// .ion-valid.sc-ion-textarea-md-h {
+//    --highlight-color: #FFF !important;
+// }
+
+#create-textarea .ion-valid.sc-ion-textarea-md-h {
+  --highlight-color: #FFF !important;
+  border-color: white !important; 
+  border-width: 0.5px; 
+  border: none!important
+}
+
+.ion-touched.ion-invalid.sc-ion-textarea-md-h {
+      --highlight-color: #000 !important; 
+    --border-color: transparent !important;    
+    --border-width: 0 !important;              
+    --cursor-color: blue!important;
+}
+
+.has-focus {
+  --border:none!important;
+}
+
+/* Light Mode */
+:root {
+  --background-color: #ffffff;
+  --text-color: #000000;
+}
+
+/* Dark Mode */
+:root.dark-theme {
+  --background-color: #ffffff;
+  --text-color: #000000;
+}
+
+.custom-modal {
+  --background: #000000c9;
+  max-width: 100%;
+  margin: auto;
+  --height: 100%;
+  --width: 100%;
+
+}
+
+#sas_snag ::slotted([slot="start"]) {
+  margin-inline-end: 6px!important;
+}
+
+::ng-deep ion-checkbox.red-background {
+  --background: red !important;
+  --checkbox-background: red !important;
+}
+
+/* apply only to the popover opened by this select */
+.create_company_model {
+  --width: 90vw;   /* overall width */
+  --max-width: 95vw;
+  --min-width: 90vw;
+}
+
+/* target shadow DOM content */
+.create_company_model::part(content) {
+  width: 90vw;
+  max-width: 95vw;
+  min-width: 90vw;
+}
+
+ ion-modal {
+  --height: 70%;
+  --border-radius: 16px;
+  --box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  --width: 90%;
+}
+
+ion-modal::part(backdrop) {
+  background: rgba(209, 213, 219);
+  opacity: 1;
+}
+
+ion-modal ion-toolbar {
+  --background: #D4AC51;
+  --color: white;
+}

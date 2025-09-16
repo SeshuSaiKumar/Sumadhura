@@ -1,0 +1,229 @@
+<ion-header>
+  <ion-toolbar class="gradient-header">
+    <div class="dh">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="customer-care"></ion-back-button>
+    </ion-buttons>
+    <ion-title>
+      Ticket : {{details.ticketId}}
+    </ion-title>
+    </div>
+    <div class="details-btn-row">
+    <ion-button expand="block" class="details-btn" shape="round" (click)="showModal = true" >
+      View Ticket Details
+      <ion-icon name="chevron-down-outline" slot="end"></ion-icon>
+    </ion-button>
+  </div>
+  </ion-toolbar>
+</ion-header>
+  
+<ion-content class="chat-content">
+ <ion-modal [isOpen]="showModal" (willDismiss)="showModal = false" cssClass="ticket-details-modal ion-modal1">
+  <ng-template>
+    <ion-content>
+    <div class="ticket-card">
+      <div class="ticket-label">Assigned Employee</div>
+      <div class="ticket-value">{{ assignedVal }}</div>
+      <div class="ticket-label">Ticket Type</div>
+      <div class="ticket-value">{{ present_title }}</div>
+      <div class="ticket-label">Re-Open Option Ends On</div>
+      <div class="ticket-value highlight">{{ re_open_date | date :'dd/MM/y' }}</div>
+    </div>
+    <!-- <ion-button expand="block" (click)="showModal = false" color="light">Close</ion-button> -->
+    </ion-content>
+    </ng-template>
+  </ion-modal>
+
+
+  <div class="ppmb20 ppmt2">
+
+  <!-- Chat bubbles -->
+
+  <!-- Crm employee to customer. -->
+
+  <ng-container  *ngFor="let data of chatresponse">
+    <div class="chat-bubble left" *ngIf="data.fromType == '8' && data.toType == '7'">
+    <span class="bubble-text"   [innerHTML]="data.message">
+    </span>
+    <span class="bubble-time">{{data.commentsDate| date :'dd/MM/y'}}</span>
+  </div>
+
+    <!-- Employee to department -->
+
+    <div class="chat-bubble left" *ngIf="data.fromType == '8' && data.toType == '9'">
+    <span class="bubble-text"   [innerHTML]="data.message">
+    </span>
+    <span class="bubble-time">{{data.commentsDate| date :'dd/MM/y'}}</span>
+  </div>
+
+    <!-- Employee to employee -->
+
+    <div class="chat-bubble left" *ngIf="data.fromType == '8' && data.toType == '8'">
+    <span class="bubble-text"   [innerHTML]="data.message">
+    </span>
+    <span class="bubble-time">{{data.commentsDate| date :'dd/MM/y'}}</span>
+    </div>
+
+
+    <!-- customer chat-->
+
+    <div class="chat-bubble right green" *ngIf="data.fromType == '7'">
+      <!-- <img class="bubble-img" src="https://images.unsplash.com/photo-1519125323398-675f0ddb6308" /> -->
+<img 
+  class="bubble-img"
+  *ngIf="campdfImgs?.length > 0"
+  [src]="getImageSource(campdfImgs[0].url, campdfImgs[0].extension)"
+/>
+
+
+
+
+      <span class="bubble-text"  [innerHTML]="data.message">
+      </span>
+      <span class="bubble-time">{{data.commentsDate| date :'dd/MM/y'}}</span>
+    </div>
+
+    <!-- System reply to customer-->
+
+    <div class="chat-bubble system" *ngIf="data.fromType == '6' && data.toType == '7'">
+      <span class="bubble-text" [innerHTML]="data.message">
+      </span>
+      <span class="bubble-tag">System Generated</span>
+      <span class="bubble-time">08:19 AM</span>
+    </div>
+  </ng-container>
+</div>
+
+
+
+  <!-- Action buttons -->
+  
+
+  
+<!-- ✅ Your inline modal -->
+<ion-modal class="ion-modal2" [isOpen]="viewImagesModalOpen" (didDismiss)="viewImagesModalOpen = false">
+  <ng-template>
+    <ion-header>
+      <ion-toolbar>
+        <ion-title>View Uploaded Images</ion-title>
+        <ion-buttons slot="end">
+          <ion-button (click)="viewImagesModalOpen = false">
+            <ion-icon name="close-outline"></ion-icon>
+          </ion-button>
+        </ion-buttons>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content class="ion-padding">
+
+
+<div *ngIf="maincontroller?.length">
+  <div *ngFor="let p of maincontroller; let i = index;"
+       style="width: 100%; padding: 10px; left: 9%; display: flex; align-items: center; gap: 10px; bottom: 0;">
+    
+    <!-- Image preview with click to open modal -->
+    <img [src]="p.base64"
+         alt="Selected Image"
+         (click)="openSliderEditor(maincontroller, i, false)"
+         style="width: 40px; height: 30px; object-fit: cover; border-radius: 5px; border: 1px solid #ccc; cursor: pointer;" />
+
+    <!-- Image name -->
+    <span class="my__textoverflow" style="flex: 1; color: #2C4DB9; font-weight: 500;">
+      {{ p.name }}
+    </span>
+
+    <!-- Remove icon -->
+    <ion-icon name="close-circle"
+              style="font-size: 20px; color: rgb(68, 0, 255); cursor: pointer;"
+              (click)="removeItem1(i)">
+    </ion-icon>
+  </div>
+</div>
+    </ion-content>
+  </ng-template>
+</ion-modal>
+</ion-content>
+  <!-- Message Input -->
+   <ion-footer class="chat-footer">
+
+<ion-row
+  class="actions-row"
+  [ngStyle]="{ position: 'fixed', top: maincontroller?.length ? '71%' : '76%', width: '100%' }"
+>    <ion-col size="8">
+    <ion-button class="reopen-btn" shape="round">Ticket Re - Open</ion-button>
+    </ion-col>
+    <ion-col size="1.5">
+    <ion-button fill="clear" class="refresh-btn" size="small">
+                    <img src="assets/imgs/dashboard_new/refresh-cw.png" > 
+
+    </ion-button>
+    </ion-col>
+    <ion-col size="1.5">
+    <ion-button fill="clear" class="edit-btn" size="small">
+                    <img src="assets/imgs/dashboard_new/Path.png" > 
+
+    </ion-button>
+    </ion-col>
+  </ion-row>
+
+  <div class="chat-input-row">
+
+            
+            <span class="hidden-file">
+              <!-- <input type="file" #fileInput ng2FileSelect [uploader]="uploader" (click)="fileInput.value = ''"
+                (change)="onFileSelected($event)" accept="'image'" /> -->
+                <input type="file"
+       #fileInput
+       (change)="onFileSelected($event)"
+       accept="image/*"
+       multiple
+       (click)="fileInput.value = ''" />
+            </span>
+
+    <div lines="none" class="chat-input dh dv dc">
+    <img src="assets/imgs/dashboard_new/Path.png" class="ppmr3 wdth5 ppml3 hght6 " (click)='chat_attachement(fileInput)'> 
+               
+           
+
+      <ion-textarea  [(ngModel)]="tictcomplint"
+        placeholder="Write a message" 
+        style="--padding-start: 10px; --background: #d0d0d0; --border-radius: 16px; --padding-end: 22px; width: 80%; position: relative; left: 1%; max-height: calc(5 * 1.5em); overflow-y: auto;" 
+        fill="outline" 
+        id="create-textarea" 
+        autocomplete="on" 
+        autocorrect="on" 
+        spellcheck="true"
+        autocapitalize="sentences"
+        auto-grow
+        rows="1"
+      ></ion-textarea>
+
+
+      <ion-button class="send-btn" fill="none" class="ppml0 " (click)="chatSubmit()" >
+        <img class="wdth11" src="assets/imgs/dashboard_new/Button.png">
+      </ion-button>
+    </div>
+    <div class="dh dc">
+         <ion-button 
+  fill="clear"
+  (click)="viewImagesModalOpen = true" 
+  *ngIf="maincontroller?.length"
+  style="
+    width: 83%;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: underline;
+    color: #2cb977;
+    font-weight: 500;
+    font-size: 16px;
+  "
+>
+  <ion-icon name="image-outline" slot="start" style="font-size: 20px;"></ion-icon>
+  View Images
+</ion-button>
+</div>
+
+
+  </div>
+  </ion-footer>

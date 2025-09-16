@@ -1,0 +1,214 @@
+<app-custom-toolbar [title]="'Finance &gt; Receipt'" [showBackButton]="true" [showMenuButton]="false"
+  [showThreeDots]="true" [backUrl]="'/FinancialsPage'">
+</app-custom-toolbar>
+
+<ion-content fullscreen>
+  <div style="height: 100vh;">
+    <!-- Filter Results Card -->
+    <ion-card class="filter-card">
+      <ion-card-content>
+        <h3 class="filter-header">
+          <ion-icon name="chevron-down-outline"></ion-icon> Filter Results
+        </h3>
+
+        <ion-row class="ppmy2">
+          <ion-col class="dh dv" [style.background]="showFromDatePicker ? '#D6E4FF' : '#FFFFFF'" size="5.9"
+            style="width: 182px; height: 45; background: #FFFFFF; border: 0.5px solid #E4E4E4; border-radius: 10px;">
+            <ion-row class="full-width">
+              <ion-col (click)="toggleFromDatePicker()" size="10" style="display: flex; align-items: center;">
+                <ion-label *ngIf="!selectedFromDate"
+                  style="font-family: inherit, sans-serif; font-size: 12px; color: #848484; font-weight: 700; line-height: 16.94px; text-align: left;">
+                  Select From Date
+                </ion-label>
+                <ion-label *ngIf="selectedFromDate"
+                  style="font-family: inherit, sans-serif; font-size: 14px; font-weight: 700; line-height: 16.94px; text-align: left;">
+                  {{ selectedFromDate | date: 'MMM dd, yyyy' }}
+                </ion-label>
+              </ion-col>
+              <ion-col size="2" style="display: flex; align-items: center; justify-content: end;">
+                <ion-icon name="calendar-clear-outline" [style.color]="showFromDatePicker ? '#1E90FF' : '#000000'"
+                  style="font-size: 18px; cursor: pointer;" (click)="toggleFromDatePicker()">
+                </ion-icon>
+              </ion-col>
+            </ion-row>
+          </ion-col>
+          <ion-col class="ppp0" size="0.2"></ion-col>
+          <!-- To Date -->
+          <ion-col class="dh dv" size="5.9" [style.background]="showToDatePicker ? '#D6E4FF' : '#FFFFFF'"
+            style="width: 182px; height: 45px; border: 0.5px solid #E4E4E4; border-radius: 10px;">
+            <ion-row class="full-width">
+              <ion-col (click)="toggleToDatePicker()" size="10" style="display: flex; align-items: center;">
+                <ion-label *ngIf="!selectedToDate"
+                  style="font-family: inherit, sans-serif; font-size: 12px; color: #848484; font-weight: 700; line-height: 16.94px; text-align: left;">
+                  Select To Date
+                </ion-label>
+                <ion-label *ngIf="selectedToDate"
+                  style="font-family: inherit, sans-serif; font-size: 14px; font-weight: 700; line-height: 16.94px; text-align: left;">
+                  {{ selectedToDate | date: 'MMM dd, yyyy' }}
+                </ion-label>
+              </ion-col>
+              <ion-col size="2" style="display: flex; align-items: center; justify-content: end;">
+                <ion-icon name="calendar-clear-outline" [style.color]="showToDatePicker ? '#1E90FF' : '#000000'"
+                  style="font-size: 18px; cursor: pointer;" (click)="toggleToDatePicker()">
+                </ion-icon>
+              </ion-col>
+            </ion-row>
+
+          </ion-col>
+          <ion-modal #fromDatePicker id="fromDatePicker" class="ion-modaldate">
+            <ion-datetime presentation="date" display-format="MMM DD, YYYY" (ionChange)="updateFromDate($event)"
+              *ngIf="showFromDatePicker" [showDefaultButtons]="true"
+              style="font-size: 18px; opacity: 1; position: relative; width: 100%; height: auto;"></ion-datetime>
+          </ion-modal>
+          <ion-modal #toDatePicker id="toDatePicker" class="ion-modaldate">
+            <ion-datetime presentation="date" display-format="MMM DD, YYYY" (ionChange)="updateToDate($event)"
+              *ngIf="showToDatePicker" [showDefaultButtons]="true"
+              style="font-size: 18px; opacity: 1; position: relative; width: 100%; height: auto;"></ion-datetime>
+          </ion-modal>
+        </ion-row>
+        <div class="quick-filters">
+          <ion-button fill="clear" class="quick-btn" [class.selected]="selectedFilter === 1"
+            (click)="selectQuickFilter(1)">Last 1 month</ion-button>
+          <ion-button fill="clear" class="quick-btn" [class.selected]="selectedFilter === 3"
+            (click)="selectQuickFilter(3)">Last 3 months</ion-button>
+          <ion-button fill="clear" class="quick-btn" [class.selected]="selectedFilter === 6"
+            (click)="selectQuickFilter(6)">Last 6 months</ion-button>
+        </div>
+        <ion-button expand="block" class="submit-btn">Submit</ion-button>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-list style="background: #FAFBFD;" *ngIf="demandNotes?.length">
+      <ion-item class="note-item" *ngFor="let note of demandNotes" (click)="receipt_redirection(note)">
+        <ion-col size="2" class="dh dc pppy3">
+          <div class="note-icon">
+            <img class="wdth12" src="assets/imgs/dashboard_new/demand.png" />
+          </div>
+        </ion-col>
+
+        <ion-col size="9">
+          <ion-row>
+            <ion-label class="note-number">{{ note.mileStoneName }}</ion-label>
+          </ion-row>
+        </ion-col>
+
+        <!-- Forward icon on the right -->
+        <ion-icon slot="end" name="chevron-forward-outline" class="forward-icon"></ion-icon>
+      </ion-item>
+    </ion-list>
+
+    <ng-container *ngIf="!demandNotes?.length">
+      <ion-card class="empty-card">
+        <ion-card-content>
+          <ion-icon name="document-text-outline" class="empty-icon"></ion-icon>
+          <h2 class="empty-title">No Receipts Available</h2>
+          <p class="empty-subtitle">Please check back later for your receipts.</p>
+        </ion-card-content>
+      </ion-card>
+    </ng-container>
+
+
+  </div>
+
+  <ion-modal #productModal_new id="productModal" [initialBreakpoint]="1" [breakpoints]="[1]" class="ion-modal4">
+
+    <ng-template>
+      <ion-toolbar style="text-align: right;background-color: rgb(255, 255, 255);">
+        <ion-row>
+          <ion-col size="10" style="display: flex;align-items: center;justify-content: center;">
+            <label style="font-size: 20px !important;"> Receipt Details</label>
+          </ion-col>
+          <ion-col>
+            <ion-icon (click)="model_close_fun()" name="close-circle-outline" color="light" style="font-size: 30px;">
+            </ion-icon>
+          </ion-col>
+        </ion-row>
+      </ion-toolbar>
+
+      <ion-content [fullscreen]="true" class="receipt-content">
+
+        <ion-card class="receipt-card">
+          <ion-card-header class="milestone-header">
+            <ion-icon name="flag-outline" class="milestone-icon"></ion-icon>
+            <ion-card-title>{{ controller.mileStoneName }}</ion-card-title>
+          </ion-card-header>
+
+
+          <ion-card-content>
+            <div class="detail-row">
+              <span class="label">Receipt Number :</span>
+              <span class="value">{{ controller.receiptNumber }}</span>
+            </div>
+
+            <div class="detail-row">
+              <span class="label">Mode of Payment :</span>
+              <span class="value">{{ controller.paymentMode }}</span>
+            </div>
+
+            <div class="detail-row">
+              <span class="label">Cheque/RTGS No. :</span>
+              <span class="value">{{ controller.referenceNumber }}</span>
+            </div>
+
+            <div class="detail-row">
+              <span class="label">Received Amount :</span>
+              <span class="value">₹ {{ controller.amount }}</span>
+            </div>
+
+            <div class="detail-row">
+              <span class="label">Cheque/RTGS Date :</span>
+              <span class="value">{{ controller.createdDate | date:'dd/MM/yyyy' }}</span>
+            </div>
+
+            <div class="detail-row">
+              <span class="label">Status :</span>
+              <span class="value status" [ngClass]="{
+              'paid': controller.status === 'Paid',
+              'pending': controller.status === 'Pending',
+              'failed': controller.status === 'Failed'
+            }">
+                {{ controller.status }}
+              </span>
+            </div>
+
+            <div class="detail-row">
+              <span class="label">Clearance Date :</span>
+              <span class="value">{{ controller.clearenceDate | date:'dd/MM/yyyy' }}</span>
+            </div>
+
+            <div class="detail-row">
+              <span class="label">Bank :</span>
+              <span class="value">{{ controller.bankName }}</span>
+            </div>
+
+            <div class="detail-row">
+              <span class="label">Uploaded Docs :</span>
+              <span class="value">
+                <ion-icon name="document-attach-outline" class="doc-icon" (click)="openFile(controller.uploadedDocs)">
+                </ion-icon>
+              </span>
+            </div>
+
+            <div class="detail-row">
+              <span class="label">Invoice Document :</span>
+              <span class="value">
+                <ion-icon name="receipt-outline" class="doc-icon" (click)="openFile(controller.invoiceDocument)">
+                </ion-icon>
+              </span>
+            </div>
+          </ion-card-content>
+        </ion-card>
+      </ion-content>
+    </ng-template>
+  </ion-modal>
+</ion-content>
+
+
+<ion-footer class="footer-btn" *ngIf="demandNotes?.length">
+  <ion-toolbar>
+    <ion-button expand="block" shape="round" (click)="consolidatedreceipturl()">
+      <ion-icon name="document-text-outline" slot="start"></ion-icon>
+      Consolidated Receipt
+    </ion-button>
+  </ion-toolbar>
+</ion-footer>

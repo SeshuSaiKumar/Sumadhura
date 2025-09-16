@@ -1,0 +1,238 @@
+/** App Custom Varaiables */
+$bdr-rds-sm: 5px;
+$bdr-rds-rounded: 20px;
+$cg-white: #fff;
+$cg-black: #000;
+$cg-blue-tertiary-lighten: #082032;
+$cg-blue-secondary-lighten: #0162e826;
+$cg-blue-tertiary-darken: #559bcf;
+$cg-red-primary: #ff374a;
+$sizes: 35;
+
+/** App Custom Mixins */
+@mixin roboto($font-size) {
+  font-family: "Roboto-Regular", "sans-serief";
+  font-weight: 400;
+  font-style: normal;
+  font-size: $font-size;
+}
+/** App Custom Mixins */
+$montserrat: "Montserrat-Regular";
+$montserrat-light: "Montserrat-Light";
+$montserrat-medium: "Montserrat-Medium";
+$montserrat-semibold : "";
+$montserrat-bold: "Montserrat-Bold";
+$normal-font-style: normal;
+@mixin applyFont($font-name,$font-weight,$font-size,$font-style) {
+  font-family: $font-name;
+  font-weight: $font-weight;
+  font-style: $font-style;
+  font-size: $font-size;
+  letter-spacing: normal;
+}
+@mixin margins {
+  @for $i from 0 through $sizes {
+    $margin: $i * 0.25rem;
+    body {
+      .ppm#{$i} {
+        margin: $margin;
+      }
+      .ppml#{$i} {
+        margin-left: $margin;
+      }
+      .ppmr#{$i} {
+        margin-right: $margin;
+      }
+      .ppmt#{$i} {
+        margin-top: $margin;
+      }
+      .ppmb#{$i} {
+        margin-bottom: $margin;
+      }
+      .ppmx#{$i} {
+        margin-left: $margin;
+        margin-right: $margin;
+      }
+      .ppmy#{$i} {
+        margin-top: $margin;
+        margin-bottom: $margin;
+      }
+      .ppp#{$i} {
+        padding: $margin !important;
+      }
+      .pppl#{$i} {
+        padding-left: $margin !important;
+      }
+      .pppr#{$i} {
+        padding-right: $margin !important;
+      }
+      .pppt#{$i} {
+        padding-top: $margin !important;
+      }
+      .pppb#{$i} {
+        padding-bottom: $margin !important;
+      }
+      .pppx#{$i} {
+        padding-left: $margin !important;
+        padding-right: $margin !important;
+      }
+      .pppy#{$i} {
+        padding-top: $margin !important;
+        padding-bottom: $margin !important;
+      }
+      .wdth#{$i} {
+        width: $margin !important;
+      }
+      .hght#{$i} {
+        height: $margin !important;
+      }
+      .ppfl#{$i}{
+        @include applyFont($montserrat-light, lighter, $margin, $normal-font-style);
+      }
+      .ppfn#{$i}{
+        @include applyFont($montserrat, normal, $margin, $normal-font-style);
+      }
+      .ppfsb#{$i}{
+        @include applyFont($montserrat-semibold, 800, $margin, $normal-font-style);
+      }
+      .ppfb#{$i}{
+        @include applyFont($montserrat-medium, 600, $margin, $normal-font-style);
+      }
+      .ppfeb#{$i}{
+        @include applyFont($montserrat-bold, 900, $margin, $normal-font-style);
+      }
+      // Changes
+      .fml#{$i}{
+        @include applyFont($montserrat-light, lighter,#{$i}px, $normal-font-style);
+      }
+      .fmn#{$i}{
+        @include applyFont($montserrat, normal, #{$i}px, $normal-font-style);
+      }
+      .fmb#{$i}{
+        @include applyFont($montserrat-medium, bold,#{$i}px, $normal-font-style);
+      }
+      .fmsb#{$i}{
+        @include applyFont($montserrat-semibold, 800, #{$i}px, $normal-font-style);
+      }
+      .fmeb#{$i}{
+        @include applyFont($montserrat-bold, bolder,#{$i}px, $normal-font-style);
+      }
+      .brrem#{$i} {
+        border-radius: $margin !important;
+      }
+      .br#{$i} {
+        border-radius: #{$i}px !important;
+      }
+      .bblr#{$i} {
+        border-bottom-left-radius: #{$i}px !important;
+      }
+      .bbrr#{$i} {
+        border-bottom-right-radius: #{$i}px !important;
+      }
+      .btrr#{$i} {
+        border-top-right-radius: #{$i}px !important;
+      }
+      .btlr#{$i} {
+        border-top-left-radius: #{$i}px !important;
+      }
+      .wtpx{
+        width: #{$i}px !important;;
+      }
+      .htpx{
+        height: #{$i}px !important;
+      }
+      .mle#{$i} {
+        display: block;
+        display: -webkit-box;
+        max-width: 100%;
+        // line-height: 1;
+        -webkit-line-clamp: #{$i};
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+    }
+  }
+}
+
+
+$color_names :('default', 'troyblue', 'gold', 'gray', 'darkBlue', 'green','white');
+$border-colors: (
+  var(--ion-content-background-color),
+  var(--ion-default-text-color),
+  var(--ion-price-text-color),
+  var(--ion-color-border-grey),
+  var(--ion-default-bold-color),
+  var(--ion-default-green-color),
+  var(--ion-background-white)
+);
+
+@mixin bordercolors {
+
+  @for $i from 1 to length($color_names)+1 {
+
+    .border-#{nth($color_names, $i)} {
+      border: 1px solid nth($border-colors, $i);
+    }
+
+    .border-top-#{nth($color_names, $i)} {
+      border-top: 1px solid nth($border-colors, $i);
+    }
+
+    .border-bottom-#{nth($color_names, $i)} {
+      border-bottom: 1px solid nth($border-colors, $i);
+    }
+
+    .border-left-#{nth($color_names, $i)} {
+      border-left: 1px solid nth($border-colors, $i);
+    }
+
+    .border-right-#{nth($color_names, $i)} {
+      border-right: 1px solid nth($border-colors, $i);
+    }
+
+    /************BORDER 2 Px Solid css*************/
+    
+    .border-2x-#{nth($color_names, $i)} {
+      border: 2px solid nth($border-colors, $i);
+    }
+
+    .border-top-2x-#{nth($color_names, $i)} {
+      border-top: 2px solid nth($border-colors, $i);
+    }
+
+    .border-bottom-2x-#{nth($color_names, $i)} {
+      border-bottom: 2px solid nth($border-colors, $i);
+    }
+
+    .border-left-2x-#{nth($color_names, $i)} {
+      border-left: 2px solid nth($border-colors, $i);
+    }
+
+    .border-right-2x-#{nth($color_names, $i)} {
+      border-right: 2px solid nth($border-colors, $i);
+    }
+
+    /************BORDER 3 Px Solid css*************/
+
+    .border-3x-#{nth($color_names, $i)} {
+      border: 3px solid nth($border-colors, $i);
+    }
+
+    .border-top-3x-#{nth($color_names, $i)} {
+      border-top: 3px solid nth($border-colors, $i);
+    }
+
+    .border-bottom-3x-#{nth($color_names, $i)} {
+      border-bottom: 3px solid nth($border-colors, $i);
+    }
+
+    .border-left-3x-#{nth($color_names, $i)} {
+      border-left: 3px solid nth($border-colors, $i);
+    }
+
+    .border-right-3x-#{nth($color_names, $i)} {
+      border-right: 3px solid nth($border-colors, $i);
+    }
+  }
+}

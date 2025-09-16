@@ -1,0 +1,202 @@
+ion-content {
+    --background: linear-gradient(180deg, #ffffff 10%, #d4ac51f7 140%);
+}
+
+.img {
+    height: 130px !important;
+    position: relative;
+    top: 53%;
+    margin-top: 13%;
+}
+
+.img2 {
+    position: fixed;
+    top: 30% !important;
+    left: 0% Important
+}
+
+.img3 {
+    position: fixed;
+    top: -1%;
+    left: 43%;
+}
+
+ion-footer::before,
+ion-tabs[tabsPlacement="bottom"] ion-tab-bar::before {
+    height: 0px !important;
+}
+
+.logo_img {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo_img2 {
+    margin-bottom: 31px !important;
+    justify-self: center;
+    margin-top: 10%;
+}
+
+.threelab {
+    margin-bottom: 70px;
+    position: relative;
+    z-index: 9999;
+}
+
+input {
+    text-align: center;
+}
+
+.mpinotp,
+.mpinAdhar {
+    color: #555;
+    text-align: center;
+    font-weight: bold;
+    font-family: 'Lato', sans-serif;
+    margin: 10px auto;
+    margin-top: 6%;
+
+}
+
+.loginButton {
+    color: orchid;
+}
+
+.transparent {
+    --background: transparent;
+    color: black !important;
+    font-size: 20px;
+    text-align: center;
+    font-weight: bold;
+    border-bottom: red;
+    font-family: 'Lato', sans-serif;
+}
+
+.forwordiconcls {
+    padding-left: 1.4em !important;
+}
+
+.mpincls {
+    padding-left: 20px !important;
+}
+
+.SignUp {
+    padding-right: 20px !important;
+}
+
+ion-item.item {
+    --border-color: red;
+}
+
+.text-input {
+    margin: 13px 8px;
+    padding: 0;
+    width: calc(100% + 3px);
+}
+
+.progress-bar {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+
+    .step {
+        height: 8px;
+        width: 110px;
+        background: #e0e0e0;
+        margin: 0 5px;
+        border-radius: 10px;
+
+        &.active {
+            background: #c89f36;
+        }
+    }
+}
+
+.resend-text {
+    margin-top: 15px;
+    font-size: 15px;
+    color: #555;
+
+    .refresh-icon {
+        font-size: 14px;
+        vertical-align: middle;
+        margin-right: 5px;
+    }
+
+    .timer {
+        color: #c89f36;
+        font-weight: 600;
+        margin-left: 5px;
+    }
+}
+
+.pan-item input {
+    text-align: center !important;
+}
+
+.pan-item {
+    margin: 0 32px 18px;
+    border-radius: 8px;
+    background: #fff;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, .07);
+
+    .item-inner,
+    .input-wrapper {
+        border: none !important;
+    }
+
+    ion-input {
+        text-align: center;
+        letter-spacing: 4px; // dotted “••••” look
+        font-size: 22px;
+        font-weight: 600;
+    }
+}
+
+.loginbtncls {
+    --background: #dc3545;
+    color: white;
+    margin-top: 20%;
+    border-radius: 30px;
+    height: 40px;
+    width: 80%;
+    justify-items: center;
+}
+
+.otp-box {
+    display: flex;
+    justify-content: space-between;
+    gap: 8px;
+}
+
+.otp-box input {
+    width: 40px;
+    height: 50px;
+    text-align: center;
+    font-size: 20px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+}
+
+.email-icon {
+    width: 90px;
+}
+
+.submit-btn-wrapper {
+    margin-top: 30px;
+    position: relative;
+    top: 70px;
+
+}
+
+.submit-btn {
+    --background: #d4a437; // solid golden background
+    --background-activated: #c3932d;
+    --border-radius: 50px;
+    --box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    font-size: 18px;
+    font-weight: 600;
+    height: 56px;
+    text-transform: none; // Keep original casing
+}

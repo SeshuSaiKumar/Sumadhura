@@ -1,0 +1,145 @@
+.message-card {
+    border-radius: 12px;
+    margin: 8px 12px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+
+    ion-item {
+        --padding-start: 10px;
+        --inner-padding-end: 10px;
+        --background: transparent;
+    }
+
+    .subject {
+        font-weight: 600;
+        font-size: 15px;
+        color: #222;
+    }
+
+
+
+    .date {
+        font-size: 12px;
+        color: #777;
+    }
+
+    .department {
+        font-size: 13px;
+        color: #3b82f6;
+        font-weight: 500;
+    }
+}
+
+/* Avatar + badge overlay */
+.avatar-wrapper {
+    position: relative;
+    display: inline-block;
+
+    ion-avatar {
+        width: 45px;
+        height: 45px;
+    }
+
+    .unread-badge {
+        position: absolute;
+        bottom: -4px;
+        right: -4px;
+        border-radius: 50%;
+        font-size: 11px;
+        min-width: 18px;
+        height: 18px;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+.message-card.read {
+    --background: #FFF !important;
+}
+
+.message-card.unread {
+    --background: #fde8e8 !important;
+}
+
+.search-container {
+    margin: 10px 12px;
+}
+
+ion-searchbar {
+    --background: #ffffff;
+    --color: #374151;
+    --placeholder-color: #9ca3af;
+    --icon-color: #6b7280;
+    --border-radius: 12px;
+    --box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+    padding: 0;
+}
+
+.message {
+    font-size: 14px;
+    color: #444;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.select-text {
+    width: 250px !important;
+    white-space: nowrap;
+    overflow: hidden !important;
+    text-overflow: ellipsis;
+    display: block !important;
+}
+
+.empty-card {
+  text-align: center;
+  margin: 20px;
+  border-radius: 16px;
+  box-shadow: none;
+  background: #f9f9f9;
+}
+
+.empty-icon {
+  font-size: 48px;
+  color: var(--ion-color-medium);
+  margin-bottom: 12px;
+}
+
+.empty-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: #333;
+  margin: 8px 0;
+}
+
+.empty-subtitle {
+  font-size: 14px;
+  color: #666;
+}
+.empty-card {
+  text-align: center;
+  margin: 20px;
+  border-radius: 15px;
+  box-shadow: none;
+  border: 1px solid #d1dce1;
+}
+
+.empty-icon {
+  font-size: 48px;
+  color: #a0aec0;
+  margin-bottom: 10px;
+}
+
+.empty-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: #444;
+  margin: 5px 0;
+}
+
+.empty-subtitle {
+  font-size: 14px;
+  color: #777;
+}

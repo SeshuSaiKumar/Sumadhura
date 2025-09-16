@@ -1,0 +1,66 @@
+<ion-content [fullscreen]="true" class="home-content">
+
+  <!-- Profile Header -->
+  <div class="profile-section">
+    <div class="profile-info">
+      <img src="assets/imgs/dashboard_new/profile.png" alt="Profile Image" class="profile-image" />
+      <span class="profile-name">Sumadhura</span>
+    </div>
+
+    <div class="profile-info" slot="end" style="position: relative;
+    left: 3%;
+    padding: 10px;">
+      <ion-label (click)="openUnitModal()" class="profile-name" *ngIf="flatNumber"
+        style="margin-right: 8px; font-size: 14px;">
+        {{ flatNumber }}
+      </ion-label>
+      <!-- <ion-icon  name="ellipsis-vertical" class="menu-icon"></ion-icon> -->
+    </div>
+
+    <ion-icon name="power-outline" class="sss" (click)="logoutclicked()" style="background: #fff;
+    width: 34px;padding: 6px;border-radius: 26px;font-size: 20px;"></ion-icon>
+  </div>
+
+  <!-- Banner Section -->
+  <div class="banner-section">
+    <img src="assets/imgs/ac123.png" alt="Banner" />
+    <div class="banner-text">
+      <!-- <h2>Building Trust,<br />One Home at a Time.</h2> -->
+    </div>
+  </div>
+
+  <!-- Categories Section -->
+  <div class="categories-section">
+    <div style="display: flex;align-items: center;margin-top: 5px;margin-bottom: 10px;">
+      <img src="assets/imgs/dashboard_new/category.png" alt="Loan Icon" style="width: 30px;margin-right: 5px;" />
+      <label class="category">Categories</label>
+    </div>
+    <swiper [pagination]="true" [spaceBetween]="15" class="category-swiper">
+      <!-- Each swiper slide = 6 categories -->
+      <ng-template swiperSlide *ngFor="let group of chunkedCategories">
+        <ion-grid>
+          <ion-row>
+            <ion-col class="hght30" size="4" *ngFor="let item of group" (click)="navigateTo(item.appMenuPageLink)">
+              <div class="category-card" [ngStyle]="{ 'background': item.color, 'color': item.textColor }">
+                <img [src]="item.appmenuimgPath" class="category-image" />
+                <p>{{ item.appMenuName }}</p>
+              </div>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ng-template>
+    </swiper>
+  </div>
+
+</ion-content>
+
+<ion-footer>
+  <ion-tab-bar slot="bottom">
+    <ion-tab-button *ngFor="let item of footerTabs" (click)="navigateTo(item.appMenuPageLink)">
+      <img [src]="item.appmenuimgPath" alt="{{item.appMenuName}}" class="profile-image" />
+      <ion-label style="font-size: 10px;">
+        {{ item.appMenuName }}
+      </ion-label>
+    </ion-tab-button>
+  </ion-tab-bar>
+</ion-footer>

@@ -1,0 +1,172 @@
+.content-md {
+    color: #000;
+    background-color: #fff;
+    border: solid 1px #a89393;
+    border-radius: 10px;
+}
+
+.modaldivcls {
+    margin: 163px auto !important;
+    width: 300px !important;
+    border: 1px solid #ddd !important;
+    height: 328px !important;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 5px;
+    z-index: 99999;
+}
+
+.modalheadcls {
+    font-size: 14px !important;
+    height: 37px;
+    left: 0px;
+    top: 0px;
+    position: absolute;
+    padding: 7px;
+    background-color: #c7c7c7;
+    width: 100%;
+    font-family: "Helvetica Neue", "Roboto", sans-serif;
+}
+
+.editicondwncls {
+    padding-right: 5px;
+    padding-left: 6px;
+}
+
+.submitbtncls {
+
+    left: 30%;
+    background-image: linear-gradient(-90deg, #f6821f, #ed1b24);
+    margin-bottom: 10px;
+    height: auto !important;
+    padding: 6px 8px !important;
+    bottom: 6px;
+    position: absolute;
+}
+
+.descriptioncls {
+    width: 100%;
+
+    overflow: hidden;
+    border-top: none;
+}
+
+.listcls {
+    margin: 40px 0 32px;
+    width: 100%;
+}
+
+.itemcls {
+    border-top: none !important;
+}
+
+.text-input-ios {
+
+    height: 130px !important;
+}
+
+.text-input-md {
+
+    height: 20px !important;
+}
+
+.closemodal {
+    float: right;
+    font-size: 22px;
+    margin-top: -8px;
+    padding: 6px;
+    color: red;
+}
+
+.sendotpbtncls {
+    --background: linear-gradient(-90deg, #f6821f, #ed1b24);
+    width: 60%;
+    margin: 0 auto;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+    color: white;
+    --border-radius: 59px !important;
+}
+
+
+::-webkit-scrollbar {
+    width: 3px;
+}
+
+::-webkit-scrollbar-thumb {
+    // background-color: black;
+    background-image: linear-gradient(-90deg, #f6821f, #ed1b24);
+}
+
+ion-radio::part(container) {
+    width: 30px;
+    height: 30px;
+
+    border-radius: 8px;
+    border: 2px solid #ddd;
+}
+
+ion-radio::part(mark) {
+    background: none;
+    transition: none;
+    transform: none;
+    border-radius: 0;
+}
+
+ion-radio.radio-checked::part(container) {
+    background: #2f07be;
+    border-color: transparent;
+}
+
+ion-radio.radio-checked::part(mark) {
+    width: 6px;
+    height: 10px;
+
+    border-width: 0px 2px 2px 0px;
+    border-style: solid;
+    border-color: #fff;
+
+    transform: rotate(45deg);
+}
+
+.section-title {
+    display: block;
+    font-weight: 600;
+    font-size: 14px;
+    margin: 12px 0 6px 8px;
+    color: var(--ion-color-primary);
+}
+
+.radio-item {
+    --inner-padding-end: 0; // removes extra gap
+    --padding-start: 8px;
+    --inner-border-width: 0;
+    border-radius: 10px;
+    margin-bottom: 6px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+    background: #fff;
+}
+
+.wrap-text {
+    white-space: normal;
+    font-size: 15px;
+}
+
+.section-note {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #e8f2ff; /* light blue background */
+  border: 1px solid #cde0ff;
+  border-radius: 8px;
+  padding: 8px 12px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #1e3a8a; /* deep blue text */
+  margin: 12px 0 16px;
+}
+
+.section-note ion-icon {
+  margin-right: 6px;
+  font-size: 18px;
+  color: #2563eb; /* primary blue */
+}

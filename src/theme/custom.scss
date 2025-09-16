@@ -1,0 +1,365 @@
+@import './mixins';
+@import './variables.scss';
+@include margins;
+@include bordercolors;
+
+.cu-label {
+  @include roboto(1rem);
+  color: $cg-black;
+  display: block;
+  text-align: left;
+
+  &.inline {
+    display: inline;
+    color: $cg-black;
+    cursor: pointer;
+  }
+
+  .mandatory {
+    color: $cg-red-primary;
+  }
+}
+
+.cu-row {
+  display: flex;
+  flex-direction: column;
+
+  .center {
+    justify-content: center;
+  }
+}
+
+.row-hz {
+  display: flex;
+  flex-direction: row;
+
+  &.center {
+    justify-content: center;
+    align-content: center;
+  }
+}
+
+.row-hz-fit {
+  display: flex;
+  flex-direction: row;
+  margin-top: 5px;
+
+  &.center {
+    justify-content: center;
+    align-content: center;
+  }
+}
+
+.cu-field-row {
+  margin: 8px 4px !important;
+}
+
+.cu-pre-line {
+  white-space: pre-line !important;
+}
+
+// LeafLet
+.leaflet-div-icon {
+  background: transparent !important;
+  border: none !important;
+}
+
+/*******25-05-2022 BY Orblike******************/
+
+.content_background {
+  background-color: var(--ion-content-background-color); ////// content Background color////////
+  --background: var(--ion-content-background-color);
+}
+
+.bg_white {
+  background-color: var(--ion-background-white); ///// background white color//////
+  --background: var(--ion-background-white);
+}
+
+.bg_gray {
+  background-color: var(--ion-color-light-grey); ///// background white color//////
+  --background: var(--ion-color-light-grey);
+}
+
+.border-full {
+  border: 1px solid var(--ion-color-border-grey);
+}
+
+.bbgrey {
+  border-bottom: 1px solid var(--ion-color-border-grey);
+}
+
+.btgrey {
+  border-top: 1px solid var(--ion-color-border-grey);
+}
+
+.btgrey {
+  border-top: 1px solid var(--ion-color-border-grey);
+}
+
+.cursor {
+  cursor: pointer;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.full-width-1 {
+  width: 94%
+}
+
+.property_name_width_94 {
+  width: 94%;
+}
+
+.full-height {
+  min-height: 100%;
+}
+
+.full-ht{
+  height: 100%;
+}
+/**********Full screen Image************/
+.full-screen-img {
+  height: -webkit-fill-available;
+  object-fit: cover;
+  width: 100%;
+}
+
+.full-screen-img_new {
+  // height: -webkit-fill-available;
+  height: 100%;
+  object-fit: inherit;
+  object-position: inherit;
+  width: 100%;
+}
+
+.fit_obj {
+  object-fit: cover
+}
+
+.dv {
+  display: grid;
+}
+
+.dv_col {
+  display: flex;
+  flex-direction: column;
+}
+
+.dh {
+  display: flex;
+  flex-direction: row !important;
+}
+
+.ds {
+  align-items: center !important;
+  justify-content: start !important;
+}
+
+.dc {
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+.ds {
+  align-items: center !important;
+  justify-content: start !important;
+}
+
+.dcs {
+  align-self: center !important;
+  justify-self: center !important;
+}
+
+.txtc {
+  text-align: center;
+}
+
+.txtl_pro_name {
+  text-align: left;
+  margin-left: -150px
+}
+
+.spc-bwt {
+  justify-content: space-between !important;
+  align-items: center !important;
+}
+
+.spc-evn {
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.spc-around {
+  align-items: center;
+  justify-content: space-around;
+}
+
+.ver_items_center {
+  display: grid;
+  align-content: center;
+}
+
+.var_items_end {
+  display: grid;
+  align-content: end;
+}
+
+.txts {
+  align-items: center;
+  text-align: left;
+}
+
+.txts_p10 {
+  align-items: center;
+  text-align: left;
+  padding-left: 10px
+}
+
+.de {
+  align-items: center !important;
+  justify-content: end !important;
+}
+
+.txte {
+  align-items: center;
+  text-align: end !important;
+}
+
+.dfc {
+  display: flex;
+  align-items: center;
+}
+
+.df {
+  display: flex;
+}
+
+.flex_nowrap_hz {
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+.ver_items_spc_bwt_center {
+  align-content: space-between;
+  display: grid;
+  justify-content: center;
+}
+
+.ver_items_spc_bwt_st {
+  align-content: space-between;
+  display: grid;
+  justify-content: flex-start;
+}
+
+.hor_items_end {
+  display: flex;
+  flex-direction: row;
+  align-items: end;
+}
+
+.pointer_events_none {
+  pointer-events: none;
+}
+
+.pos_ab_ver {
+  display: grid;
+  position: absolute;
+  z-index: 1;
+}
+
+.pos_ab_hz {
+  display: flex;
+  position: absolute;
+  z-index: 1;
+}
+
+.border-none {
+  border: none;
+}
+
+.txt_dec {
+  text-decoration: underline
+}
+
+.opac-full {
+  opacity: 0.4;
+}
+
+.pos_fix {
+  position: fixed;
+  display: grid;
+}
+
+.pos-abs {
+  position: absolute;
+}
+
+.d_block {
+  display: block;
+}
+.select_product_category_modal {
+  --height: 50%;
+  --width: 100%;
+  align-items: flex-end;
+  background-color: transparent;
+}
+.select_voucher_model_sass {
+  --height: 60%;
+  --width: 100%;
+  align-items: flex-end;
+  background-color: transparent;
+}
+
+.filter_model_sass {
+  --height: 40%;
+  --width: 100%;
+  align-items: flex-end;
+  background-color: transparent;
+}
+
+.terms_and_condition_modal {
+  --width: 92%;
+  --height: 90%;
+  background-color: #21212196;
+
+  app-payment-terms-and-conditions {
+    align-items: center;
+    justify-content: center;
+  }
+
+  .modal-wrapper.sc-ion-modal-md {
+    border-radius: 6px !important;
+  }
+}
+
+.text_dec_none {
+  text-decoration: none;
+}
+
+.text_underline {
+  text-decoration: underline;
+}
+
+.qr_display_modal {
+  --background: #00000087;
+  // --box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  background-color: #00000087;
+}
+
+.facility_pay_deposit {
+  --width: 80%;
+  --height: 40%;
+  --border-radius: 10px;
+}
+
+app-display-qr-v2{
+  align-items: center !important;
+  justify-content: center !important;
+}
+.welcome_to_homes_modal {
+  --width: 77%;
+  --height: 99%;
+}

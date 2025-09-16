@@ -1,0 +1,49 @@
+<ion-content class="bg-image ion-padding " >
+  <div class="logo_img" style="text-align: center;">
+    <img class="img" src="assets/imgs/sum-tagline.png" />
+  </div>
+  <div text-center>
+      <img class="img2" src="assets\imgs\_new_dashboard\vector.png">
+    </div>
+    <div text-center>
+      <img class="img3" src="assets\imgs\_new_dashboard\vector2.png">
+    </div>
+  <p class="mpin">Enter your MPIN:</p>
+  <h3 class="welcome-text"> <span class="username">Welcome back!</span> Nice to see you again.</h3>
+
+
+  <p class="instruction">
+    Please enter your <strong>4-digit MPIN</strong> for all future transactions.
+  </p>
+
+
+  <ion-grid style="margin-top: 60px;">
+    <ion-row>
+      <ion-col style="display: flex;justify-content: center;">
+        <ion-item class="transparent" lines="none">
+          <div class="otp-box">
+            <input #otpInput type="number" maxlength="1" inputmode="numeric" pattern="\d*" [(ngModel)]="mpin[0]"
+              (input)="moveToNext($event, 0)" />
+            <input #otpInput type="number" maxlength="1" inputmode="numeric" pattern="\d*" [(ngModel)]="mpin[1]"
+              (input)="moveToNext($event, 1)" />
+            <input #otpInput type="number" maxlength="1" inputmode="numeric" pattern="\d*" [(ngModel)]="mpin[2]"
+              (input)="moveToNext($event, 2)" />
+            <input #otpInput type="number" maxlength="1" inputmode="numeric" pattern="\d*" [(ngModel)]="mpin[3]"
+              (input)="moveToNext($event, 3)" />
+          </div>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <ion-button expand="block" shape="round" class="submit-btn" (click)="login()">
+    Submit & Next
+    <ion-icon name="arrow-forward-outline" slot="end"></ion-icon>
+  </ion-button>
+  <div class="links">
+    <a (click)="forgot_redirection()" class="forgot-link">Forgot MPIN?</a>
+    <span class="divider">|</span>
+    <a (click)="MPIN_Policies_redirection()" class="policy-link">MPIN Policies</a>
+  </div>
+
+
+</ion-content>

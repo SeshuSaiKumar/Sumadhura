@@ -1,0 +1,37 @@
+<app-custom-toolbar [title]="'MPR'" [showBackButton]="true" [showMenuButton]="false" [showThreeDots]="false"
+  [backUrl]="'/dashboard'">
+</app-custom-toolbar>
+
+<ion-content [fullscreen]="true" class="mpr-page">
+  <div style="margin-top: 7px;" *ngIf="mpr_list?.length">
+    <ion-searchbar [(ngModel)]="search"></ion-searchbar>
+  </div>
+
+  <ion-list lines="none" *ngIf="mpr_list?.length">
+    <ion-item class="mpr-item" *ngFor="let item of mpr_list |filter:search:filterKeys"
+      (click)="statusChnge(item, item.devices)">
+      <!-- Left: Report Name -->
+      <ion-label>
+        <h2 class="mpr-title">{{ item.mprName }}</h2>
+        <p class="mpr-subtitle">Monthly Progress Report</p>
+      </ion-label>
+
+      <!-- Right: PDF Icon -->
+      <ion-button fill="clear" size="small"
+        (click)="myUrl(item.mprDocumentsResponseList[0]?.documentLocation); $event.stopPropagation()">
+        <ion-icon name="document-text-outline" slot="icon-only" class="pdf-icon"></ion-icon>
+      </ion-button>
+    </ion-item>
+  </ion-list>
+<ng-container *ngIf="!mpr_list?.length">
+  <ion-card class="empty-card">
+    <ion-card-content>
+      <ion-icon name="document-text-outline" class="empty-icon"></ion-icon>
+      <h2 class="empty-title">No Reports Available</h2>
+      <p class="empty-subtitle">Please check back later for monthly progress reports.</p>
+    </ion-card-content>
+  </ion-card>
+</ng-container>
+
+
+</ion-content>

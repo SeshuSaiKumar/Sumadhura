@@ -1,0 +1,39 @@
+<div class="modaldivcls">
+  <ion-header>
+    <ion-toolbar>
+      <ion-title class="header-title">Select Your Unit</ion-title>
+      <ion-buttons slot="end" class="close-btn">
+        <ion-button fill="clear" (click)="closeModal()">
+          <ion-icon name="close-circle-outline" slot="icon-only" size="large"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content class="sample-modal-page">
+    <ion-list>
+      <ion-radio-group [(ngModel)]="autoManufacturers" class="radio-group">
+        <ion-item 
+          *ngFor="let item of myFlatid"
+          [class.selected]="autoManufacturers === item.flatId"
+          (click)="autoManufacturers = item.flatId"  lines="none"
+        >
+          <ion-label>{{ item.flatNo }}</ion-label>
+          <ion-radio
+            slot="end"
+            [value]="item.flatId"
+          >
+          </ion-radio>
+        </ion-item>
+      </ion-radio-group>
+    </ion-list>
+  </ion-content>
+
+  <ion-footer class="dh dc" style="display: flex;justify-content: center;">
+       <div class="ion-text-center ion-margin-top">
+    <ion-button expand="block" class="sendotpbtncls" (click)="confirmSelection()">
+      Confirm
+    </ion-button>
+  </div>
+  </ion-footer>
+</div>

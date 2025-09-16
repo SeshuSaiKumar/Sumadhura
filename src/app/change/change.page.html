@@ -1,0 +1,113 @@
+<app-custom-toolbar [title]="'Change Mpin'" [showBackButton]="true"
+  [showMenuButton]="false" [showThreeDots]="false" [backUrl]="'/dashboard'">
+</app-custom-toolbar>
+<ion-content style="background-color: #FFF!important;">
+
+
+  <div class="maincls">
+ 
+
+    <div style="position: relative;top: 0px;width: 86%; margin-left: 7%;">
+      <h4 class="h4class">Change MPIN</h4>
+      <p class="pcls" style="position: relative;top: -5px;">Please Change a 4-digit pin for all future transactions.
+      </p>
+
+
+      <span class="spancls">Current Mpin :</span>
+
+      <div style="width: 100%;
+      text-align: center;
+      position: relative;
+      top: -25px;
+      border: 1px solid #dce0e8;
+      border-radius: 10px; ">
+        <ion-row>
+          <ion-col>
+            <ion-input type="tel"  autocomplete="on" autocorrect="on" spellcheck="true" class="x" #otp1 required="true" maxLength="1" [(ngModel)]="OTP[0]"
+              (keyup)="otpController($event,otp2,'','')"  pattern="[0-9]*" (keypress)="numericOnly($event)">
+            </ion-input>
+            <ion-input type="tel" autocomplete="on" autocorrect="on" spellcheck="true"class="x" #otp2 required="true" maxLength="1" [(ngModel)]="OTP[1]"
+              (keyup)="otpController($event,otp3,otp1 ,'')"  pattern="[0-9]*" ((keypress)="numericOnly($event)">
+            </ion-input>
+            <ion-input type="tel" autocomplete="on" autocorrect="on" spellcheck="true"class="x" #otp3 required="true" maxLength="1" [(ngModel)]="OTP[2]"
+              (keyup)="otpController($event,otp4,otp2,'')"  pattern="[0-9]*" (keypress)="numericOnly($event)">
+            </ion-input>
+            <ion-input type="tel" autocomplete="on" autocorrect="on" spellcheck="true" class="x" #otp4 required="true" maxLength="1" [(ngModel)]="OTP[3]"
+              (keyup)="otpController($event,'',otp3 ,'')"  pattern="[0-9]*" (keypress)="numericOnly($event)">
+            </ion-input>
+          </ion-col>
+        </ion-row>
+      </div>
+
+
+
+
+
+      <span class="spancls">New Mpin :</span>
+
+      <div style="width: 100%;
+      text-align: center;
+      position: relative;
+      top: -25px;
+      border: 1px solid #dce0e8;
+      border-radius: 10px; ">
+        <ion-row>
+          <ion-col>
+            <ion-input type="tel" autocomplete="on" autocorrect="on" spellcheck="true" class="x" #new_otp1 required="true" maxLength="1" [(ngModel)]="New_OTP[0]"
+              (keyup)="new_otpController($event,new_otp2,'', '')"  pattern="[0-9]*" (keypress)="numericOnly($event)">
+            </ion-input>
+            <ion-input type="tel" autocomplete="on" autocorrect="on" spellcheck="true" class="x" #new_otp2 required="true" maxLength="1" [(ngModel)]="New_OTP[1]"
+              (keyup)="new_otpController($event,new_otp3,new_otp1 ,'')"  pattern="[0-9]*" ((keypress)="numericOnly($event)">
+            </ion-input>
+            <ion-input type="tel" autocomplete="on" autocorrect="on" spellcheck="true" class="x" #new_otp3 required="true" maxLength="1" [(ngModel)]="New_OTP[2]"
+              (keyup)="new_otpController($event,new_otp4,new_otp2 ,'')"  pattern="[0-9]*" (keypress)="numericOnly($event)">
+            </ion-input>
+            <ion-input type="tel" autocomplete="on" autocorrect="on" spellcheck="true" class="x" #new_otp4 required="true" maxLength="1" [(ngModel)]="New_OTP[3]"
+              (keyup)="new_otpController($event,'',new_otp3 ,'')"  pattern="[0-9]*" (keypress)="numericOnly($event)">
+            </ion-input>
+          </ion-col>
+        </ion-row>
+      </div>
+
+      <span class="spancls">Confirm New Mpin :</span>
+
+      <div style="width: 100%;
+      text-align: center;
+      position: relative;
+      top: -25px;
+      border: 1px solid #dce0e8;
+      border-radius: 10px;">
+        <ion-row>
+          <ion-col>
+            <ion-input type="tel" class="x" #con_otp1 required="true" maxLength="1" [(ngModel)]="confirm_OTP[0]"
+              (keyup)="confirm_otpController($event,con_otp2,'' ,'')"  pattern="[0-9]*" (keypress)="numericOnly($event)">
+            </ion-input>
+            <ion-input type="tel" class="x" #con_otp2 required="true" maxLength="1" [(ngModel)]="confirm_OTP[1]"
+              (keyup)="confirm_otpController($event,con_otp3,con_otp1 ,'')"  pattern="[0-9]*" (keypress)="numericOnly($event)">
+            </ion-input>
+            <ion-input type="tel" class="x" #con_otp3 required="true" maxLength="1" [(ngModel)]="confirm_OTP[2]"
+              (keyup)="confirm_otpController($event,con_otp4,con_otp2 ,'')"  pattern="[0-9]*" (keypress)="numericOnly($event)">
+            </ion-input>
+            <ion-input type="tel" class="x" #con_otp4 required="true" maxLength="1" [(ngModel)]="confirm_OTP[3]"
+              (keyup)="confirm_otpController($event,'',con_otp3 ,'')"  pattern="[0-9]*" (keypress)="numericOnly($event)">
+            </ion-input>
+          </ion-col>
+        </ion-row>
+      </div>
+
+
+
+      <div align="center" class="submit-btn-wrapper">
+        <ion-button expand="block" class="submit-btn" style="width:90%;margin-top:5px;text-transform: capitalize;" (click)="submitfun()">
+
+          <span *ngIf="!loginhere" style="text-transform: capitalize;"> Verify & Continue</span>
+          <span *ngIf="loginhere">Loading</span>
+          <ion-spinner name="dots" style="color:white;font-size:medium;" *ngIf="loginhere"></ion-spinner>
+  
+        </ion-button>
+
+      </div>
+    </div>
+
+  </div>
+</ion-content>

@@ -1,0 +1,10 @@
+<app-custom-toolbar [title]="'Privacy Policy'" [showBackButton]="true"
+  [showMenuButton]="false" [showThreeDots]="false" [backUrl]="'/pan-entry'">
+</app-custom-toolbar>
+
+
+<ion-content class="privacy-content">
+  <div class="policy-container" style="margin-top: 10px;">
+    <div class="policy-text" [innerHTML]="policiesData"></div>
+  </div>
+</ion-content>

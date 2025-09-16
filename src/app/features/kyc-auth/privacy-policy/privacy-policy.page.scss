@@ -1,0 +1,33 @@
+.privacy-content {
+  --background: #fff; // white background
+  padding: 16px;
+}
+
+.policy-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.policy-title {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #c6a65a; // gold/brown heading
+  margin-bottom: 12px;
+  text-align: center;
+}
+
+.policy-text {
+  font-size: 15px;
+  line-height: 1.7;
+  color: #333;
+  white-space: pre-line; // keeps line breaks if backend sends \n
+}
+
+.policy-text ol,
+.policy-text ul {
+  padding-left: 20px;
+}
+
+.policy-text li {
+  margin-bottom: 10px;
+}

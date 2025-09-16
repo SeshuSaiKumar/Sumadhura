@@ -1,0 +1,38 @@
+<ion-content class="ion-padding">
+
+<div class="section-note">
+  <ion-icon name="information-circle-outline"></ion-icon>
+  Please choose the source to generate OTP.
+</div>
+
+
+  <!-- Mobile Number List -->
+  <ion-list *ngIf="model_data.length > 1">
+    <ion-label class="section-title">Mobile Numbers</ion-label>
+    <ion-radio-group [(ngModel)]="mobile">
+      <ion-item *ngFor="let item of model_data" class="radio-item">
+        <ion-radio slot="start" [value]="item"></ion-radio>
+        <ion-label>{{ item }}</ion-label>
+      </ion-item>
+    </ion-radio-group>
+  </ion-list>
+
+  <!-- Email ID List -->
+  <ion-list *ngIf="model_emailIDS.length > 1">
+    <ion-label class="section-title">Mail IDs</ion-label>
+    <ion-radio-group [(ngModel)]="email">
+      <ion-item *ngFor="let item of model_emailIDS" class="radio-item">
+        <ion-radio slot="start" [value]="item"></ion-radio>
+        <ion-label class="wrap-text">{{ item }}</ion-label>
+      </ion-item>
+    </ion-radio-group>
+  </ion-list>
+
+  <!-- Submit Button -->
+  <div class="ion-text-center ion-margin-top">
+    <ion-button expand="block" class="sendotpbtncls" (click)="submitFun()">
+      Send OTP
+    </ion-button>
+  </div>
+
+</ion-content>

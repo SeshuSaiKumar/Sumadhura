@@ -1,0 +1,295 @@
+ion-content {
+    --background: linear-gradient(180deg, #ffffff 10%, #d4ac51f7 140%);
+}
+
+.progress-container {
+    display: flex;
+    justify-content: center;
+    margin: 32px 0 24px;
+}
+
+.step {
+    flex: 1;
+    height: 8px;
+    margin: 0 4px;
+    background: #d9d9d9;
+    border-radius: 3px;
+
+    &.done {
+        background: #caa648;
+    }
+
+    // gold
+}
+
+.bg-image {
+    background-image: url('/assets/imgs/MPIN.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    overflow: hidden;
+}
+
+.img {
+    height: 130px !important;
+    position: relative;
+    top: 53%;
+    margin-top: 13%;
+}
+
+.img2 {
+    position: fixed;
+    top: 30% !important;
+    left: 0% !important;
+
+}
+
+.img3 {
+    position: fixed;
+    top: -1%;
+    left: 43%;
+}
+
+.footer-md::before,
+.tabs-md[tabsPlacement="bottom"]>.tabbar::before {
+    height: 0px !important;
+}
+
+.logo_img {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo_img2 {
+    margin-bottom: 31px !important;
+}
+
+.policies {
+    margin-left: 56%;
+    color: #161414;
+    text-decoration-line: underline;
+}
+
+.policies_cls {
+      float: right;
+    font-size: 16px;
+    color: #41A4D2;
+    text-decoration: underline;
+    padding: 10px;
+    font-family: "Lato", sans-serif;
+    display: flex
+;
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+    z-index: 9999 !important;
+    position: relative;
+}
+
+.threelab {
+    padding: 0;
+    // position: relative;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+
+    ul {
+        // padding-left: 0;
+        list-style-type: none;
+        display: flex;
+        justify-content: center;
+        // position: relative;
+    }
+
+    li {
+        width: 2em;
+        height: 2em;
+        text-align: center;
+        line-height: 2em;
+        border-radius: 1em;
+        background: dodgerblue;
+        margin: 0 1em;
+        display: inline-block;
+        color: white;
+        position: relative;
+    }
+
+    li::before {
+        content: '';
+        position: absolute;
+        top: 0.9em;
+        left: -4em;
+        width: 4em;
+        height: 0.2em;
+        background: dodgerblue;
+        z-index: -1;
+    }
+
+    li:first-child::before {
+        display: none;
+    }
+
+    .active {
+        background: dodgerblue;
+    }
+
+    .active~li {
+        background: lightblue;
+    }
+
+    .active~li::before {
+        background: lightblue;
+    }
+
+    span {
+        font-size: 12px;
+        font-weight: bold;
+        text-transform: uppercase;
+        font-family: 'Lato', sans-serif;
+
+    }
+}
+
+input,
+.text-input {
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.mpinotp,
+.mpinAdhar {
+    color: #090000;
+    text-align: center;
+    font-weight: bold;
+}
+
+.loginButton {
+    color: orchid;
+}
+
+.transparent {
+    --background: transparent;
+    color: black !important;
+    font-size: 20px;
+    font-family: 'Lato', sans-serif;
+
+    text-align: center;
+    font-weight: bold;
+}
+
+.item-md.i {
+    padding-right: 8px;
+    border-bottom: 1px solid red;
+}
+
+.span {
+    font-size: 12px;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-family: 'Lato', sans-serif;
+
+}
+
+.otp-container {
+    --background: linear-gradient(to bottom, #f6e2b3, #e6c879); // soft gradient
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 20px;
+}
+
+.resend-timer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    font-size: 16px;
+    color: #5c4420;
+
+    ion-spinner {
+        margin-right: 8px;
+        width: 18px;
+        height: 18px;
+        color: #d4a437;
+    }
+
+    strong {
+        color: #d4a437; // golden timer text
+    }
+}
+
+.submit-btn-wrapper {
+    margin-top: 30px;
+    position: relative;
+    top: 70px;
+
+}
+
+.submit-btn {
+    --background: #d4a437; // solid golden background
+    --background-activated: #c3932d;
+    --border-radius: 50px;
+    --box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    font-size: 18px;
+    font-weight: 600;
+    height: 56px;
+    text-transform: none; // Keep original casing
+}
+
+
+.forwordiconcls {
+    padding-left: 3px !important;
+}
+
+::ng-deep .modal-wrapper {
+    height: 80vh;
+}
+
+.mpincls {
+    padding-left: 20px !important;
+}
+
+.SignUp {
+    padding-right: 20px !important;
+}
+
+body {
+    font-family: sans-serif;
+    padding: 2em;
+}
+
+.pan-item input {
+    text-align: center !important;
+}
+
+.title {
+    font-size: 16px;
+    margin-bottom: 20px;
+    font-weight: 700;
+    text-align: center;
+    justify-content: center;
+    display: flex;
+    justify-items: center;
+}
+
+.pan-item {
+    justify-content: center;
+    border-radius: 8px;
+    background: #fff;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, .07);
+
+    .item-inner,
+    .input-wrapper {
+        border: none !important;
+    }
+
+    ion-input {
+        text-align: center;
+        letter-spacing: 4px; // dotted “••••” look
+        font-size: 22px;
+        font-weight: 600;
+    }
+}

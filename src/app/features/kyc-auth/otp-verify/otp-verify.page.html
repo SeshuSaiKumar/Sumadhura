@@ -1,0 +1,93 @@
+<ion-content class="bg-image ion-padding">
+  <div class="progress-container">
+    <div class="step done"></div>
+    <div class="step"></div>
+    <div class="step"></div>
+  </div>
+
+  <!-- Logo and Images -->
+  <div>
+    <div text-center class="logo_img">
+      <img class="img" src="assets/imgs/sum-tagline.png" />
+    </div>
+    <div class="progress-bar">
+      <div class="step active"></div>
+      <div class="step active"></div>
+      <div class="step"></div>
+    </div>
+    <div text-center>
+      <img class="img2" src="assets\imgs\_new_dashboard\vector.png">
+    </div>
+    <div text-center>
+      <img class="img3" src="assets\imgs\_new_dashboard\vector2.png">
+    </div>
+
+    <div text-center class="logo_img2">
+      <img src="assets/imgs/newscreen/mail.png" class="email-icon" />
+    </div>
+
+    <!-- OTP Instruction -->
+    <p class="mpinotp">
+      Please enter the 6 digit code that has been sent via SMS on {{ shortmobile }} and email on {{ shortEmailIds }}
+    </p>
+
+    <!-- OTP Input -->
+    <ion-grid>
+      <ion-row>
+        <ion-col style="display: flex;justify-content: center;">
+          <ion-item class="transparent" lines="none">
+            <div class="otp-box">
+              <input #otpInput type="number" maxlength="1" inputmode="numeric" pattern="\d*" [(ngModel)]="mpin[0]"
+                (input)="moveToNext($event, 0)" />
+              <input #otpInput type="number" maxlength="1" inputmode="numeric" pattern="\d*" [(ngModel)]="mpin[1]"
+                (input)="moveToNext($event, 1)" />
+              <input #otpInput type="number" maxlength="1" inputmode="numeric" pattern="\d*" [(ngModel)]="mpin[2]"
+                (input)="moveToNext($event, 2)" />
+              <input #otpInput type="number" maxlength="1" inputmode="numeric" pattern="\d*" [(ngModel)]="mpin[3]"
+                (input)="moveToNext($event, 3)" />
+              <input #otpInput type="number" maxlength="1" inputmode="numeric" pattern="\d*" [(ngModel)]="mpin[4]"
+                (input)="moveToNext($event, 4)" />
+              <input #otpInput type="number" maxlength="1" inputmode="numeric" pattern="\d*" [(ngModel)]="mpin[5]"
+                (input)="moveToNext($event, 5)" />
+            </div>
+
+          </ion-item>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+    <!-- Resend OTP Button -->
+    <div *ngIf="!buttonDisabled" style="font-size: 16px;
+      color: #41A4D2;
+      text-decoration: underline;
+      padding: 10px;
+      font-family: 'Lato', sans-serif;
+      display: flex;
+      justify-content: center;
+      text-align: center;
+      width: 100%;">
+      <ion-button *ngIf="!buttonDisabled" [class.disabled]="buttonDisabled" (click)="resendOtpservicecalling()"
+        style="--box-shadow:none;font-family: 'Lato', sans-serif; text-decoration: underline; font-size: 15px; --background: transparent; font-weight: 700;color: #41A4D2;">
+        Resend OTP
+        <ion-icon *ngIf="timerText === ''" name="refresh" class="refresh-icon" style="font-size: 23px;"></ion-icon>
+        <span class="timer" *ngIf="timerText"></span>
+      </ion-button>
+    </div>
+    <div *ngIf="buttonDisabled" style="font-size: 16px;color: #41A4D2;text-decoration: underline;padding: 10px;font-family: 'Lato', sans-serif;display: flex;justify-content: center;
+      text-align: center;width: 100%;" class="resend-text disabled">
+      <ion-icon *ngIf="buttonDisabled" name="refresh" class="refresh-icon" style="font-size: 23px;"></ion-icon>
+      Code will resend in <span class="timer">{{ timerText }}</span>
+    </div>
+
+     <div class="submit-btn-wrapper">
+      <ion-button expand="block" class="submit-btn" (click)="signup_two()">
+        Submit & Next →
+      </ion-button>
+    </div>
+
+
+    
+
+    <div id="some_div"></div>
+  </div>
+</ion-content>
