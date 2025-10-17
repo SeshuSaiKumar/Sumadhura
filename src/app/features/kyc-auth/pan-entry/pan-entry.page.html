@@ -20,9 +20,15 @@
       <ion-row>
         <ion-col>
           <ion-item class="pan-item" style="margin-left: 0px;">
-            <ion-input style="text-align: center!important;" type="text" maxlength="10" placeholder=".........."
-              [(ngModel)]="pan_num" (ionInput)="panvalidation($event)" >
-            </ion-input>
+             <ion-input
+    type="text"
+    maxlength="10"
+    inputmode="text"
+    style="text-align: center !important;"
+    placeholder=".........."
+    [(ngModel)]="pan_num"
+    (ionInput)="panvalidation($event)">
+  </ion-input>
           </ion-item>
         </ion-col>
       </ion-row>

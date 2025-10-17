@@ -1,0 +1,61 @@
+<ion-content fullscreen style="--background: #000000;">
+
+  <!-- Toolbar -->
+  <div style="position: fixed;
+    display: flex;
+    justify-content: space-between;
+    width: -webkit-fill-available;
+    height: 8%;
+    padding: 8px;
+    z-index: 10; background: rgba(240, 240, 240, 0);">
+
+    <ion-buttons slot="start">
+      <ion-button  (click)="saveDrawing()" class="save">
+        <ion-icon name="checkmark-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+
+    <ion-buttons slot="end">
+      <ion-button *ngIf="drawingPaths.length > 0" (click)="undoDrawing()" class="undo animate-in">
+        <ion-icon name="arrow-undo-circle-outline"></ion-icon>
+      </ion-button>
+
+      <ion-button (click)="enableDrawingMode()" class="pencil-button"
+        [ngClass]="{ 'active-pencil': drawingEnabled }">
+        <ion-icon name="pencil-outline"></ion-icon>
+      </ion-button>
+
+      <ion-button (click)="closeModal()" class="delete">
+        <ion-icon name="close-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </div>
+
+  <!-- Image Viewer Area -->
+  <ng-container *ngIf="images && images.length">
+    <div style="text-align: center;display: flex;align-items: center;height: 100%;">
+      <canvas #canvasEl
+        (mousedown)="startDrawing($event)"
+        (mousemove)="draw($event)"
+        (mouseup)="stopDrawing()"
+        (mouseleave)="stopDrawing()"
+        (touchstart)="startDrawing($event)"
+        (touchmove)="draw($event)"
+        (touchend)="stopDrawing()"
+        style="touch-action: none; display: block; width: 100%;">
+      </canvas> 
+    </div>
+
+    <!-- Prev/Next Buttons -->
+    <div  *ngIf="images.length > 1" style="position: fixed; bottom: 10px; width: 100%; display: flex; justify-content: space-between; padding: 0 20px; z-index: 10;">
+      <ion-button fill="outline" (click)="prevImage()" [disabled]="currentIndex === 0" style="--background: #cad1e77a;">
+        <ion-icon name="arrow-back-outline"></ion-icon> Prev
+      </ion-button>
+
+      <ion-button fill="outline" (click)="nextImage()" [disabled]="currentIndex === images.length - 1" style="--background: #cad1e77a;">
+        Next <ion-icon name="arrow-forward-outline"></ion-icon>
+      </ion-button>
+    </div>
+  </ng-container>
+
+</ion-content>

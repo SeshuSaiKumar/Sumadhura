@@ -1,0 +1,102 @@
+.card-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.logo-section-0 {
+    width: 70px;
+    flex-shrink: 0;
+    border-radius: 150px;
+    height: 70px;
+    background: white;
+    display: grid;
+    align-items: anchor-center;
+    justify-content: center;
+    border: 1px solid pink;
+}
+.logo-section-1 {
+    width: 70px;
+    flex-shrink: 0;
+    border-radius: 150px;
+    height: 70px;
+    background: white;
+    display: grid;
+    align-items: anchor-center;
+    justify-content: center;
+    border: 1px solid rgb(192, 240, 255);
+}
+
+.sumadhura-logo {
+  width: 70px;
+  height: auto;
+  object-fit: contain;
+  // margin-top: 8px;
+  // margin-bottom: 16px;
+}
+
+.content-section {
+  flex: 1 1 auto;
+  min-width: 0; /* Allow child text to truncate */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.update-title,
+.update-desc,
+.update-date {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.update-title {
+  font-weight: 700;
+  font-size: 15px;
+  color: #000;
+  margin-bottom: 5px;
+}
+
+.update-desc {
+  color: #444;
+  font-size: 13px;
+  margin-bottom: 6px;
+}
+
+.update-date {
+  font-size: 12px;
+  color: #96811a;
+  font-weight: 500;
+}
+
+.arrow-section {
+  // flex-shrink: 0; /* Prevent shrinking */
+  // width: 30px; /* fixed width for arrow */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  // padding-left: 6px;
+}
+.card-list{
+  margin-top: 19%;
+}
+.arrow {
+  font-size: 36px;
+  color: #f5b101;
+}
+// .bg-0 {
+//   background-color: #FFF6EA !important;
+// }
+
+.bg-0 {
+  background-color: #F1F1F1 !important;
+}
+
+// .bg-2 {
+//   background-color: #F6EAFF !important;
+// }
+
+.bg-1 {
+  background-color: #F1F1F1 !important;
+}

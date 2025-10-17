@@ -8,6 +8,9 @@ import { ProjectPageRoutingModule } from './project-routing.module';
 
 import { ProjectPage } from './project.page';
 import { ComponentsModule } from '../components/components.module';
+import { ProductService } from './project-view/product.service';
+import { TruncatePipe } from './truncate.pipe';
+import { FilterPipe } from './filter.pipe';
 
 @NgModule({
   imports: [
@@ -15,8 +18,11 @@ import { ComponentsModule } from '../components/components.module';
     FormsModule,
     IonicModule,
     ProjectPageRoutingModule,
-    ComponentsModule
+    ComponentsModule,
+    
   ],
-  declarations: [ProjectPage]
+  declarations: [ProjectPage,TruncatePipe,FilterPipe],
+    providers :[ProductService]
+
 })
 export class ProjectPageModule {}

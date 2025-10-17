@@ -63,12 +63,12 @@ ion-avatar {
 
   img {
     width: 100%;
-    border-radius: 16px;
+    height: 16rem;
   }
 
   .banner-text {
     position: absolute;
-    bottom: 10px;
+    bottom: 10px; 
     left: 16px;
     color: white;
     font-weight: 500;
@@ -108,7 +108,7 @@ ion-avatar {
     text-align: center;
     padding: 14px;
     // margin-bottom: 12px;
-      height: 94%;
+      height: 100%;
     width: 100%;
 
     ion-icon {
@@ -118,9 +118,9 @@ ion-avatar {
 
     p {
          font-family: "SF Pro Display", sans-serif;
-    font-weight: 400;
+    font-weight: 500;
     font-style: normal;
-    font-size: 14px;
+    font-size: 13px;
     line-height: 18px;
     margin-bottom: 12px;
     letter-spacing: 0;
@@ -128,7 +128,7 @@ ion-avatar {
     text-align: center;
     width: 123%;
     position: relative;
-    top: -10px;
+    top: -9px;
     justify-self: center;
     }
   }
@@ -154,7 +154,7 @@ ion-avatar {
   font-family: 'Lato', sans-serif;
   font-weight: 700;         /* Bold */
   font-style: normal;       /* "Bold" is weight; style should be 'normal' or 'italic' */
-  font-size: 21px;
+  font-size: 17px;
   line-height: 100%;        /* Equal to font-size, i.e., 21px */
   letter-spacing: 0;        /* No spacing */
   text-align: center;
@@ -206,6 +206,7 @@ ion-row {
 
 ion-col {
   padding-inline: 4px !important;
+  margin-bottom: 4px;
 }
 
 .unit-modal {
@@ -223,8 +224,8 @@ ion-col {
 }
 
 .category-image {
-  width: 34px;
-  height: 34px;
+  width: 30px;
+  height: 30px;
   margin: 0 auto 13px;
   object-fit: contain;
 }

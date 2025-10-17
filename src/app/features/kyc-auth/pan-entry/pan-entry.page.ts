@@ -54,25 +54,7 @@ export class PanEntryPage implements OnInit {
     }
     return true;
   }
-  // panvalidation(event: any) {
-  //   this.pan_num = event.target.value.toUpperCase();
-  //   if (this.pan_num.length > 10) {
-  //     this.pan_num = this.pan_num.slice(0, 10);
-  //     return;
-  //   }
-  //   if (this.pan_num.length === 10) {
-  //     const panRegex = /^[A-Z]{5}[0-9]{4}[A-Z]{1}$/;
-  //     if (!panRegex.test(this.pan_num)) {
-  //       this.common.presentAlert("PAN must be in the format: 5 letters, 4 digits, and 1 letter. Example: ABCDE1234F"
-  //       );
-  //       this.pan_num = "";
-  //       return false;
-  //     } else {
-  //       // this.common.presentToast("✅ PAN looks valid!");
-  //     }
-  //   }
-  // }
- panvalidation(event: any) {
+  panvalidation(event: any) {
   const rawValue = event.target.value.toUpperCase().replace(/[^A-Z0-9]/g, '');
   // Only take first 10 characters
   this.pan_num = rawValue.slice(0, 10);
@@ -86,6 +68,8 @@ export class PanEntryPage implements OnInit {
     }
   }
 }
+
+
   async signup_one() {
     if (!this.validatePan()) return;
 
@@ -156,7 +140,7 @@ export class PanEntryPage implements OnInit {
         sessionStorage.setItem('tempmob_session', maskedNum);
         sessionStorage.setItem('emailidss_session', resp.emails);
         localStorage.setItem('mobilenum_session', resp.mobileNo);
-        localStorage.setItem('session_key', resp.sessionKey);
+        localStorage.setItem('sessionKey', resp.sessionKey);
         localStorage.setItem('emails_session', resp.emails);
         localStorage.setItem('mycustId', resp.custId);
         this.common.presentAlert(resp.status);

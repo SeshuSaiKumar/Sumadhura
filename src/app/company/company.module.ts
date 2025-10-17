@@ -8,6 +8,7 @@ import { CompanyPageRoutingModule } from './company-routing.module';
 
 import { CompanyPage } from './company.page';
 import { ComponentsModule } from '../components/components.module';
+import { TruncatePipe } from './truncate.pipe';
 
 @NgModule({
   imports: [
@@ -17,6 +18,6 @@ import { ComponentsModule } from '../components/components.module';
     CompanyPageRoutingModule,
     ComponentsModule
   ],
-  declarations: [CompanyPage]
+  declarations: [CompanyPage,TruncatePipe]
 })
 export class CompanyPageModule {}

@@ -1,0 +1,56 @@
+/* Overall padding for content */
+ion-content.ion-padding {
+  background-color: #f7f8fa;
+  min-height: 100vh;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Title styling */
+.update-title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #1e2a78;
+  margin-bottom: 10px;
+  text-align: left;
+  margin-left: 15px;
+}
+
+/* Description paragraph styling */
+.update-desc {
+  font-size: 1rem;
+  color: #000000;
+  line-height: 1.4;
+  margin: 0 15px 20px 15px;
+  text-align: justify;
+}
+
+/* Image container */
+.update-image {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+
+/* Image styling */
+.update-image img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+}
+
+.update-image img:hover {
+  transform: scale(1.05);
+  cursor: pointer;
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+  .update-title {
+    font-size: 1.2rem;
+  }
+  .update-desc {
+    font-size: 1rem;
+  }
+}

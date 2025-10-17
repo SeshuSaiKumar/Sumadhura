@@ -7,6 +7,10 @@ const routes: Routes = [
   {
     path: '',
     component: CompanyPage
+  },
+  {
+    path: 'company-view', // <-- ID parameter added here
+    loadChildren: () => import('./company-view/company-view.module').then( m => m.CompanyViewPageModule)
   }
 ];
 

@@ -192,7 +192,7 @@ export class ChangePage implements OnInit {
           headers: { 'Content-Type': 'application/json' },
           data: {
             "deviceId": this.common.deviceToken,
-            "sessionKey": localStorage.getItem("sessionkey_afterlogin"),
+            "sessionKey": localStorage.getItem("sessionkey"),
             "empId": localStorage.getItem('mpinhandle'),
             "newMpin": this.otp_new_controller,
             "oldMpin": this.otp_controller,

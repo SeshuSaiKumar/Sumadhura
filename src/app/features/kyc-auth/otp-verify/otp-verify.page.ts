@@ -152,7 +152,7 @@ export class OtpVerifyPage implements OnInit {
       url: url,
       headers: { 'Content-Type': 'application/json' },
       data: {
-        sessionKey: localStorage.getItem('session_key'),
+        sessionKey: localStorage.getItem('sessionKey'),
         otp: enteredMPIN
       }
     };
@@ -214,7 +214,7 @@ export class OtpVerifyPage implements OnInit {
       headers: { 'Content-Type': 'application/json' },
       data: {
         "deviceToken": this.common.deviceToken,
-        "sessionKey": localStorage.getItem('session_key'),
+        "sessionKey": localStorage.getItem('sessionKey'),
         "mobileNo": localStorage.getItem('mobilenum_session'),
         "emails": [localStorage.getItem('emails_session')]
       }

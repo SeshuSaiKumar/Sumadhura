@@ -1,0 +1,44 @@
+.detail-container {
+  padding: 18px 16px;
+  min-height: calc(100vh - 60px); /* leave space for toolbar */
+  background: #fff;
+}
+
+.detail-title {
+  font-size: 16px;
+  color: #131313;
+  font-weight: 600;
+  margin-bottom: 24px;
+  white-space: normal;
+  word-wrap: break-word;
+}
+
+.detail-footer {
+  position: fixed;
+  bottom: 0;
+  width: 100vw;
+  height: 50px;
+  background: #fff;
+  border-top: 1px solid #eee;
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  align-items: center;
+  padding-bottom: env(safe-area-inset-bottom);
+  z-index: 10;
+}
+
+.footer-action {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  color: #131313;
+  font-weight: 600;
+  user-select: none;
+}
+
+.footer-action ion-icon {
+  font-size: 20px;
+  color: #131313;
+}

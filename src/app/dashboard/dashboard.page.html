@@ -11,7 +11,7 @@
     left: 3%;
     padding: 10px;">
       <ion-label (click)="openUnitModal()" class="profile-name" *ngIf="flatNumber"
-        style="margin-right: 8px; font-size: 14px;">
+        style="margin-right: 8px; font-size: 13px;">
         {{ flatNumber }}
       </ion-label>
       <!-- <ion-icon  name="ellipsis-vertical" class="menu-icon"></ion-icon> -->
@@ -32,15 +32,14 @@
   <!-- Categories Section -->
   <div class="categories-section">
     <div style="display: flex;align-items: center;margin-top: 5px;margin-bottom: 10px;">
-      <img src="assets/imgs/dashboard_new/category.png" alt="Loan Icon" style="width: 30px;margin-right: 5px;" />
+      <img src="assets/imgs/dashboard_new/category.png" alt="Loan Icon" style="width: 24px;margin-right: 5px;" />
       <label class="category">Categories</label>
     </div>
-    <swiper [pagination]="true" [spaceBetween]="15" class="category-swiper">
       <!-- Each swiper slide = 6 categories -->
-      <ng-template swiperSlide *ngFor="let group of chunkedCategories">
+      <ng-container  *ngFor="let group of chunkedCategories">
         <ion-grid>
           <ion-row>
-            <ion-col class="hght30" size="4" *ngFor="let item of group" (click)="navigateTo(item.appMenuPageLink)">
+            <ion-col class="hght25" size="4" *ngFor="let item of group" (click)="navigateTo(item.appMenuPageLink)">
               <div class="category-card" [ngStyle]="{ 'background': item.color, 'color': item.textColor }">
                 <img [src]="item.appmenuimgPath" class="category-image" />
                 <p>{{ item.appMenuName }}</p>
@@ -48,8 +47,7 @@
             </ion-col>
           </ion-row>
         </ion-grid>
-      </ng-template>
-    </swiper>
+      </ng-container>
   </div>
 
 </ion-content>

@@ -2,7 +2,8 @@
   <ion-toolbar class="gradient-header">
     <div class="dh">
     <ion-buttons slot="start">
-      <ion-back-button defaultHref="customer-care"></ion-back-button>
+      <ion-back-button defaultHref="CustomerCarePage"></ion-back-button>
+      
     </ion-buttons>
     <ion-title>
       Ticket : {{details.ticketId}}
@@ -17,7 +18,7 @@
   </ion-toolbar>
 </ion-header>
   
-<ion-content class="chat-content">
+<ion-content class="chat-content" #chatContent>
  <ion-modal [isOpen]="showModal" (willDismiss)="showModal = false" cssClass="ticket-details-modal ion-modal1">
   <ng-template>
     <ion-content>
@@ -64,16 +65,35 @@
     <span class="bubble-time">{{data.commentsDate| date :'dd/MM/y'}}</span>
     </div>
 
+<!-- <ion-row class="ion-no-padding ppml3 ppmb1" *ngIf="data.fromType == '7' ">
+  <ng-container *ngFor="let f of data.file.slice(0, 3); let idx = index">
+    <ion-col size="6" style="padding:0;">
+      <img [src]="getImageSource(f.url, f.extension)" class="img"
+           (error)="f.url = 'assets/imgs/file1.png'" 
+           (click)="myimage(data.file, idx)" />
+    </ion-col>
+  </ng-container>
+  <ion-col size="6" *ngIf="data.file.length > 3" style="padding:0;">
+    <div class="img-container" (click)="myimage(data.file, 3)">
+      <img 
+        [src]="getImageSource(data.file[3].url, data.file[3].extension)" 
+        class="img" 
+        (error)="data.file[3].url = 'assets/imgs/file1.png'" />
+      <div class="overlay" *ngIf="data.file.length > 4">
+        +{{ data.file.length - 3 }}
+      </div>
+    </div>
+  </ion-col>
+</ion-row> -->
 
-    <!-- customer chat-->
 
     <div class="chat-bubble right green" *ngIf="data.fromType == '7'">
       <!-- <img class="bubble-img" src="https://images.unsplash.com/photo-1519125323398-675f0ddb6308" /> -->
-<img 
+<!-- <img 
   class="bubble-img"
   *ngIf="campdfImgs?.length > 0"
   [src]="getImageSource(campdfImgs[0].url, campdfImgs[0].extension)"
-/>
+/> -->
 
 
 
@@ -89,7 +109,7 @@
       <span class="bubble-text" [innerHTML]="data.message">
       </span>
       <span class="bubble-tag">System Generated</span>
-      <span class="bubble-time">08:19 AM</span>
+    <span class="bubble-time">{{data.commentsDate| date :'dd/MM/y'}}</span>
     </div>
   </ng-container>
 </div>
@@ -97,18 +117,135 @@
 
 
   <!-- Action buttons -->
-  
+  <ion-modal class="ion-modal2" [initialBreakpoint]="0.95" [breakpoints]="[0.95,1]" [isOpen]="viewImagesModalOpen" (didDismiss)="viewImagesModalOpen = false">
+  <ng-template>
+    <ion-header>
+      <ion-toolbar style="--background: #D4AC51; color: #ffffff;">
+
+        <ion-title>All Attachments</ion-title>
+        <ion-buttons slot="end">
+          <ion-button (click)="viewImagesModalOpen = false">
+            <ion-icon style="border: 2px solid #ffffff;border-radius: 6px;padding:5px;" name="close-outline"></ion-icon>
+          </ion-button>
+        </ion-buttons>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content class="ion-padding" >
+      <!-- <img 
+        class="bubble-img"
+        *ngIf="campdfImgs?.length > 0"
+        [src]="getImageSource(campdfImgs.url, campdfImgs.extension)"
+      /> -->
+
+        <ion-row *ngFor="let file of campdfImgs; index as i;"  style="border: 1px solid #e0c3c3;
+    border-radius: 6px;
+    width: 100%;
+    padding: 10px;
+    justify-self: center;
+    display: flex;
+    margin-bottom: 10px;box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);">
+          <ion-col size="2">
+            <img *ngIf="file.extension == 'N/A'" src="assets/imgs/file1.png" class="img"
+              (click)="onImageClick(file.url)" />
+
+            <img *ngIf="file.extension == 'pdf' || file.extension == 'PDF'" src="assets/imgs/pdficon.png" class="img"
+              (click)="onImageClick(file.url)" />
+
+            <img *ngIf="file.extension == 'xlsx' || file.extension == 'XLSX'" src="assets/imgs/xlsxicon.png"
+              class="img" (click)="onImageClick(file.url)" />
+
+            <img *ngIf="file.extension == 'xlx' || file.extension == 'XLX'" src="assets/imgs/xlsxicon.png" class="img"
+              (click)="onImageClick(file.url)" />
+      
+            <img *ngIf="file.extension == 'jpg' || file.extension == 'JPG'" [src]="(file.url)" class="img"
+              (click)="onImageClick(file.url)" />
+
+            <img *ngIf="file.extension == 'jpeg' || file.extension == 'JPEG'" [src]="(file.url)" class="img"
+              (click)="onImageClick(file.url)" />
+
+            <img *ngIf="file.extension == 'png' || file.extension == 'PNG'"  [src]="(file.url)" class="img"
+              (click)="onImageClick(file.url)" />           
+      
+            <img *ngIf="file.extension == 'docx' || file.extension == 'DOCX'" src="assets/imgs/wordicon.png"
+              class="img" (click)="onImageClick(file.url)" />
+
+            <img *ngIf="file.extension == 'doc' || file.extension == 'DOC'" src="assets/imgs/wordicon.png" class="img"
+              (click)="onImageClick(file.url)" />
+
+            <img *ngIf="file.extension == 'svg' || file.extension == 'SVG'" [src]="(file.url)" class="img"
+              (click)="onImageClick(file.url)" />
+      
+            <img *ngIf="file.extension == 'txt' || file.extension == 'TXT'" src="assets/imgs/txticon.jpg" class="img"
+              (click)="onImageClick(file.url)" />
+
+            <img *ngIf="file.extension == 'ppt' || file.extension == 'PPT'"  src="assets/imgs/pptxicon.png" class="img"
+              (click)="onImageClick(file.url)" />
+
+            <img *ngIf="file.extension == 'pptx' || file.extension == 'PPTX'"  src="assets/imgs/pptxicon.png"
+              class="img" (click)="onImageClick(file.url)" />
+          </ion-col>
+          <ion-col size="10" style="padding-left: 4px;">
+            <span *ngIf="file.createdType=='CUSTOMER'" style="word-break: break-all;font-size: 16px;font-weight: 600;">Customer:  {{file.createdBy}}</span>
+            <span *ngIf="file.createdType=='EMPLOYEE'" style="word-break: break-all;font-size: 16px;font-weight: 600;">{{file.createdBy}}</span>
+
+            <p class="filename" (click)="onImageClick(file.url)" *ngIf="file.extension == 'N/A'">
+              {{file.name}}</p>
+
+            <p class="filename" (click)="onImageClick(file.url)" *ngIf="file.extension == 'pdf' || file.extension == 'PDF'">
+              {{file.name}}</p>
+
+            <p class="filename" (click)="onImageClick(file.url)" *ngIf="file.extension == 'xlsx' || file.extension == 'XLSX'">
+              {{file.name}}</p>
+
+            <p class="filename" (click)="onImageClick(file.url)" *ngIf="file.extension == 'xlx' || file.extension == 'XLX'">
+              {{file.name}}</p>
+      
+            <p class="filename" (click)="onImageClick(file.url)" *ngIf="file.extension == 'jpg' || file.extension == 'JPG'">
+              {{file.name}}</p>
+
+            <p class="filename" (click)="onImageClick(file.url)" *ngIf="file.extension == 'jpeg' || file.extension == 'JPEG'">
+              {{file.name}}</p>
+
+            <p class="filename" (click)="onImageClick(file.url)" *ngIf="file.extension == 'png' || file.extension == 'PNG'">
+              {{file.name}}</p>
+
+            <p class="filename" (click)="onImageClick(file.url)" *ngIf="file.extension == 'docx' || file.extension == 'DOCX'">
+              {{file.name}}</p>
+
+            <p class="filename" (click)="onImageClick(file.url)" *ngIf="file.extension == 'doc' || file.extension == 'DOC'">
+              {{file.name}}</p>
+      
+            <p class="filename" (click)="onImageClick(file.url)" *ngIf="file.extension == 'svg' || file.extension == 'SVG'">
+              {{file.name}}</p>
+      
+            <p class="filename" (click)="onImageClick(file.url)" *ngIf="file.extension == 'txt' || file.extension == 'TXT'">
+              {{file.name}}</p>
+      
+            <p class="filename" (click)="onImageClick(file.url)" *ngIf="file.extension == 'ppt' || file.extension == 'PPT'">
+              {{file.name}}</p>
+
+            <p class="filename" (click)="onImageClick(file.url)" *ngIf="file.extension == 'pptx' || file.extension == 'PPTX'">
+              {{file.name}}</p>
+          </ion-col>
+          <div class="hr"> </div>
+        </ion-row>
+             <app-zoom-img #zoomImageComp [images]="selectedImage ? [selectedImage] : []"></app-zoom-img>
+
+    </ion-content>
+  </ng-template>
+</ion-modal>
+
 
   
 <!-- ✅ Your inline modal -->
-<ion-modal class="ion-modal2" [isOpen]="viewImagesModalOpen" (didDismiss)="viewImagesModalOpen = false">
+<ion-modal class="ion-modal3" [isOpen]="ImagesModalOpen" (didDismiss)="ImagesModalOpen = false">
   <ng-template>
     <ion-header>
       <ion-toolbar>
         <ion-title>View Uploaded Images</ion-title>
         <ion-buttons slot="end">
-          <ion-button (click)="viewImagesModalOpen = false">
-            <ion-icon name="close-outline"></ion-icon>
+          <ion-button (click)="ImagesModalOpen = false">
+            <ion-icon style="border: 2px solid #ffffff;border-radius: 6px;padding:5px;" name="close-outline"></ion-icon>
           </ion-button>
         </ion-buttons>
       </ion-toolbar>
@@ -118,16 +255,24 @@
 
 <div *ngIf="maincontroller?.length">
   <div *ngFor="let p of maincontroller; let i = index;"
-       style="width: 100%; padding: 10px; left: 9%; display: flex; align-items: center; gap: 10px; bottom: 0;">
+        style="border: 1px solid #e0c3c3;
+    border-radius: 6px;
+    width: 105%;
+    padding: 10px;
+    justify-self: center;
+    gap: 10px;
+    display: flex;
+    margin-bottom: 10px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);">
     
     <!-- Image preview with click to open modal -->
     <img [src]="p.base64"
          alt="Selected Image"
          (click)="openSliderEditor(maincontroller, i, false)"
-         style="width: 40px; height: 30px; object-fit: cover; border-radius: 5px; border: 1px solid #ccc; cursor: pointer;" />
+         class="img" />
 
     <!-- Image name -->
-    <span class="my__textoverflow" style="flex: 1; color: #2C4DB9; font-weight: 500;">
+    <span class="filename" style="flex: 1; color: #2C4DB9; font-weight: 500;">
       {{ p.name }}
     </span>
 
@@ -141,36 +286,35 @@
     </ion-content>
   </ng-template>
 </ion-modal>
-</ion-content>
-  <!-- Message Input -->
-   <ion-footer class="chat-footer">
 
+
+  
 <ion-row
-  class="actions-row"
-  [ngStyle]="{ position: 'fixed', top: maincontroller?.length ? '71%' : '76%', width: '100%' }"
->    <ion-col size="8">
-    <ion-button class="reopen-btn" shape="round">Ticket Re - Open</ion-button>
+  class="actions-row"[ngStyle]="{ 
+  position: 'fixed', top: ticketStatus === 'Closed' ? '88%' : (maincontroller.length ? '71%' : '76%'), width: '100%'}">
+    <ion-col size="8">
+    <ion-button  *ngIf="ticketStatus === 'Closed'" (click)="reOpen()" class="reopen-btn" shape="round">Ticket Re - Open</ion-button>
+    <ion-button  *ngIf="ticketStatus !== 'Closed'" (click)="ticketClose()" class="reopen-btn" shape="round">Close - Ticket</ion-button>
     </ion-col>
     <ion-col size="1.5">
-    <ion-button fill="clear" class="refresh-btn" size="small">
+    <ion-button fill="clear" class="refresh-btn" size="small" (click)="myTicketsList()" >
                     <img src="assets/imgs/dashboard_new/refresh-cw.png" > 
 
     </ion-button>
     </ion-col>
     <ion-col size="1.5">
-    <ion-button fill="clear" class="edit-btn" size="small">
+    <ion-button (click)="imageViewModal()" fill="clear" class="edit-btn" size="small">
                     <img src="assets/imgs/dashboard_new/Path.png" > 
 
     </ion-button>
     </ion-col>
   </ion-row>
 
-  <div class="chat-input-row">
+  <!-- <ion-row class="chat-input-row" *ngIf="ticketStatus !== 'Closed'">
 
-            
+           
             <span class="hidden-file">
-              <!-- <input type="file" #fileInput ng2FileSelect [uploader]="uploader" (click)="fileInput.value = ''"
-                (change)="onFileSelected($event)" accept="'image'" /> -->
+           
                 <input type="file"
        #fileInput
        (change)="onFileSelected($event)"
@@ -179,33 +323,36 @@
        (click)="fileInput.value = ''" />
             </span>
 
-    <div lines="none" class="chat-input dh dv dc">
+    <ion-col lines="none" class="chat-input dh dv dc">
+
     <img src="assets/imgs/dashboard_new/Path.png" class="ppmr3 wdth5 ppml3 hght6 " (click)='chat_attachement(fileInput)'> 
-               
-           
+       </ion-col>
+       <ion-col size="8" class="chat-input dh dv dc">
+<ion-textarea 
+  [(ngModel)]="tictcomplint"
+  placeholder="Write a message" 
+  [autoGrow]="true"
+  rows="1"
+  maxlength="500"
+  class="message-textarea"
+  fill="outline"
+  autocomplete="on"
+  autocorrect="on"
+  spellcheck="true"
+  autocapitalize="sentences"
+  (ionInput)="onInputChange($event)">
+</ion-textarea>
 
-      <ion-textarea  [(ngModel)]="tictcomplint"
-        placeholder="Write a message" 
-        style="--padding-start: 10px; --background: #d0d0d0; --border-radius: 16px; --padding-end: 22px; width: 80%; position: relative; left: 1%; max-height: calc(5 * 1.5em); overflow-y: auto;" 
-        fill="outline" 
-        id="create-textarea" 
-        autocomplete="on" 
-        autocorrect="on" 
-        spellcheck="true"
-        autocapitalize="sentences"
-        auto-grow
-        rows="1"
-      ></ion-textarea>
-
-
+</ion-col>  
+<ion-col>
       <ion-button class="send-btn" fill="none" class="ppml0 " (click)="chatSubmit()" >
         <img class="wdth11" src="assets/imgs/dashboard_new/Button.png">
       </ion-button>
-    </div>
+    </ion-col>
     <div class="dh dc">
          <ion-button 
   fill="clear"
-  (click)="viewImagesModalOpen = true" 
+  (click)="ImagesModalOpen = true" 
   *ngIf="maincontroller?.length"
   style="
     width: 83%;
@@ -225,5 +372,75 @@
 </div>
 
 
-  </div>
-  </ion-footer>
+  </ion-row> -->
+</ion-content>
+  <!-- Message Input -->
+   <!-- <ion-footer class="chat-footer">
+
+  </ion-footer> -->
+  <!-- Chat messages area -->
+  
+
+
+
+<ion-footer class="chat-footer">
+  <ion-toolbar class="chat-toolbar">
+    <div class="chat-input-container">
+         <span class="hidden-file">
+              <!-- <input type="file" #fileInput ng2FileSelect [uploader]="uploader" (click)="fileInput.value = ''"
+                (change)="onFileSelected($event)" accept="'image'" /> -->
+                <input type="file"
+       #fileInput
+       (change)="onFileSelected($event)"
+       accept="image/*"
+       multiple
+       (click)="fileInput.value = ''" />
+            </span>
+      <!-- Attachment Button -->
+      <ion-button 
+        fill="clear" 
+        class="attachment-btn"
+        (click)='chat_attachement(fileInput)'
+        >
+        <ion-icon name="attach" slot="icon-only"></ion-icon>
+      </ion-button>
+      
+      <!-- Single Line Starting Text Input -->
+      <div class="textarea-container">
+        <ion-textarea  style=" white-space: pre-wrap;width: 100%;
+              margin-left: 0%;text-transform: revert!important;"
+          #messageInput
+          fill="outline" 
+          class="message-textarea"
+          [(ngModel)]="tictcomplint"
+          placeholder="Type a message"
+          [autoGrow]="true"
+          rows="1"
+          maxlength="500"
+          (ionInput)="adjustTextareaHeight($event)"
+          (keydown)="handleKeydown($event)">
+        </ion-textarea>
+      </div>
+      
+      <!-- Camera Button -->
+      <ion-button 
+        fill="clear" 
+        class="camera-btn"
+        (click)="selectImage('camera')"
+        *ngIf="tictcomplint.trim().length === 0">
+        <ion-icon name="camera" slot="icon-only"></ion-icon>
+      </ion-button>
+      
+      <!-- Send Button -->
+      <ion-button 
+        fill="clear" 
+        class="send-btn"
+        (click)="chatSubmit()"
+        *ngIf="tictcomplint.trim().length > 0">
+        <ion-icon style="font-size: 20px;" name="send" slot="icon-only"></ion-icon>
+      </ion-button>
+      
+    </div>
+  </ion-toolbar>
+</ion-footer>
+

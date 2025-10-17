@@ -1,0 +1,79 @@
+.top-banner {
+  background-image: url('/assets/imgs/Appointment-Letter.png');
+  background-position: center;
+  background-size: cover;
+  height: 181px;
+  display: flex;
+  align-items: center;
+}
+
+ion-segment {
+  margin: 8px 0;
+}
+
+ion-card {
+  margin: 10px;
+}
+
+.slot-dates, .slot-times {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+.modal-content {
+  padding: 16px;
+}
+.submit-btn {
+  --background:  linear-gradient(90deg, #e78340 0%, #e9c832 100%);
+  color: #fff;
+  font-size: 17px;
+  font-weight: 600;
+  border-radius: 25px;
+  height: 42px;
+      justify-self: center;
+    margin-top: 15%;
+
+}
+.finance-page {
+  --padding-start: 6px;
+  --padding-end: 6px;
+
+
+  ion-segment-button {
+    font-weight: 700;
+    margin: 4px;
+    font-size: 11px;
+  }
+  .custom-segment {
+  --background: transparent;
+  box-shadow: none;
+      border: 1px solid #E7E7E7;
+    border-radius: 70px;
+    margin-top: 10px;
+
+
+  ion-segment-button {
+    background: white; /* Inactive background */
+    color: black;      /* Inactive text */
+    --border-radius: 50px; /* Rounded corners */
+    --border-style: none;
+    --indicator-color: transparent; /* Remove underline */
+    --height: 34px; /* ✅ Button height */
+    min-height: 34px; /* fallback */
+    line-height: 34px; /* centers text vertically */
+
+    &.segment-button-checked {
+      background: #D4AC51; /* Active background */
+      color: white;      /* Active text */
+      --border-style: none; /* No border */
+          font-size: 10px;
+
+    }
+  }
+}
+}
+.arrow {
+  font-size: 36px;
+  color: #f5b101;
+}

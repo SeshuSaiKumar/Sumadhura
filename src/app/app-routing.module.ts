@@ -47,7 +47,10 @@ const routes: Routes = [
     path: 'BookAppointmentPage',
     loadChildren: () => import('./Appointment/book/book.module').then(m => m.BookPageModule)
   },
-
+  {
+    path: 'EcomunicationMessagesPage',
+    loadChildren: () => import('./Inbox/inbox/inbox.module').then(m => m.InboxPageModule)
+  },
   {
     path: 'PaintsPage',
     loadChildren: () => import('./Selections/selections/selections.module').then(m => m.SelectionsPageModule)
@@ -105,22 +108,25 @@ const routes: Routes = [
     loadChildren: () => import('./Financials/invoices/invoices.module').then( m => m.InvoicesPageModule)
   },
   {
-    path: 'upload-image-view',
-    loadChildren: () => import('./uploaddocuments/upload-image-view/upload-image-view.module').then( m => m.UploadImageViewPageModule)
-  },
-
-  {
-    path: 'EcomunicationMessagesPage',
-    loadChildren: () => import('./inbox/message-list/message-list.module').then( m => m.MessageListPageModule)
+    path: 'view-ticket',
+    loadChildren: () => import('./Tickets/view-ticket/view-ticket.module').then( m => m.ViewTicketPageModule)
   },
   {
-    path: 'message-chat',
-    loadChildren: () => import('./inbox/message-chat/message-chat.module').then( m => m.MessageChatPageModule)
+    path: 'book-view',
+    loadChildren: () => import('./Appointment/book-view/book-view.module').then( m => m.BookViewPageModule)
   },
-
-
- 
-  
+  {
+    path: 'inbox-details',
+    loadChildren: () => import('./Inbox/inbox-details/inbox-details.module').then( m => m.InboxDetailsPageModule)
+  },
+  {
+    path: 'image-editor-modal',
+    loadChildren: () => import('./image-editor-modal/image-editor-modal.module').then( m => m.ImageEditorModalPageModule)
+  },
+  {
+    path: 'ratings',
+    loadChildren: () => import('./Tickets/ratings/ratings.module').then( m => m.RatingsPageModule)
+  },
 ];
 
 @NgModule({

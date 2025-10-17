@@ -1,5 +1,5 @@
 <app-custom-toolbar [title]="'Finance &gt; Interest Letter'" [showBackButton]="true"
-  [showMenuButton]="true" [showThreeDots]="true" [backUrl]="'/FinancialsPage'">
+  [showMenuButton]="false" [showThreeDots]="true" [backUrl]="'/FinancialsPage'">
 </app-custom-toolbar>
 
 <ion-content  fullscreen>
@@ -110,8 +110,8 @@
   </ion-card>
 
   <!-- Demand Note List -->
-  <ion-list  style="color: #FAFBFD;" *ngIf="intrest_letters?.length">
-    <ion-item class="note-item" *ngFor="let note of intrest_letters" (click)="demandnotedownload(note.demandNoteUrl)">
+  <ion-list  style="color: #FAFBFD;">
+    <ion-item class="note-item" *ngFor="let note of demandNotes">
       <ion-col size="2" class="dh dc pppy3">
         <div class="note-icon">
         <ion-icon style="font-size: 14px;" name="reload" size="large" color="primary"></ion-icon>
@@ -119,10 +119,10 @@
       </ion-col>
       <ion-col size="5">
       <ion-row>
-        <ion-label class="note-number">{{ note.interestAmountWithFormat }}</ion-label>
+        <ion-label class="note-number">{{ note.number }}</ion-label>
         </ion-row>
         <ion-row>
-        <ion-label class="note-date">{{ note.createdDate | date: 'MMM d, yyyy' }}</ion-label>
+        <ion-label class="note-date">{{ note.date | date: 'MMM d, yyyy' }}</ion-label>
       </ion-row>
       </ion-col>
       <ion-col size="5">
@@ -136,28 +136,27 @@
       </ion-col>
     </ion-item>
   </ion-list>
-
-    <ng-container *ngIf="!intrest_letters?.length">
-  <ion-card class="empty-card" mode="ios">
-    <ion-card-content class="ion-text-center">
-      <ion-icon 
-        name="document-text-outline" 
-        class="empty-icon" 
-        style="font-size: 48px; color: #a0a0a0;">
-      </ion-icon>
-      <h2 class="empty-title" style="margin-top: 10px; font-weight: 600; color: #333;">
-        No Interest Letter Available
-      </h2>
-      <p class="empty-subtitle" style="color: #666; font-size: 14px;">
-        Please check back later for your Interest Letter.
-      </p>
-    </ion-card-content>
-  </ion-card>
-</ng-container>
-
-
-
 </div>
 </ion-content>
 
-
+<!-- Bottom Tabs -->
+<!-- <ion-tabs>
+  <ion-tab-bar slot="bottom" class="custom-tabbar">
+    <ion-tab-button tab="apply-loan">
+      <ion-icon name="cash-outline"></ion-icon>
+      <ion-label>Apply Loan</ion-label>
+    </ion-tab-button>
+    <ion-tab-button tab="passcode">
+      <ion-icon name="keypad-outline"></ion-icon>
+      <ion-label>Passcode</ion-label>
+    </ion-tab-button>
+    <ion-tab-button tab="unit-details">
+      <ion-icon name="apps-outline"></ion-icon>
+      <ion-label>Unit Details</ion-label>
+    </ion-tab-button>
+    <ion-tab-button tab="account">
+      <ion-icon name="person-outline"></ion-icon>
+      <ion-label>Account</ion-label>
+    </ion-tab-button>
+  </ion-tab-bar>
+</ion-tabs> -->

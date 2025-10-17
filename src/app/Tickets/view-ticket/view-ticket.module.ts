@@ -8,6 +8,8 @@ import { ViewTicketPageRoutingModule } from './view-ticket-routing.module';
 
 import { ViewTicketPage } from './view-ticket.page';
 import { FileUploadModule } from 'ng2-file-upload';
+import { TruncatePipe } from './truncate.pipe';
+import { ComponentsModule } from 'src/app/components/components.module';
 
 @NgModule({
   imports: [
@@ -17,7 +19,8 @@ import { FileUploadModule } from 'ng2-file-upload';
     ViewTicketPageRoutingModule,
         ReactiveFormsModule,
     FileUploadModule,
+    ComponentsModule
   ],
-  declarations: [ViewTicketPage]
+  declarations: [ViewTicketPage,TruncatePipe]
 })
 export class ViewTicketPageModule {}

@@ -1,0 +1,72 @@
+
+
+<app-custom-toolbar [title]="'Messages'" [showBackButton]="true"
+  [showMenuButton]="false" [showThreeDots]="false" [backUrl]="'/dashboard'">
+</app-custom-toolbar>
+
+<ion-content>
+
+  <!-- Search Bar -->
+  <ion-searchbar class="search" 
+    placeholder="Search subject or description..."
+    show-clear-button="focus">
+  </ion-searchbar>
+
+  <!-- Message List -->
+<div class="ppmt19 ppmb10">
+ <div *ngFor="let msg of messengerlist" class="ticket-card" [ngClass]="msg.viewDetails === 'NOT_VIEWED' ? 'ReOpen' : 'Closed'">
+    <ion-row class="bgdiv dh full-width"  routerLink="/inbox-details">
+      <ion-col size="2" class="dh dc ">
+        
+        <ng-container *ngIf="msg.location != null">
+              <img  [src]="msg.location"  > 
+          </ng-container>
+          <ng-container *ngIf="msg.location == null">
+              <img  src="assets/imgs/no_image1.png">
+          </ng-container>
+          </ion-col>
+          <ion-col>
+    <div class="ticket-header full-width">
+    <!-- <ion-icon name="bookmark" color="danger"></ion-icon> -->
+               <img class="wdth3" src="assets/imgs/dashboard_new/read2.png"/>
+
+    <span class="ticket-id">{{ msg.messengerId }}</span>
+     <ion-label  *ngIf="msg.viewCount != 0"  [ngClass]="{
+                'reopen': msg.viewDetails === 'NOT_VIEWED',
+              }">{{msg.viewCount}}</ion-label>
+  </div>
+
+  <div class="ticket-title">{{ msg.subject }}</div>
+
+  <div class="ticket-dates">
+    <div class="dv">
+      <!-- <label style="color:#B4B4B4 ;">Date</label> -->
+      <span style="color: #717171;">{{ msg.lastChattedDate| date
+              :'dd/MM/y' }}</span>
+    </div>
+    </div>
+      
+    <!-- <ion-label  *ngIf="msg.viewCount != 0"style="border-radius: 25px; position: relative; top: -23px;
+          left: 66px;"color="danger" >{{msg.viewCount}}</ion-label> -->
+    <!-- <div class="dv">
+      <label style="color:#B4B4B4 ;">Escalates On</label>
+      <span style="color: #717171;">{{ msg.estimatedResolvedDate| date
+                :'dd/MM/y' }}</span>
+    </div> -->
+    
+  </ion-col>
+</ion-row>
+  <div  class="ticket-status" [ngClass]="msg.viewDetails ">
+    <span>{{ msg.departmentName }}</span>
+    <!-- <ion-button  fill="clear" size="small" > -->
+    
+<!-- <ion-icon name="arrow-forward-circle-sharp" *ngIf="msg.viewCount == 0"    [ngClass]="{
+                'closed': msg.viewDetails === 'VIEWED'
+              }"></ion-icon> -->
+    <!-- </ion-button> -->
+  </div>
+</div>
+</div>
+
+
+</ion-content>

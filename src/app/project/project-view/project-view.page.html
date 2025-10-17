@@ -1,0 +1,29 @@
+<app-custom-toolbar 
+  [title]="'Project Updates'" 
+  [showBackButton]="true"
+  [showMenuButton]="false" 
+  [showThreeDots]="false" 
+  [backUrl]="'/NotificationsPage'">
+</app-custom-toolbar>
+
+<ion-content class="ion-padding">
+
+  <!-- Title -->
+  <h2 class="update-title">{{ projectUpdate.message }}</h2>
+
+  <!-- Description -->
+  <p class="update-desc" [innerHTML]="projectUpdate.descriptionWithOutTags"></p>
+
+  <!-- Image -->
+<div class="update-image">
+  <img 
+    [src]="projectUpdate.image || getDefaultSiteImage(projectUpdate.siteName)" 
+    alt="Project Update" 
+    (error)="onImageError($event)"
+    (click)="onImageClick(projectUpdate.image || getDefaultSiteImage(projectUpdate.siteName))"
+    style="cursor: pointer;"
+  />
+</div>
+<app-zoom-img #zoomImgComp [images]="projectUpdate ? [projectUpdate.image || getDefaultSiteImage(projectUpdate.siteName)] : []"></app-zoom-img>
+
+</ion-content>

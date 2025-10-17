@@ -333,7 +333,7 @@ ion-modal {
   --padding-end: 16px;
   min-height: 56px;
 }
-
+  
 
 #create_snag , .textarea-fill-outline.sc-ion-textarea-md-h {
   --border-color: #fff !important;
@@ -382,18 +382,18 @@ ion-radio {
   --box-shadow: none;
 }
 
-// .searchbar-input-container.sc-ion-searchbar-md {
-//   display: block!important;
-//   position: relative!important;
-//   -ms-flex-negative: 1!important;
-//   flex-shrink: 1!important;
+.searchbar-input-container.sc-ion-searchbar-md {
+  display: block!important;
+  position: relative!important;
+  -ms-flex-negative: 1!important;
+  flex-shrink: 1!important;
 //   width: 100%!important;
-//   border: 1px solid #f2f2f2!important;
-//   border-radius: 3px!important;
-//   position: relative!important;
-//   top: 10px!important;
-//   background: #b3b3b3!important;
-// }
+  border: 1px solid #f2f2f2!important;
+  border-radius: 3px!important;
+  position: relative!important;
+  top: 10px!important;
+  background: #b3b3b3!important;
+}
 
 ion-modal {
   --height: 70%;
@@ -611,19 +611,4 @@ ion-modal ion-toolbar {
   min-width: 90vw;
 }
 
- ion-modal {
-  --height: 70%;
-  --border-radius: 16px;
-  --box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
-  --width: 90%;
-}
-
-ion-modal::part(backdrop) {
-  background: rgba(209, 213, 219);
-  opacity: 1;
-}
-
-ion-modal ion-toolbar {
-  --background: #D4AC51;
-  --color: white;
-}
+ 

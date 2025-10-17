@@ -1,0 +1,71 @@
+
+<app-custom-toolbar *ngIf="five_ten_star_status != 85" [title]="'Ticket No : {{ticketId}}'" [showBackButton]="true"
+  [showMenuButton]="false" [showThreeDots]="false" [backUrl]="'/view-ticket'">
+</app-custom-toolbar>
+<app-custom-toolbar *ngIf="five_ten_star_status == 85" [title]="'Complaint No : {{ticketId}}'" [showBackButton]="true"
+  [showMenuButton]="false" [showThreeDots]="false" [backUrl]="'/view-ticket'">
+</app-custom-toolbar>
+<ion-content class="ion-padding" #chatContent>
+  <ion-card class="info-card">
+    <ion-card-content>
+      <div class="info-grid">
+        <div class="info-label">Assigned Employee :</div>
+        <div class="info-value">{{assignedEmp}}</div>
+        <div class="info-label">Ticket Type :</div>
+        <div class="info-value">{{ticketType}}</div>
+        <!-- <div class="info-label">Ticket Id :</div>
+        <div class="info-value">{{complaint_Status}}</div> -->
+      </div>
+      <!-- <ion-button expand="block" class="reopen-btn">
+        Ticket Re-Open
+      </ion-button> -->
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card class="feedback-card">
+    <ion-card-content>
+      <h3 class="feedback-title">Feedback</h3>
+
+ 
+
+  <div class="feedback-intro">
+    <p class="subtitle">Share your Feedback</p>
+    <p class="subtitle">Rating Your Experience </p><span class="required">*</span>
+  </div>
+
+    <div class="emoji-row">
+  <div
+    class="emoji"
+    *ngFor="let emoji of emojis; let i = index"
+    [class.selected]="rating === i"
+    (click)="selectRating(i)"
+  >
+    <span [innerHTML]="emoji"></span>
+    <ion-icon *ngIf="rating === i" name="checkmark-circle" class="checkmark"></ion-icon>
+  </div>
+</div>
+
+
+  <div class="textarea-wrapper">
+    <label class="textarea-label">
+      Body Of Review<span class="required">*</span> (Max 150 Words)
+    </label>
+    <ion-textarea
+      [(ngModel)]="feedbackDesc"
+      maxlength="150"
+      placeholder="write your review...."
+      class="feedback-textarea"
+      fill="outline"
+      autocomplete="on" autocorrect="on" spellcheck="true"
+      autocapitalize="sentences"
+      (paste)="onPaste($event)" (ionInput)="onInputChange($event)"
+    ></ion-textarea>
+  </div>
+
+  <ion-button expand="block" class="submit-feedback" (click)="submitRating()">
+    Submit
+  </ion-button>
+  </ion-card-content>
+  </ion-card>
+
+</ion-content>

@@ -1,13 +1,12 @@
 .gradient-header {
-  --background: linear-gradient(90deg, #f0965a 0%, #f0d661 100%);
+  --background:  linear-gradient(90deg, #e96868 0%, #e7c365 100%);
   color: #000000;
   ion-title {
     font-weight: 700;
-    font-size: 20px;
+    font-size: 17px;
     letter-spacing: 0.01em;
     justify-self: center;
-    display: flex
-;
+    display: flex;
     justify-content: center;
     text-align: center;
     margin-right: 10%;
@@ -27,7 +26,7 @@
     text-transform: none;
     /* min-width: 49%; */
     /* padding: 13px; */
-    height: 50px;
+    height: 40px;
     margin-bottom: 12px;
   }
 }
@@ -60,9 +59,9 @@
       background: #11a244;
       color: #fff;
       .bubble-img {
-        width: 100%;
+        width: 170px;
         max-width: 220px;
-        height: auto;
+        height: 150px;
         border-radius: 12px;
         display: block;
         margin-bottom: 7px;
@@ -97,55 +96,7 @@
     }
   }
 
-  .actions-row {
-    margin: 22px 0 22px 0;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    
-    .reopen-btn {
-          --background: #e6b23a;
-    font-weight: 600;
-    font-size: 13px;
-    --border-radius: 22px;
-    /* min-width: 183px; */
-    box-shadow: 0 2px 8px 0 rgba(247, 233, 206, 0.1882352941);
-    margin-left: 10px;
-    width: 72%;
-    //     top: 76%;
-    // left: 2%;
-    // position: fixed;
-    }
-    .refresh-btn {
-          width: 40px;
-    height: 40px;
-    --icon-size: 1.4em;
-    --background: #fff;
-    --border-radius: 12px;
-    box-shadow: 0 2px 8px 0 rgba(247, 233, 206, 0.2196078431);
-    color: #000000;
-    border: 1px solid lightblue;
-    border-radius: 10px;
-    //     top: 76%;
-    // left: 70%;
-    // position: fixed;
-    }
-    .edit-btn {
-          width: 40px;
-    height: 40px;
-    --icon-size: 1.4em;
-    --background: #fff;
-    --border-radius: 12px;
-    box-shadow: 0 2px 8px 0 rgba(247, 233, 206, 0.2196078431);
-    color: #000000;
-    border: 1px solid lightblue;
-    border-radius: 10px;
-    //     top: 76%;
-    // left: 84%;
-    // position: fixed;
-    }
-  }
-
+  
   .chat-input-row {
     margin: 0 0 12px 0;
     width: 100%;
@@ -180,84 +131,37 @@
     padding-bottom: 10px;
 
   }
-  //   .actions-row {
-  //   margin: 0px 0 22px 0;
-  //   display: flex;
-  //   align-items: center;
-  //   gap: 8px;
-  //   .reopen-btn {
-  //         --background: #e6b23a;
-  //   font-weight: 600;
-  //   font-size: 13px;
-  //   --border-radius: 22px;
-  //   /* min-width: 183px; */
-  //   box-shadow: 0 2px 8px 0 rgba(247, 233, 206, 0.1882352941);
-  //   margin-left: 10px;
-  //   width: 47%;
-
-  //   //     top: 76%;
-  //   // left: 2%;
-  //   // position: fixed;
-  //   }
-  //   .refresh-btn {
-  //   margin-left: 17%;
-
-  //         width: 40px;
-  //   height: 40px;
-  //   --icon-size: 1.4em;
-  //   --background: #fff;
-  //   --border-radius: 12px;
-  //   box-shadow: 0 2px 8px 0 rgba(247, 233, 206, 0.2196078431);
-  //   color: #000000;
-  //   border: 1px solid lightblue;
-  //   border-radius: 10px;
-  //   //     top: 76%;
-  //   // left: 70%;
-  //   // position: fixed;
-  //   }
-  //   .edit-btn {
-  //         width: 40px;
-  //   height: 40px;
-  //   --icon-size: 1.4em;
-  //   --background: #fff;
-  //   --border-radius: 12px;
-  //   box-shadow: 0 2px 8px 0 rgba(247, 233, 206, 0.2196078431);
-  //   color: #000000;
-  //   border: 1px solid lightblue;
-  //   border-radius: 10px;
-  //   //     top: 76%;
-  //   // left: 84%;
-  //   // position: fixed;
-  //   }
-  // }
+  
 .ticket-details-modal .ticket-card {
   background: #fff;
   border-radius: 16px;
-  box-shadow: 0 4px 18px rgba(0,0,0,0.10);
+  // box-shadow: 0 4px 18px rgba(0,0,0,0.10);
   padding: 18px 16px;
-  min-width: 220px;
+  min-width: -webkit-fill-available;
 }
 .ticket-label {
-  font-size: 13px;
+  font-size: 12px;
   color: #888;
   margin-top: 8px;
+  margin-bottom: 6px;
 }
 .ticket-value {
-  font-size: 15px;
-  color: #222;
-  font-weight: 500;
-  margin-bottom: 2px;
+    font-size: 13px;
+    color: #222;
+    font-weight: 500;
+    border-bottom: 1px solid #f0e9e9;
+    padding-bottom: 8px;
 }
 .ticket-value.highlight {
   color: #197e4c;
   font-weight: 700;
 }
 .ion-modal1 {
-    --height: 15%;
-    --border-radius: 0px;
+ --height: 20%;
+    --border-radius: 11px;
     --box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
-    --width: 90%;
-    top: -48%;
+    --width: 86%;
+    top: -45%;
 
 }
 .hidden-file {
@@ -271,8 +175,7 @@
     padding: 0
   }
   .actions-row {
-    display: flex
-;
+    display: flex;
     align-items: center;
     gap: 8px;
     // position: fixed;
@@ -322,9 +225,183 @@
 }
 .ion-modal2 {
     --height: 75%;
-    --width: 90%;
+    --border-radius: 16px;
+    --box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+    --width: 100%;
+
+}
+.ion-modal3 {
+    --height: 75%;
     --border-radius: 16px;
     --box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
     --width: 90%;
 
 }
+.img{
+        width:40px;
+        height : 40px;
+      }
+      .filename {
+        margin-top: 2px;
+    white-space: nowrap; /* Prevent text from wrapping */
+    overflow: hidden;
+    text-overflow: ellipsis; /* Apply ellipsis for overflow */
+    cursor: pointer;
+}
+// .message-input {
+//     max-height: 150px; /* Max height for the textarea */
+//     overflow-y: auto;  /* Allow scrolling when content exceeds max-height */
+//     flex-shrink: 0;    /* Prevent it from shrinking */
+//   }
+  
+//   [auto-grow].sc-ion-textarea-md-h .native-textarea.sc-ion-textarea-md {
+//     overflow: hidden;
+//     width: 100%;
+//     height: 100%;
+//   }
+
+
+.chat-footer {
+  --background: #f8f8f8;
+  
+  .chat-toolbar {
+    --background: transparent;
+    --padding-start: 8px;
+    --padding-end: 8px;
+    --padding-top: 8px;
+    --padding-bottom: 8px;
+    --min-height: auto;
+  }
+}
+
+.chat-input-container {
+  display: flex;
+  align-items: flex-end;
+  gap: 8px;
+  padding: 8px 0;
+}
+.textarea-container {
+  flex: 1;
+  background: white;
+  border-radius: 20px;
+  border: 1px solid #e0e0e0;
+  padding: 8px 12px;
+
+  .message-textarea {
+    --background: transparent;
+    --color: #333;
+    --placeholder-color: #999;
+    --padding-start: 10px;
+    --padding-end: 0;
+    --padding-top: 0;
+    --padding-bottom: 10px;
+    --border-radius: 16px;
+
+    font-size: 16px;
+    line-height: 24px;
+    resize: none;
+    border: none;
+    outline: none;
+
+    /* Let content drive the height */
+    min-height: 24px;
+    max-height: 120px;
+    overflow-y: auto;
+    width: 100%;
+    box-sizing: border-box;
+    transition: height 0.2s ease;
+
+    /* Target the native textarea so it can grow */
+    ::ng-deep .native-textarea {
+      box-sizing: border-box;
+      overflow-y: hidden;
+      min-height: 24px !important;
+      max-height: 120px !important;
+         height: -webkit-fill-available !important;
+     // Allow auto height
+      padding: 0 !important;
+      margin: 0 !important;
+      transition: height 0.2s ease;
+      white-space: pre-wrap;         // Wrap text
+      word-break: break-word;        // Break long words
+    }
+  }
+
+
+  
+  // Override Ionic's default textarea styles
+  ion-textarea {
+    --padding-top: 0;
+    --padding-bottom: 0;
+    --padding-start: 0;
+    --padding-end: 0;
+    min-height: 24px !important;
+  }
+}
+
+.attachment-btn,
+.camera-btn,
+.send-btn {
+  --color: #258dd3; // WhatsApp green
+  --padding-start: 8px;
+  --padding-end: 8px;
+  width: 44px;
+  height: 44px;
+  margin: 0;
+  
+  ion-icon {
+    font-size: 24px;
+  }
+}
+
+.send-btn {
+  --background: #e6b23a;
+  --color: white;
+  --border-radius: 50%;
+}
+
+.messages-container {
+  padding: 16px;
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.message-item {
+  margin-bottom: 8px;
+  display: flex;
+  justify-content: flex-end;
+  
+  .message-bubble {
+    background: #DCF8C6; // WhatsApp message bubble color
+    padding: 8px 12px;
+    border-radius: 18px;
+    max-width: 80%;
+    word-wrap: break-word;
+    
+    &.received {
+      background: white;
+      border: 1px solid #e0e0e0;
+    }
+  }
+}
+
+// Handle keyboard adjustments
+ion-content {
+  --keyboard-offset: 0px;
+}
+
+// Responsive adjustments
+@media (max-width: 768px) {
+  .chat-input-container {
+    gap: 4px;
+  }
+  
+  .attachment-btn,
+  .camera-btn,
+  .send-btn {
+    width: 40px;
+    height: 40px;
+  }
+}
+

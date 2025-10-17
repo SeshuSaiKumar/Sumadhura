@@ -22,23 +22,22 @@ export class CommonService {
   private loader: HTMLIonLoadingElement | any;
   public loginDetails = new Subject<any>();
 
-  commonservice: any = "http://144.24.96.219:8888/SumadhuraGateway/customerservice/";
-  commonservice1: any = "https://customerappcug.app/SumadhuraGateway/employeeservice/"
+  commonservice: any = "http://144.24.96.219:8888/SumadhuraGateway/customerservice/"
   //commonservice1: any = "http://144.24.96.219:8888/SumadhuraGateway/employeeservice/";
   appVersion = "1.2";
   deviceToken = "dH_jJzd_i2g:APA91bFS94XaGhRVndsEsEPsq8l8-XU4IiZLN7Ryf0wBQJKafZXbC3Zu0wXJxQPkEofYTF3mmMh18v2kFO_sURici-FVL6sKq9dCskVmaA3Nbr-wPSCM34ruwH_BQngoG-Jxhem1DhaE"
-  // deviceModel = "M2010J19SI";
-  // serialNo = "70af463";
-  // osType = "Android";
-  // osVersion = "10";
-  // uuid = "0edacfa6cf76075dR";
+  deviceModel = "M2010J19SI";
+  serialNo = "70af463";
+  osType = "Android";
+  osVersion = "10";
+  uuid = "0edacfa6cf76075dR";
 
-  //  deviceToken: any;
-  osVersion: any;
-  uuid: any;
-  osType: any;
-  serialNo: any;
-  deviceModel: any;
+  // deviceToken: any;
+  // osVersion: any;
+  // uuid: any;
+  // osType: any;
+  // serialNo: any;
+  // deviceModel: any;
 
   loading: any;
   osVersion1: any;
@@ -53,12 +52,12 @@ export class CommonService {
     private platform: Platform, private loaderService: LoaderService,
   ) {
     this.platform.ready().then(async (res) => {
-      this.osVersion = (await Device.getInfo()).osVersion;
-      this.uuid = (await Device.getId()).identifier
-      this.name = (await Device.getInfo()).name;
-      this.osType = (await Device.getInfo()).operatingSystem;
-      this.serialNo = "70af463";
-      this.deviceModel = (await Device.getInfo()).model;
+      // this.osVersion = (await Device.getInfo()).osVersion;
+      // this.uuid = (await Device.getId()).identifier
+      // this.name = (await Device.getInfo()).name;
+      // this.osType = (await Device.getInfo()).operatingSystem;
+      // this.serialNo = "70af463";
+      // this.deviceModel = (await Device.getInfo()).model;
       this.initPush();
       this.initttPush();
     });
@@ -112,17 +111,17 @@ export class CommonService {
 
   ///////////// Network Connection Error Message//////////
 
-  async NetworkpresentAlert(isOffline: boolean = true) {
-    const alert = await this.alertController.create({
-      header: isOffline ? 'No Internet' : 'Network Restored',
-      message: isOffline
-        ? 'You are offline. Please check your internet connection.'
-        : 'Your internet connection is back online.',
-      buttons: ['OK'],
-      backdropDismiss: false // prevent dismiss by tapping outside
-    });
-    await alert.present();
-  }
+async NetworkpresentAlert(isOffline: boolean = true) {
+  const alert = await this.alertController.create({
+    header: isOffline ? 'No Internet' : 'Network Restored',
+    message: isOffline
+      ? 'You are offline. Please check your internet connection.'
+      : 'Your internet connection is back online.',
+    buttons: ['OK'],
+    backdropDismiss: false // prevent dismiss by tapping outside
+  });
+  await alert.present();
+}
 
 
   //////// Toast message //////////
@@ -195,7 +194,7 @@ export class CommonService {
     });
     PushNotifications.addListener('registration',
       (token: Token) => {
-        //  this.deviceToken = token.value;
+        this.deviceToken = token.value;
       }
     );
     PushNotifications.addListener('registrationError',

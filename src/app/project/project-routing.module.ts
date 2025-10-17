@@ -7,6 +7,10 @@ const routes: Routes = [
   {
     path: '',
     component: ProjectPage
+  },
+  {
+    path: 'project-view',
+    loadChildren: () => import('./project-view/project-view.module').then( m => m.ProjectViewPageModule)
   }
 ];
 

@@ -1,7 +1,57 @@
+
 <app-custom-toolbar [title]="'Company Updates'" [showBackButton]="true"
   [showMenuButton]="false" [showThreeDots]="false" [backUrl]="'/dashboard'">
 </app-custom-toolbar>
 
-<ion-content [fullscreen]="true">
- 
+<ion-content>
+  <!-- Search bar -->
+  <div class="search-container">
+    <ion-searchbar class="search" [(ngModel)]="searchText" placeholder="Search..."></ion-searchbar>
+  </div>
+
+    <span *ngIf="isCompanyNotificationAvailable == false">
+        <img src="assets/imgs/no_notification.jpg">
+        <p style="text-align:center;">NO NOTIFICATIONS AVAILABLE</p>
+    </span>
+  <div class="card-list">
+    <ion-card
+  *ngFor="let data of dataArray ; let i = index"
+  [class.selected-card]="data.id === selectedId"
+  [ngClass]="'bg-' + (i % 2)"   
+  (click)="openDetail(data)"
+  class="update-card"
+>
+  <ion-card-content *ngIf="data.viewed == false && data.appRegId == appRegId" >
+    <div class="card-row" >
+      <div  [ngClass]="'logo-section-' + (i % 2)">
+        <img src="assets/imgs/sum-tagline.png" class="sumadhura-logo" alt="Sumadhura Logo" />
+      </div>
+      <div class="content-section">
+        <div class="update-title">{{data.message| truncate : 22 : "..."}}</div>
+        <div class="update-desc" [innerHTML]='data.descriptionWithOutTags| truncate : 25 : "..."'></div>
+        <div class="update-date">{{data.createdDate | date : 'fullDate'}}</div>
+      </div>
+      <div class="arrow-section">
+        <ion-icon name="arrow-forward-circle-sharp" class="arrow"></ion-icon>
+      </div>
+    </div>
+  </ion-card-content>
+  <ion-card-content >
+    <div class="card-row" >
+      <div  [ngClass]="'logo-section-' + (i % 2)">
+        <img src="assets/imgs/sum-tagline.png" class="sumadhura-logo" alt="Sumadhura Logo" />
+      </div>
+      <div class="content-section">
+        <div class="update-title">{{data.message| truncate : 22 : "..."}}</div>
+        <div class="update-desc" [innerHTML]='data.descriptionWithOutTags| truncate : 25 : "..."'></div>
+        <div class="update-date">{{data.createdDate | date : 'fullDate'}}</div>
+      </div>
+      <div class="arrow-section">
+        <ion-icon name="arrow-forward-circle-sharp" class="arrow"></ion-icon>
+      </div>
+    </div>
+  </ion-card-content>
+</ion-card>
+
+  </div>
 </ion-content>

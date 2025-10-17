@@ -363,3 +363,10 @@ app-display-qr-v2{
   --width: 77%;
   --height: 99%;
 }
+.search{
+      position: fixed;
+    top: 7%;
+    z-index: 99999;
+    background: white;
+    padding-bottom: 15px;
+}

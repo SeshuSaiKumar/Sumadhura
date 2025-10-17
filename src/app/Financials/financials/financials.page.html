@@ -1,61 +1,66 @@
-<app-custom-toolbar [title]="'Finance'" [showBackButton]="true" [showMenuButton]="false" [showThreeDots]="true"
-  [backUrl]="'/dashboard'">
+<app-custom-toolbar [title]="'Finance'" [showBackButton]="true"
+  [showMenuButton]="false" [showThreeDots]="true" [backUrl]="'/dashboard'">
 </app-custom-toolbar>
 
 <ion-content class="finance-page">
 
   <!-- Tabs -->
   <ion-segment [(ngModel)]="selectedTab" class="custom-segment">
-    <ion-segment-button value="basic">
-      <label>Basic Info</label>
-    </ion-segment-button>
-    <ion-segment-button value="milestones">
-      <label>Milestones</label>
-    </ion-segment-button>
-  </ion-segment>
+  <ion-segment-button value="basic">
+    <label>Basic Info</label>
+  </ion-segment-button>
+  <ion-segment-button value="milestones">
+    <label>Milestones</label>
+  </ion-segment-button>
+</ion-segment>
 
 
 
   <!-- Total Amount Card -->
-  <div *ngIf="selectedTab === 'basic'">
-    <ion-card class="amount-card" style="box-shadow: none;border: 1px solid #d1dce1;border-radius: 15px;">
-      <ion-card-content style="display: grid;">
-        <div class="total-label">Total Amount</div>
-        <h2 class="total-value">₹{{ totalAmount ? totalAmount : "30,48,207,00" }}</h2>
-        <div class="amount-summary">
-          <ion-item lines="none">
-            <ion-label style="color: gray;font-size: 13px;
+   <div *ngIf="selectedTab === 'basic'" >
+  <ion-card class="amount-card">
+    <ion-card-content style="display: grid;">
+      <div class="total-label">Total Amount</div>
+      <h2 class="total-value">₹{{ totalAmount ? totalAmount : "30,48,207,00" }}</h2>
+     <div class="amount-summary">
+      <ion-item lines="none" >
+        <ion-label style="color: gray;font-size: 13px;
 font-family: 'Lato', sans-serif;
 font-style: Regular;
 line-height: 135%;
 letter-spacing: 0px;">
-              <div>Amount Paid Till Now</div>
-              <div class="percentage-paid">25% (₹{{ total_paid_amount }})</div>
-            </ion-label>
-            <ion-label class="text-right" style="color: gray;font-size: 13px;
+          <div>Amount Paid Till Now</div>
+          <div class="percentage-paid">25% (₹{{ total_paid_amount  }})</div>
+        </ion-label>
+        <ion-label class="text-right" style="color: gray;font-size: 13px;
 font-family: 'Lato', sans-serif;
 font-style: Regular;
 line-height: 135%;
 letter-spacing: 0px;">
-              <div>Due Amount</div>
-              <div class="due-amount">₹{{ total_due_amount }}</div>
-            </ion-label>
-          </ion-item>
-          <ion-range class="custom-range" min="0" max="100" [value]="25" style="padding: 0 14px;">
-          </ion-range>
-        </div>
+          <div>Due Amount</div>
+          <div class="due-amount">₹{{ total_due_amount }}</div>
+        </ion-label>
+      </ion-item>
+<ion-range
+  class="custom-range"
+  min="0"
+  max="100"
+  [value]="25"
+  style="padding: 0 14px;">
+</ion-range>
+</div>
 
-        <ion-item lines="none">
-          <img src="assets/imgs/dashboard_new/loan.png" class="wdth8 ppmr3">
-          <ion-label style="color: rgb(0, 0, 0);font-size: 13px;
+      <ion-item lines="none">
+        <img src="assets/imgs/dashboard_new/loan.png" class="wdth8 ppmr3" >
+        <ion-label style="color: rgb(0, 0, 0);font-size: 13px;
 font-family: 'Lato', sans-serif;
 font-style: Regular;
 line-height: 135%;
 letter-spacing: 0px;">
-            <div style="color: #919191;">Interest amount</div>
-            <div class="interest-value">₹{{ interest_amount || 17352 }}</div>
-          </ion-label>
-          <ion-button style="    --background: #D4AC51;
+          <div style="color: #919191;">Interest amount</div>
+          <div class="interest-value">₹{{ interest_amount || 17352 }}</div>
+        </ion-label>
+        <ion-button style="    --background: #D4AC51;
     color: #ffffff;
     --border-radius: 54px;
     /* --padding: 32px; */
@@ -64,72 +69,63 @@ letter-spacing: 0px;">
     height: 64%;
 
 " size="small" (click)="viewDetails()"><label style="text-transform: initial;font-size: 13px;">Details</label>
-            <!-- <ion-icon style="font-size: 18px;margin-left: 5px;" color="light" name="exit-outline"></ion-icon> -->
-            <img class="wdth4 pppl1" src="assets/imgs/dashboard_new/details.png" />
+<!-- <ion-icon style="font-size: 18px;margin-left: 5px;" color="light" name="exit-outline"></ion-icon> -->
+             <img class="wdth4 pppl1" src="assets/imgs/dashboard_new/details.png" />
 
-          </ion-button>
-        </ion-item>
-      </ion-card-content>
-    </ion-card>
+</ion-button>
+      </ion-item>
+    </ion-card-content>
+  </ion-card>
 
-    <ion-card class="doc-card">
-      <ion-card-header>
-        <div class="doc-header">
-          <img src="assets/imgs/dashboard_new/receipt-2-svgrepo-com 1.png" class="doc-icon">
-          <span class="doc-title">Documents</span>
-        </div>
-      </ion-card-header>
-
-      <ion-card-content>
-        <ion-grid>
-          <ion-row>
-            <ion-col size="3" *ngFor="let doc of documents" (click)="openDoc(doc.type)">
-              <div class="doc-item">
-                <div class="doc-icon-box">
-                  <img [src]="doc.icon" class="doc-icon">
-
-                </div>
-                <div class="doc-label">{{ doc.label }}</div>
-              </div>
-            </ion-col>
-          </ion-row>
-        </ion-grid>
-      </ion-card-content>
-    </ion-card>
-
-  </div>
+<ion-card>
+    <ion-card-header>
+      <ion-card-title>
+        <ion-icon name="document-text" class="doc-icon"></ion-icon> Documents
+      </ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-grid>
+        <ion-row>
+          <ion-col size="3" *ngFor="let doc of documents" (click)="openDoc(doc.type)">
+            <ion-button fill="clear">
+              <ion-icon [name]="doc.icon" size="large" color="primary"></ion-icon>
+            </ion-button>
+            <div class="doc-label">{{ doc.label }}</div>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card-content>
+  </ion-card>
+</div>
   <!-- Documents Section -->
-
-  <div style="padding: 8px;
+  
+ <div style="padding: 8px;
     border: 1px solid #E8E8E8;
     margin-top: 10px;
-    border-radius: 20px;;
+    border-radius: 5px;
 " *ngIf="selectedTab === 'milestones'">
-    <div class="dh ds ppml1 ppy1" style="border-bottom: 1px solid #deeef3;
-    padding: 10px;">
-      <img src="assets/imgs/dashboard_new/flag.png" class="wdth5" />
+  <div class="dh ds ppml1 ppy1">
+  <img src="assets/imgs/dashboard_new/flag.png" class="wdth5"/>
       <label style="font-family: Lato;
 font-weight: 700;
 font-style: Bold;
 font-size: 16px;
-
+leading-trim: NONE;
 line-height: 20px;
 letter-spacing: 0%;
 vertical-align: middle;
 margin-left: 10px;
 
 ">Complete Details Of Milestones</label>
-
-    </div>
-
-    <div *ngFor="let items of items; let i = index">
-      <ion-card class="sas" (click)="redirectTOPaymentDetails(items)" *ngIf="items.mileStoneStatus !== 'IN'">
-        <ion-card-content style="padding: 4px 10px 4px 16px;">
-          <ion-row>
-            <ion-col>Due Date: </ion-col>
-            <ion-col class="dh dc" size="4" style="width: 93;
+</div>
+      <div *ngFor="let items of items; let i = index">
+        <ion-card style="background: #F7F7F7;border:1px solid #E1E1E1;" button  (click)="redirectTOPaymentDetails()" *ngIf="items.mileStoneStatus !== 'IN'">
+            <ion-card-content style="padding: 4px 10px 4px 16px;">
+              <ion-row>
+                <ion-col>Due Date: </ion-col>
+                <ion-col class="dh dc" size="4" style="width: 93;
               height: 22;
-         
+              angle: 0 deg;
               opacity: 1;
               border-radius: 100px;
               border-width: 1px;
@@ -137,43 +133,44 @@ margin-left: 10px;
               padding: 4px;
               border:1px solid #C7C7C7;
               ">{{ items.dueDate ? (items.dueDate | date: 'dd/MM/yy') : 'N/A' }}</ion-col>
-          </ion-row>
-          <!-- <ion-row>
+              </ion-row>
+              <!-- <ion-row>
                 <ion-col>₹{{ items.mileStoneAmount }} - Status: {{ items.mileStoneStatus }}</ion-col>
               </ion-row> -->
-        </ion-card-content>
-        <ion-card-header style="padding: 0px 10px 0px 16px;">
-          <ion-row>
-            <ion-col class="dh ds">{{ items.mileStoneName }}</ion-col>
-            <ion-col class="dh de">₹{{ items.mileStoneAmount }}</ion-col>
-          </ion-row>
-        </ion-card-header>
-        <ion-card-header style="padding: 4px 10px 10px 16px;">
-          <ion-row>
-            <ion-col class="dh ds">{{ items.milStonePercentage }}%</ion-col>
-            <ion-col class="dh dc" style="width: 50;
-             height: 25;opacity: 1;
+            </ion-card-content>
+          <ion-card-header style="padding: 0px 10px 0px 16px;">
+            <ion-row>
+              <ion-col class="dh ds">{{ items.mileStoneName }}</ion-col>
+              <ion-col class="dh de">₹{{ items.mileStoneAmount }}</ion-col>
+            </ion-row>
+              </ion-card-header>
+                      <ion-card-header style="padding: 4px 10px 10px 16px;">
+            <ion-row>
+              <ion-col class="dh ds">{{ items.milStonePercentage }}%</ion-col>
+                <ion-col class="dh dc" style="width: 50;
+             height: 25;angle: 0 deg;opacity: 1;
              border-radius: 100px;border-width: 1px;padding-top: 4px;
              padding-right: 4px;
              padding-bottom: 5px;padding-left: 4px;gap: 10px;
              border: 1px solid #00882D;
              color: #00882D;
-             background:#CBFFE0 ;">Status: {{ items.mileStoneStatus }}</ion-col>
+             background:#CBFFE0 ;"
+             >Status: {{ items.mileStoneStatus }}</ion-col>
 
-          </ion-row>
-        </ion-card-header>
-        <!-- <ion-card-content>
+            </ion-row> 
+          </ion-card-header>
+          <!-- <ion-card-content>
             <p>₹{{ items.mileStoneAmount }} - Status: {{ items.mileStoneStatus }}</p>
             <p>Due Date: {{ items.dueDate ? (items.dueDate | date: 'dd/MM/yy') : 'N/A' }}</p>
           </ion-card-content> -->
-      </ion-card>
-      <ion-card class="sas" *ngIf="items.mileStoneStatus === 'IN'">
-        <ion-card-content style="padding: 4px 10px 4px 16px;">
-          <ion-row>
-            <ion-col>Due Date: </ion-col>
-            <ion-col class="dh dc" size="4" style="width: 93;
+        </ion-card>
+        <ion-card style="background: #F7F7F7;" *ngIf="items.mileStoneStatus === 'IN'">
+           <ion-card-content style="padding: 4px 10px 4px 16px;">
+              <ion-row>
+                <ion-col>Due Date: </ion-col>
+           <ion-col class="dh dc" size="4" style="width: 93;
               height: 22;
-            
+              angle: 0 deg;
               opacity: 1;
               border-radius: 100px;
               border-width: 1px;
@@ -181,56 +178,56 @@ margin-left: 10px;
               padding: 4px;
               border:1px solid #C7C7C7;
               ">{{ items.dueDate ? (items.dueDate | date: 'dd/MM/yy') : 'N/A' }}</ion-col>
-          </ion-row>
-
-        </ion-card-content>
-        <ion-card-header style="padding: 0px 10px 0px 16px;">
-          <ion-row>
-            <ion-col class="dh ds">{{ items.mileStoneName }}</ion-col>
-            <ion-col class="dh de" style="font-family: 'Lato','sans-serif';
+              </ion-row>
+             
+            </ion-card-content>
+          <ion-card-header style="padding: 0px 10px 0px 16px;">
+            <ion-row>
+              <ion-col class="dh ds">{{ items.mileStoneName }}</ion-col>
+              <ion-col class="dh de" style="font-family: 'Lato','sans-serif';
 font-weight: 800;
 font-style: ExtraBold;
 font-size: 14px;
 color: rgb(0, 0, 0);
 ">₹{{ items.mileStoneAmount }}</ion-col>
-          </ion-row>
-        </ion-card-header>
-        <ion-card-header style="padding: 4px 10px 10px 16px;">
+            </ion-row>
+            </ion-card-header>
+                      <ion-card-header style="padding: 4px 10px 10px 16px;">
 
-          <ion-row>
-            <ion-col class="dh ds">{{ items.milStonePercentage }}%</ion-col>
-            <ion-col size="4" class="dh dc" style="width: 50;
-             height: 25;opacity: 1;
+            <ion-row>
+              <ion-col class="dh ds">{{ items.milStonePercentage }}%</ion-col>
+                <ion-col size="4" class="dh dc"  style="width: 50;
+             height: 25;angle: 0 deg;opacity: 1;
              border-radius: 100px;border-width: 1px;padding-top: 4px;
              padding-right: 4px;
              padding-bottom: 5px;padding-left: 4px;gap: 10px;
              border: 1px solid #00882D;background: #CBFFE0;
              color: #00882D;">Status: {{ items.mileStoneStatus }}</ion-col>
-          </ion-row>
-        </ion-card-header>
-      </ion-card>
+            </ion-row>
+          </ion-card-header>
+        </ion-card>
+      </div>
     </div>
-  </div>
-
+  
 </ion-content>
 
 <!-- Bottom Tabs -->
 <!-- <ion-footer>
   <ion-toolbar>
     <ion-buttons class="footer-tabs" slot="start">
-      <ion-button (click)="tab_redirect_fun('loan')">
+      <ion-button (click)="navigate('loan')">
         <ion-icon name="cash-outline"></ion-icon>
         <ion-label>Apply Loan</ion-label>
       </ion-button>
-      <ion-button (click)="tab_redirect_fun('passcode')">
+      <ion-button (click)="navigate('passcode')">
         <ion-icon name="keypad-outline"></ion-icon>
         <ion-label>Passcode</ion-label>
       </ion-button>
-      <ion-button (click)="tab_redirect_fun('unit')">
+      <ion-button (click)="navigate('unit')">
         <ion-icon name="grid-outline"></ion-icon>
         <ion-label>Unit Details</ion-label>
       </ion-button>
-      <ion-button (click)="tab_redirect_fun('account')">
+      <ion-button (click)="navigate('account')">
         <ion-icon name="person-outline"></ion-icon>
         <ion-label>Account</ion-label>
       </ion-button>

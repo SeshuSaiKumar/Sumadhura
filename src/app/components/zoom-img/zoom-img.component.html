@@ -1,0 +1,41 @@
+<!-- Optional thumbnails (can be removed) -->
+<!-- <ion-row>
+  <ion-col size="4" *ngFor="let img of images; let i = index">
+    <img [src]="img" (click)="openModal(i)" style="width: 100%; cursor: zoom-in;" />
+  </ion-col>
+</ion-row> -->
+
+<ion-modal [isOpen]="activeModal" (didDismiss)="closeModal()" class="ion-modal4" backdropDismiss="true">
+  <ng-template>
+    <ion-header translucent>
+      <ion-toolbar style="position: absolute; --background: transparent;">
+        <ion-row>
+          <ion-col size="10" style="text-align: center;">
+            <h2 style="margin: 0; color: rgb(216, 199, 199);">{{ title }}</h2>
+          </ion-col>
+          <ion-col size="2" style="display: flex;align-items: center;justify-content: center;">
+            <ion-icon name="close-circle-outline" (click)="closeModal()" style="font-size: 28px; color: white;background: #00000066;border-radius: 16px;"></ion-icon>
+          </ion-col>
+        </ion-row>
+      </ion-toolbar>
+    </ion-header>
+
+    <ion-content [fullscreen]="true" class="image-content" scrollY="false">
+      <swiper
+        [zoom]="true"
+        [slidesPerView]="1"
+        [spaceBetween]="10"
+        [centeredSlides]="true"
+        [initialSlide]="selectedImageIndex"
+        class="mySwiper"
+      >
+        <ng-template swiperSlide *ngFor="let img of images">
+          <div class="swiper-zoom-container">
+            <img [src]="img" style="max-width: 100%; max-height: 100vh;" />
+          </div>
+        </ng-template>
+      </swiper>
+    <div style="width:100%;height:100px;"></div>
+</ion-content>
+  </ng-template>
+</ion-modal>

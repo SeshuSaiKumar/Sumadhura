@@ -52,7 +52,7 @@ export class MprPage implements OnInit {
         headers: { 'Content-Type': 'application/json' },
         data: {
           deviceToken: this.common.deviceToken,
-          sessionKey: localStorage.getItem("sessionkey_afterlogin"),
+          sessionKey: localStorage.getItem("sessionkey"),
         },
       };
 
@@ -141,7 +141,7 @@ export class MprPage implements OnInit {
         data: {
           id: mprId,
           deviceToken: this.common.deviceToken,
-          sessionKey: localStorage.getItem("sessionkey_afterlogin") || "",
+          sessionKey: localStorage.getItem("sessionkey") || "",
         },
       };
 

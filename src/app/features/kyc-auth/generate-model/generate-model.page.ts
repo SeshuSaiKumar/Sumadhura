@@ -100,7 +100,7 @@ async confirmSelection() {
     localStorage.setItem('Myflat_id', selectedFlat.flatId.toString());
     
     // Call dynamicMenu to get menu data but don't navigate
-    const menuSuccess = await this.dynamicMenu(selectedFlat.flatId, localStorage.getItem('sessionkey_afterlogin') || '');
+    const menuSuccess = await this.dynamicMenu(selectedFlat.flatId, localStorage.getItem('sessionkey') || '');
     
     if (menuSuccess) {
       // Dismiss modal with selected flat data AND navigation flag
@@ -203,7 +203,7 @@ async flatSubmission(flatId: string): Promise<boolean> {
     localStorage.setItem('Myflat_id', flatId); // Fixed typo: was 'Myflat_Id'
 
     if (resp.responseCode == 200) {
-      localStorage.setItem('sessionkey_afterlogin', resp.sessionKey);
+      localStorage.setItem('sessionkey', resp.sessionKey);
       
       // REMOVED: Don't navigate here, let dashboard handle modal dismissal
       // this.navCtrl.navigateRoot('/dashboard');

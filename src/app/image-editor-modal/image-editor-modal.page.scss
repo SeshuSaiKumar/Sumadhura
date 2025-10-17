@@ -1,0 +1,58 @@
+    .pencil-button.active-pencil {
+    color: #ffffff;
+    font-size: larger;
+    transition: all 0.3s ease;
+    background: rgb(6 179 235 / 82%);
+    border-radius: 57%;
+    height: 42px;
+  }
+.pencil-button {
+    color: #007bff; // or your highlight color
+    font-size: larger;
+    transition: all 0.3s ease;
+    background: #e9e7e4d9;
+    border-radius: 57%;
+    height: 42px;
+  }
+  
+  
+  canvas {
+    touch-action: none;
+    display: block;
+    max-width: 100%;
+    height: auto;
+    border: 1px solid #ccc;
+  }
+  .custom-modal .modal-wrapper {
+    width: 100%;
+    height: 100%;
+    max-width: 800px;
+    max-height: 600px;
+    border-radius: 12px;
+    overflow: hidden;
+  }
+  .save{
+    border-radius: 68%;
+    background: #0ff513e0;
+    height: 42px;
+    font-size: large;
+    color: #ffffff;
+  }
+  .delete{
+    border-radius: 68%;
+    background: #f51e0fba;
+    height: 42px;
+    font-size: large;
+    color: #ffffff;
+  }
+  .undo{
+    border-radius: 68%;
+    background: rgb(0 0 0 / 64%);
+    height: 44px;
+    font-size: 28px;
+    color: #ffffff;
+    padding: 0px;
+    width: 44px;
+
+
+  }

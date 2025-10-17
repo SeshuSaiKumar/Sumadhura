@@ -2,17 +2,33 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { CapacitorHttp } from '@capacitor/core';
 // import { NetworkPlugin } from '@capacitor/network';
-import { AlertController, ModalController, NavController, Platform } from '@ionic/angular';
+import { AlertController, IonContent, ModalController, NavController, Platform } from '@ionic/angular';
 import { CommonService } from 'src/app/common.service';
 import { LoaderService } from 'src/app/LoaderService';
 import { Browser } from '@capacitor/browser';
-
+import { ImageEditorModalPage } from 'src/app/image-editor-modal/image-editor-modal.page';
+import { FileUploader } from 'ng2-file-upload';
+import { Camera, CameraResultType, CameraSource } from '@capacitor/camera';
+interface MyImage {
+  base64: string;
+  name: string;
+  shouldAddTimestamp: boolean;
+}
 @Component({
   selector: 'app-tickets',
   templateUrl: './tickets.page.html',
   styleUrls: ['./tickets.page.scss'],
 })
 export class TicketsPage implements OnInit {
+  public uploader: FileUploader = new FileUploader({
+    url: '',
+    disableMultipart: false,
+    autoUpload: true,
+    method: 'post',
+    itemAlias: 'attachment',
+    allowedFileType: ['image', 'pdf', 'txt', 'video', 'doc', 'xls', 'xlsx', 'docx', 'audio', 'ppt', 'pptx']
+  });
+  currentIndex: number = -1;
 
   @ViewChild('groupmodal', { static: false }) groupmodal: any;
     activeSegment = 'all';
@@ -30,7 +46,23 @@ export class TicketsPage implements OnInit {
   array: any = [];
     mesag: any;
   public fileInfo: any = [];
+  controllerdata: MyImage[] = [];
+  maincontroller: MyImage[] = [];
+  image_controller_upload: any[] | any;
 
+  hidepdf: boolean = true;
+  hideimg: boolean = true;
+  photos: any = [];
+  sendfile: any = [];
+  file_extension: any = [];
+  myfiles: any = [];
+  cameragallery_extension: any = [];
+  cameragallery: any = [];
+  resultoftwoarray: any = [];
+  ticket: string = "mt";
+  @ViewChild(IonContent, { static: false }) content: IonContent;
+
+  
   constructor(
       // public ajaxCall: CommonService,
       // private device: Device,
@@ -43,20 +75,115 @@ export class TicketsPage implements OnInit {
       // public navParams: NavParams,
       private router: Router,
       private alertController: AlertController,
-      public platform: Platform,) { }
+      public platform: Platform,) {
+         this.reset();
+
+       }
 
 
   ngOnInit() {
-    this.myTicketsList()
         this.purposeType();
-
+ this.reset();
   }
+
+  private reset() {
+     this.activeSegment = 'all';
+    this.myTicketsList();
+  }
+
+
+
+  // doRefresh(event) {
+  //   this.purposetype = "";
+  //   this.mesag = "";
+  //   this.photos = [];
+  //   this.sendfile = [];
+  //   this.fileInfo = [];
+  //   this.file_extension = [];
+  //   this.myfiles = [];
+  //   this.cameragallery_extension = [];
+  //   this.cameragallery = [];
+  //   this.maincontroller = [];
+  //   this.resultoftwoarray = [];
+  //   this.hidepdf = true;
+  //   this.hideimg = true;
+  //   this.myTicketsList();
+  //   event.complete();
+  // }
+
+ 
+
+  ionViewDidLoad() {
+
+    this.purposetype = "";
+    this.mesag = "";
+    this.photos = [];
+    this.sendfile = [];
+    this.fileInfo = [];
+    this.file_extension = [];
+    this.myfiles = [];
+    this.cameragallery_extension = [];
+    this.cameragallery = [];
+    this.maincontroller = [];
+    this.resultoftwoarray = [];
+    this.hidepdf = true;
+    this.hideimg = true;
+    this.myTicketsList();
+    
+
+   
+    
+  }
+  ionViewWillEnter() {
+    // this.tabBarElement.style.display = 'none';
+
+    this.purposetype = "";
+    this.mesag = "";
+    this.photos = [];
+    this.sendfile = [];
+    this.fileInfo = [];
+    this.file_extension = [];
+    this.myfiles = [];
+    this.cameragallery_extension = [];
+    this.cameragallery = [];
+    this.maincontroller = [];
+    this.resultoftwoarray = [];
+    this.hidepdf = true;
+    this.hideimg = true;
+    this.myTicketsList();
+  }
+
+  ionViewWillLeave() {
+    // this.tabBarElement.style.display = 'flex';
+
+    this.purposetype = "";
+    this.mesag = "";
+    this.photos = [];
+    this.sendfile = [];
+    this.fileInfo = [];
+    this.file_extension = [];
+    this.myfiles = [];
+    this.cameragallery_extension = [];
+    this.cameragallery = [];
+    this.maincontroller = [];
+    this.resultoftwoarray = [];
+    this.hidepdf = true;
+    this.hideimg = true;
+    this.myTicketsList();
+  }
+
+
+
   groupmdl() {
 
       this.groupmodal.present();
     }
-
-    
+  handleDismiss(modalName: string) {
+    if (modalName === 'groupmodal' && this.groupmodal) {
+      this.groupmodal.dismiss();
+    }
+    // Add other modals if needed
+  }
   dismissModal() {
     this.groupmodal.dismiss();
   }
@@ -109,7 +236,7 @@ export class TicketsPage implements OnInit {
         //   this.mesag = "";
         //   this.photos = [];
         //   this.sendfile = [];
-          this.fileInfo = [];
+          this.image_controller_upload = [];
         //   this.file_extension = [];
         //   this.myfiles = [];
         //   this.cameragallery_extension = [];
@@ -209,38 +336,137 @@ onchange(event: any) {
   console.log("Sub Purpose Changed:", value);
   if (value) {
     const parts = value.split(',');
-    this.StatusChanged = parts;           // ticketTypeId
-    this.sub_purpose_name = parts[3];        // ticketType
-    this.resolutionDay_Time = parts[4];      // resolutionDayTime
+    this.StatusChanged = parts[0];           // ticketTypeId
+    this.sub_purpose_name = parts[1];        // ticketType
+    this.resolutionDay_Time = parts[2];      // resolutionDayTime
     this.ticketType = (this.purposetype.ticketMainType || "") + " / " + this.sub_purpose_name;
+    console.log("Selected Sub Purpose:", this.StatusChanged, this.sub_purpose_name, this.resolutionDay_Time);
+    
   }
 }
 
-submitFun() {
-    // alert(this.resultoftwoarray.length);
-    this.fileInfo = [];
-    let prop_type = this.purposetype;
-    if (prop_type == "" || prop_type == undefined) {
-      this.cmn.presentAlert("Please choose your query");
-      return false;
-    }
 
-    let sub_purp_type = this.subpurposetype;
-    if (sub_purp_type == "" || sub_purp_type == undefined) {
-      this.cmn.presentAlert("Please select specifics");
-      return false;
-    }
+async submitFun() {
+  // this.fileInfo = [];
 
-    let message = this.mesag;
-    if (message == "" || message == undefined) {
-      this.cmn.presentAlert("Please enter the comments");
-      return false;
-    }
-    if (message.length > 2000) {
-      this.cmn.presentAlert("Your comments should be less than 2000 characters.");
-      return false;
-    }
+  // Input validations
+  if (!this.purposetype) {
+    this.cmn.presentAlert("Please choose your query");
+    return false;
   }
+  if (!this.subpurposetype) {
+    this.cmn.presentAlert("Please select specifics");
+    return false;
+  }
+  if (!this.mesag) {
+    this.cmn.presentAlert("Please enter the comments");
+    return false;
+  }
+  if (this.mesag.length > 2000) {
+    this.cmn.presentAlert("Your comments should be less than 2000 characters.");
+    return false;
+  }
+if (this.maincontroller == undefined && this.controllerdata == undefined || this.maincontroller.length == 0 && this.controllerdata.length == 0) {
+      this.image_controller_upload = null;
+
+    } else if (this.maincontroller == undefined || this.maincontroller.length == 0) {
+      this.image_controller_upload = this.controllerdata;
+
+    } else if (this.controllerdata == undefined || this.controllerdata.length == 0) {
+      this.image_controller_upload = this.maincontroller;
+
+
+    }  else if (this.controllerdata.length != 0 || this.controllerdata.length != 0) {
+      this.image_controller_upload = this.maincontroller;
+
+    }
+  // Prepare fileInfo array for API
+  // for (let i = 0; i < this.resultoftwoarray.length; i++) {
+  //   this.fileInfo.push({
+  //     id: i.toString(),
+  //     name: this.resultoftwoarray[i].filename,
+  //     base64: this.resultoftwoarray[i].base64
+  //   });
+  // }
+
+  // Show loader (await pattern for Ionic 7+)
+  await this.loaderService.showLoader();
+
+  // Prepare request
+  const url = this.cmn.commonservice + "customerTicket/createCustomerServiceRequest.spring";
+  const body = {
+    sessionKey: localStorage.getItem('sessionkey'),
+    deviceToken: localStorage.getItem("deviceTokenId"),
+    ticketTypeId: this.StatusChanged,
+    title: this.ticketType,
+    description: this.mesag,
+    fileInfo: this.image_controller_upload,
+    resolutionDayTime: this.resolutionDay_Time
+  };
+  const options = {
+    url,
+    headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+    data: body
+  };
+
+  try {
+    const response = await CapacitorHttp.post(options);
+    
+    if (response.data.responseCode === 200) {
+      await this.loaderService.hideLoader();
+       this.activeSegment = 'all';
+       this.content.scrollToTop(300); // 300ms animation
+
+      this.modalCtrl.dismiss();
+      this.cmn.presentAlert(response.data.status);
+      this.purposetype = "";
+      this.subpurposetype = "";
+      this.mySubPurposeType = "";
+      this.mesag = "";
+      this.photos = [];
+      this.sendfile = [];
+      this.image_controller_upload = [];
+      this.file_extension = [];
+      this.myfiles = [];
+      this.cameragallery_extension = [];
+      this.controllerdata = [];
+      this.array = [];
+      this.cameragallery = [];
+      this.uploader.queue = [];
+      this.resultoftwoarray = [];
+      this.maincontroller = [];
+      this.controllerdata = [];
+      this.hidepdf = true;
+      this.hideimg = true;
+      this.myTicketsList();
+    } else if (response.data.responseCode === 1001) {
+      this.cmn.presentAlert(response.data.errors[0]);
+    } else if (response.data.responseCode === 440) {
+      this.cmn.presentAlert(response.data.status);
+      // this.platform.exitApp();
+      return false;
+    } else {
+      this.cmn.presentAlert(response.data.status);
+    }
+
+  } catch (err: any) {
+    await this.loaderService.hideLoader();
+    this.cmn.presentAlert("Unable to connect to server, Something seems to be wrong.");
+    this.purposetype = "";
+    this.mesag = "";
+    this.photos = [];
+    this.sendfile = [];
+    this.image_controller_upload = [];
+    this.file_extension = [];
+    this.myfiles = [];
+    this.cameragallery_extension = [];
+    this.cameragallery = [];
+    this.controllerdata = [];
+    this.hidepdf = true;
+    this.hideimg = true;
+    return false;
+  }
+}
 
 async uploadWebFun() {
   let prop_type = this.purposetype;
@@ -298,5 +524,184 @@ async uploadWebFun() {
 this.modalCtrl.dismiss();
 }
 
+async onFileSelected(event: any) {
+  const files: FileList = (event.target as HTMLInputElement).files!;
+  if (!files || files.length === 0) return;
+
+  this.controllerdata = this.controllerdata || [];
+  this.maincontroller  = this.maincontroller  || [];
+
+  const invalidAudioTypes = [
+    "audio/mpeg", "audio/mp3", "audio/mp4", "audio/acc", "audio/ogg"
+  ];
+  const invalidVideoTypes = [
+    "video/mp4", "video/avi", "video/mov", "video/mpg", "video/ogg",
+    "video/webm", "video/mp2", "video/mpeg", "video/mpe",
+    "video/mpv", "video/m4v", "video/wmv", "video/qt",
+    "video/flv", "video/swf", "video/avchd"
+  ];
+
+  const tasks: Promise<void>[] = [];
+
+  for (let i = 0; i < files.length; i++) {
+    const file = files[i];
+    if (!file) continue;
+
+    const ft = file.type.toLowerCase();
+    if (!ft || invalidAudioTypes.includes(ft) || invalidVideoTypes.includes(ft)) {
+      this.cmn.presentAlert(`Unsupported format: "${file.name}"`);
+      continue;
+    }
+
+    const sizeMB = file.size / 1024 / 1024;
+    if (sizeMB > 20) {
+      this.cmn.presentAlert(`"${file.name}" exceeds 20 MB (${sizeMB.toFixed(1)}MB)`);
+      continue;
+    }
+
+    tasks.push(
+      this.getBase64(file).then(base64 => {
+        const img: MyImage = {
+          base64,
+          name: file.name,
+          shouldAddTimestamp: false
+        };
+        this.controllerdata.push(img);
+        this.maincontroller.push(img);
+      }).catch(err => {
+        console.error(`Error reading "${file.name}":`, err);
+        this.cmn.presentAlert(`Could not read "${file.name}".`);
+      })
+    );
+  }
+
+  await Promise.all(tasks);
+
+  if (this.uploader) {
+    this.uploader.queue = [];
+  }
+
+  const lastIdx = this.maincontroller.length - 1;
+  if (lastIdx >= 0) {
+    this.openSliderEditor(this.maincontroller, lastIdx, false);
+  }
+}
+
+
+// 2) selectImage: camera capture, **with** timestamp
+
+
+// 3) getBase64: pure File → dataURL conversion
+getBase64(file: File): Promise<string> {
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
+
+    reader.onload = () => {
+      const result = reader.result as string;
+      resolve(result);
+    };
+
+    reader.onerror = () => reject(reader.error);
+    reader.readAsDataURL(file); // Converts file to base64 encoded string
+  });
+}
+
+
+async selectImage(source: 'camera' | 'photos') {
+  if (source !== 'camera') return;
+
+  this.controllerdata = this.controllerdata || [];
+  this.maincontroller = this.maincontroller || [];
+
+  try {
+    const photo = await Camera.getPhoto({
+      quality: 90,
+      allowEditing: false,
+      resultType: CameraResultType.DataUrl,
+      saveToGallery: false,
+      source: CameraSource.Camera
+    });
+
+    const camName = `camera_${Date.now()}.jpeg`;
+
+    const img: MyImage = {
+      base64: photo.dataUrl!,
+      name: camName,
+      shouldAddTimestamp: true
+    };
+    if (this.currentIndex >= this.maincontroller.length) {
+      this.currentIndex = this.maincontroller.length - 1;
+    }
+
+    // Insert camera image after currentIndex instead of pushing
+const insertAt = this.currentIndex >= 0 ? this.currentIndex + 1 : this.maincontroller.length;
+
+    this.controllerdata.splice(insertAt, 0, img);
+    this.maincontroller.splice(insertAt, 0, img);
+
+    // Move currentIndex to new image
+    this.currentIndex = insertAt;
+
+    this.openSliderEditor(this.maincontroller, this.currentIndex, true);
+
+  } catch (err) {
+    console.error('Camera error:', err);
+    this.cmn.presentAlert('Could not capture image.');
+  }
+}
+
+
+
+// 4) openSliderEditor: stamp only the passed‐in index
+async openSliderEditor(images: MyImage[], index: number, addTimestamp: boolean) {
+  try {
+    // await this.modalCtrl.dismiss();
+  } catch {
+    // No modal to dismiss
+  }
+  const clonedImages: MyImage[] = images.map(img => ({
+    base64: img.base64,
+    name: img.name,
+    shouldAddTimestamp: img.shouldAddTimestamp
+  }));
+  const modal = await this.modalCtrl.create({
+    component: ImageEditorModalPage,
+    componentProps: {
+      images: clonedImages,
+      currentIndex: index,
+      stampIndex: addTimestamp ? index : -1
+    },
+    cssClass: 'custom-modal'
+  });
+
+  // 4) After dismissal, merge any edits back into maincontroller
+  modal.onDidDismiss().then(result => {
+    const edited: MyImage[] = result.data?.editedImages || [];
+    edited.forEach((e, i) => {
+      if (e?.base64) {
+        this.maincontroller[i].base64 = e.base64;
+        this.maincontroller[i].name   = e.name;
+        // if desired, also sync shouldAddTimestamp:
+        // this.maincontroller[i].shouldAddTimestamp = e.shouldAddTimestamp;
+      }
+    });
+  });
+
+  // 5) Present the newly created modal
+  await modal.present();
+}
+
+
+
+
+removeItem1(i: number) {
+  this.controllerdata.splice(i, 1);
+  this.maincontroller.splice(i, 1);
+
+  // Adjust currentIndex safely
+  if (this.currentIndex >= this.maincontroller.length) {
+    this.currentIndex = this.maincontroller.length - 1;
+  }
+}
 
 }

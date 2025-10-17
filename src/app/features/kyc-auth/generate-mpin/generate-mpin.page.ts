@@ -233,6 +233,10 @@ export class GenerateMpinPage implements OnInit {
       localStorage.setItem('loginpinsession', this.totalmpin);
       localStorage.setItem("appInfostattus", "false");
       localStorage.setItem("mpinhandle", resp.custId)
+                localStorage.setItem('sessionKey', resp.sessionKey);
+                console.log("sessionKey:", resp.sessionKey);
+                
+
       const myflatids = resp.flats || [];
       switch (resp.responseCode) {
         case 523:
@@ -256,7 +260,7 @@ export class GenerateMpinPage implements OnInit {
           localStorage.setItem('flatNo', myflatids[0]?.flatNo || "");
           localStorage.setItem('mycustId', resp.custId);
           localStorage.setItem('flatsLength', myflatids.length.toString());
-          localStorage.setItem('sessionkey_afterlogin', resp.sessionKey);
+          localStorage.setItem('sessionKey', resp.sessionKey);
 
           if (myflatids.length > 0) {
             localStorage.setItem('flats', JSON.stringify(myflatids));
@@ -279,7 +283,7 @@ export class GenerateMpinPage implements OnInit {
               if (menu) (menu as any).swipeEnable = true;
             });
           } else {
-            localStorage.setItem('sessionkey_afterlogin', resp.sessionKey);
+            localStorage.setItem('sessionkey', resp.sessionKey);
           }
           break;
 
@@ -325,7 +329,7 @@ export class GenerateMpinPage implements OnInit {
           localStorage.setItem('appRegId', resp.appRegId);
           localStorage.setItem('mycustId', resp.custId);
           localStorage.setItem('Myflat_id', resp.flatIds[0]);
-          localStorage.setItem('sessionkey_afterlogin', resp.sessionKey);
+          localStorage.setItem('sessionkey', resp.sessionKey);
           localStorage.setItem('Myflat_Num', myflatids[0]?.flatNo || "");
 
           this.router.navigateByUrl("dashboard");
@@ -425,7 +429,7 @@ export class GenerateMpinPage implements OnInit {
     localStorage.setItem("flats", JSON.stringify(myflatids));
     localStorage.setItem("flats_dashboard", myflatids[0].flatId);
     localStorage.setItem("flatNo", myflatids[0].flatNo);
-    localStorage.setItem("sessionkey_afterlogin", resp.sessionKey);
+    localStorage.setItem("sessionkey", resp.sessionKey);
 
     // const profileModal = this.modalCtrl.create(LoginpopupPage, { myflatids });
     // profileModal.present();
@@ -449,7 +453,7 @@ export class GenerateMpinPage implements OnInit {
     localStorage.setItem("Myflat_Num", myflatids[0].flatNo);
     localStorage.setItem("flatNo", myflatids[0].flatNo);
     localStorage.setItem("flatsLength", myflatids.length.toString());
-    localStorage.setItem("sessionkey_afterlogin", resp.sessionKey);
+    localStorage.setItem("sessionkey", resp.sessionKey);
 
     // this.events.publish('myEvent');
   }

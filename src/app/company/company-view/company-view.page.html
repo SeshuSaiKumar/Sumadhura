@@ -1,0 +1,30 @@
+<app-custom-toolbar 
+  [title]="'Company Updates'" 
+  [showBackButton]="true"
+  [showMenuButton]="true" 
+  [showThreeDots]="false" 
+  [backUrl]="'/CompanyupdatesPage'">
+</app-custom-toolbar>
+
+<ion-content>
+  <div class="detail-container">
+    <div class="detail-title">
+      <b>{{ updateText }}</b>
+    </div>
+    <!-- <div class="detail-description" [innerHTML]="updateData?.descriptionWithOutTags"></div>
+    <div class="detail-date">
+      {{ updateData?.createdDate | date:'fullDate' }}
+    </div> -->
+  </div>
+  <div class="detail-footer">
+    <div class="footer-action" (click)="likePost()">
+  <ion-icon [name]="outlineHand ? 'thumbs-up-outline' : 'thumbs-up'"></ion-icon>
+  <span>Like</span>
+</div>
+
+    <div class="footer-action">
+      <ion-icon name="chatbubble-ellipses-outline"></ion-icon>
+      <span>Reply</span>
+    </div>
+  </div>
+</ion-content>

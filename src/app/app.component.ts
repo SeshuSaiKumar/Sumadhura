@@ -30,7 +30,9 @@ export class AppComponent {
 
      if (localStorage.getItem("mpinhandle") != null && localStorage.getItem("mpinhandle") != "null" && localStorage.getItem("mpinhandle") !== undefined &&
       localStorage.getItem("mpinhandle") !== "undefined" && localStorage.getItem("mpinhandle") !== "") {
-      this.router.navigate(['/generate-mpin']);
+      // this.router.navigate(['/generate-mpin']);
+      this.router.navigate(['/dashboard']);
+
     } else {
       this.router.navigate(['/pan-entry']);
     }

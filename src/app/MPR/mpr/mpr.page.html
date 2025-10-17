@@ -3,11 +3,11 @@
 </app-custom-toolbar>
 
 <ion-content [fullscreen]="true" class="mpr-page">
-  <div style="margin-top: 7px;" *ngIf="mpr_list?.length">
+  <div style="margin-top: 7px;">
     <ion-searchbar [(ngModel)]="search"></ion-searchbar>
   </div>
 
-  <ion-list lines="none" *ngIf="mpr_list?.length">
+  <ion-list lines="none">
     <ion-item class="mpr-item" *ngFor="let item of mpr_list |filter:search:filterKeys"
       (click)="statusChnge(item, item.devices)">
       <!-- Left: Report Name -->
@@ -23,15 +23,5 @@
       </ion-button>
     </ion-item>
   </ion-list>
-<ng-container *ngIf="!mpr_list?.length">
-  <ion-card class="empty-card">
-    <ion-card-content>
-      <ion-icon name="document-text-outline" class="empty-icon"></ion-icon>
-      <h2 class="empty-title">No Reports Available</h2>
-      <p class="empty-subtitle">Please check back later for monthly progress reports.</p>
-    </ion-card-content>
-  </ion-card>
-</ng-container>
-
 
 </ion-content>

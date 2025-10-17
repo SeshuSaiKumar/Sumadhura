@@ -112,6 +112,7 @@ ion-item.item-has-focus {
 .ion-modal {
     --height: 100%;
     --width: 100%;
+    --border-radius: 0px;
 }
 /* Textarea styling */
 .form-textarea {
@@ -126,7 +127,7 @@ ion-item.item-has-focus {
   resize: none; /* Prevent resizing of the textarea */
 }
 .tlbar {
-      --background: #dc3545;
+      --background:linear-gradient(90deg, #e78340 0%, #e9c832 100%);
     --color: white;
     --border-radius: 16px;
     height: 42px !important;
@@ -208,7 +209,6 @@ ion-input {
   .circle-image2 {
     width: 100px; /* Adjust as needed */
     height: 100px; /* Adjust as needed */
-    // border-radius: 50%;
     overflow: hidden;
     margin-bottom: 10px; /* Space below the image */
     display: flex;
@@ -396,31 +396,204 @@ ion-select, ion-textarea {
   margin-top: 20px;
 }
 
+.ticket-card {
+  margin: 7px 12px 0 12px;
+  padding: 10px;
+  padding-bottom: 6px;
+  border-radius: 10px;
+  background: #fff; 
+  box-shadow: 0 2px 12px 0 #f7e9ce4a;
 
+  .ticket-header {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 1.1em;
+    font-weight: 500;
+  }
+
+  .ticket-title {
+    margin-top: 8px;
+    font-family: 'Lato', sans-serif;
+    color: #1A1A1A;
+font-weight: 700;
+font-style: Bold;
+font-size: 14px;
+line-height: 100%;
+letter-spacing: 0%;
+vertical-align: middle;
+
+  }
+
+  .ticket-dates {
+    display: flex;
+    gap: 25px;
+    margin: 10px 0 0 0;
+    font-size: 11px;
+
+    label {
+      color: #7b7b7b;
+      margin-right: 2px;
+      font-size: 13px;
+    }
+  }
+
+  .ticket-status {
+    display: flex;
+    align-items: center;
+    margin-top: 6px;
+
+
+    span {
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    ion-button {
+      margin-left: auto;
+    }
+  }
+}
+.inpro{
+  margin-left: auto;
+    color: #ED9622;
+    /* // background: #ED9622; */
+    border-radius: 39px;
+    height: 30px;
+    width: 30px;
+    background: #ffffff;
+}
+.closed {
+  margin-left: auto;
+  color: #e55a5a;
+  border-radius: 39px;
+  height: 30px;
+  width: 30px;
+  background: #ffffff;
+}
+.reopen {
+  margin-left: auto;
+  color: #ffffff;
+  border-radius: 39px;
+  height: 30px;
+  width: 30px;
+  background: #ff6666;
+}
+.open{
+  margin-left: auto;
+    color: #08ada9;
+    /* // background: #A8AFAA; */
+    border-radius: 39px;
+    height: 30px;
+    width: 30px;
+    background: #ffffff;
+
+}
+.new{
+   margin-left: auto;
+    color: #26dd5a;
+    /* // background: #A8AFAA; */
+    border-radius: 39px;
+    height: 30px;
+    width: 30px;
+    background: #ffffff;
+}
+/* ✅ Now variations work */
+.ticket-card.Inprogress {
+  border: 1.4px solid #FFF6EA;
+  background: #fff8e7;
+}
+.ticket-card.Open {
+  border: 1.4px solid #e9e9e9;
+  background: #eaf3ff;
+}
+.ticket-card.New {
+  border: 1.4px solid #e9e9e9;
+  background: #e1ffe3;
+}
+.ticket-card.Closed {
+  border: 1.4px solid #e9f7ef;
+  background: #e5e5e5;
+}
+.ticket-card.ReOpen {
+  border: 1.4px solid #e9f7ef;
+  background: #fa8e8e;
+}
+/* Text colors */
+.ticket-card.ReOpen .ticket-status span {
+  color: #ffffff;
+  margin-left: 2%;
+}
+.ticket-card.Closed .ticket-status span {
+  color: #e55a5a;
+  margin-left: 2%;
+}
+.ticket-card.Inprogress .ticket-status span {
+  color: #e6b23a;
+  margin-left: 2%;
+}
+.ticket-card.Open .ticket-status span {
+  color: #08ada9;
+  margin-left: 2%;
+
+}
+.ticket-card.New .ticket-status span {
+  color: #26dd5a;
+  margin-left: 2%;
+
+}
+.ticket-id {
+  font-family: 'Lato', sans-serif;
+  font-weight: 600;
+  font-size: 12px;
+  color: #858585;
+}
+.bgdiv{
+  background: #ffffff;
+    padding: 14px;
+    border-radius: 10px;
+}
+
+  ion-button.add-ticket-btn {
+    /* --background: #dc3545; */
+    --background: linear-gradient(90deg, #e78340 0%, #e9c832 100%);
+    --background-hover: #d1a02c;
+    --border-radius: 25px;
+    width: 43%;
+    justify-self: center;
+    font-weight: 500;
+    font-size: 12px;
+    box-shadow: 0 2px 10px 0 #f7e9ce60;
+    justify-self: center;
+    position: fixed;
+    top: 91%;
+  }
 </style>
 
 <app-custom-toolbar [title]="'Ticketing'" [showBackButton]="true"
-  [showMenuButton]="true" [showThreeDots]="false" [backUrl]="'/dashboard'">
+  [showMenuButton]="false" [showThreeDots]="false" [backUrl]="'/dashboard'">
 </app-custom-toolbar>
 
-<ion-content>
+<ion-content >
   <div class="tab-header">
-    <ion-segment [(ngModel)]="activeSegment">
+      <ion-segment [(ngModel)]="activeSegment" scrollable="true">
       <ion-segment-button value="all">All</ion-segment-button>
-      <ion-segment-button value="in-progress">In Progress</ion-segment-button>
+      <ion-segment-button value="in-progress">Inprogress</ion-segment-button>
       <ion-segment-button value="open">Open</ion-segment-button>
-            <ion-segment-button value="new">New</ion-segment-button>
+      <ion-segment-button value="new">New</ion-segment-button>
+       <ion-segment-button value="closed">Closed</ion-segment-button>
+       <ion-segment-button value="reopen">ReOpen</ion-segment-button>
 
     </ion-segment>
   </div>
-
+<div class="ppmb20 ppmt16">
   <!-- In Progress Ticket -->
    <ng-container *ngIf="activeSegment === 'all'">
   <div *ngFor="let ticket of ticketslist" class="ticket-card" [ngClass]="ticket.status" >
     <div class="bgdiv" (click)="gotoTicketDetails(ticket)" >
     <div class="ticket-header">
     <!-- <ion-icon name="bookmark" color="danger"></ion-icon> -->
-               <img class="wdth6" src="assets/imgs/dashboard_new/ticket.png"/>
+               <img class="wdth5" src="assets/imgs/dashboard_new/ticket.png"/>
 
     <span class="ticket-id">{{ ticket.ticketId }}</span>
   </div>
@@ -438,15 +611,18 @@ ion-select, ion-textarea {
       <span style="color: #717171;">{{ ticket.estimatedResolvedDate| date
                 :'dd/MM/y' }}</span>
     </div>
+    
   </div>
 </div>
-  <div class="ticket-status" [ngClass]="ticket.status">
+  <div (click)="gotoTicketDetails(ticket)" class="ticket-status" [ngClass]="ticket.status">
     <span>{{ ticket.status }}</span>
     <!-- <ion-button  fill="clear" size="small" > -->
 <ion-icon name="arrow-forward-circle-sharp" [ngClass]="{
   'inpro': ticket.status === 'Inprogress',
   'new': ticket.status === 'New',
-  'open': ticket.status === 'Open'
+  'open': ticket.status === 'Open',
+  'closed': ticket.status === 'Closed',
+   'reopen': ticket.status === 'ReOpen' 
 }"></ion-icon>
     <!-- </ion-button> -->
   </div>
@@ -459,7 +635,7 @@ ion-select, ion-textarea {
     <div class="bgdiv" (click)="gotoTicketDetails(ticket)">
     <div class="ticket-header">
     <!-- <ion-icon name="bookmark" color="danger"></ion-icon> -->
-               <img class="wdth6" src="assets/imgs/dashboard_new/ticket.png"/>
+               <img class="wdth5" src="assets/imgs/dashboard_new/ticket.png"/>
 
     <span class="ticket-id">{{ ticket.ticketId }}</span>
   </div>
@@ -485,13 +661,61 @@ ion-select, ion-textarea {
 <ion-icon name="arrow-forward-circle-sharp" [ngClass]="{
   'inpro': ticket.status === 'Inprogress',
   'new': ticket.status === 'New',
-  'open': ticket.status === 'Open'
+  'open': ticket.status === 'Open',
+   'closed': ticket.status === 'Closed',
+    'reopen': ticket.status === 'ReOpen'
 }"></ion-icon>
     <!-- </ion-button> -->
   </div>
 </div>
 </ng-container>
 </ng-container>
+
+ <ng-container *ngIf="activeSegment === 'reopen'">
+    <ng-container *ngFor="let ticket of ticketslist" >
+
+<div  class="ticket-card" [ngClass]="ticket.status"  *ngIf="ticket.status === 'ReOpen'" >
+    <div class="bgdiv" (click)="gotoTicketDetails(ticket)">
+    <div class="ticket-header">
+    <!-- <ion-icon name="bookmark" color="danger"></ion-icon> -->
+               <img class="wdth5" src="assets/imgs/dashboard_new/ticket.png"/>
+
+    <span class="ticket-id">{{ ticket.ticketId }}</span>
+  </div>
+
+  <div class="ticket-title">{{ ticket.title }}</div>
+
+  <div class="ticket-dates">
+    <div class="dv">
+      <label style="color:#B4B4B4 ;">Raised On</label>
+      <span style="color: #717171;">{{ ticket.createdDate| date
+              :'dd/MM/y' }}</span>
+    </div>
+    <div class="dv">
+      <label style="color:#B4B4B4 ;">Escalates On</label>
+      <span style="color: #717171;">{{ ticket.estimatedResolvedDate| date
+                :'dd/MM/y' }}</span>
+    </div>
+  </div>
+</div>
+  <div class="ticket-status" [ngClass]="ticket.status">
+    <span>{{ ticket.status }}</span>
+    <!-- <ion-button  fill="clear" size="small" > -->
+<ion-icon name="arrow-forward-circle-sharp" [ngClass]="{
+  'inpro': ticket.status === 'Inprogress',
+  'new': ticket.status === 'New',
+  'open': ticket.status === 'Open',
+   'closed': ticket.status === 'Closed',
+   'reopen': ticket.status === 'ReOpen'
+}"></ion-icon>
+    <!-- </ion-button> -->
+  </div>
+</div>
+</ng-container>
+</ng-container>
+
+
+
  <ng-container *ngIf="activeSegment === 'open'">
       <ng-container *ngFor="let ticket of ticketslist" >
 
@@ -499,7 +723,7 @@ ion-select, ion-textarea {
     <div class="bgdiv" (click)="gotoTicketDetails(ticket)">
     <div class="ticket-header">
     <!-- <ion-icon name="bookmark" color="danger"></ion-icon> -->
-               <img class="wdth6" src="assets/imgs/dashboard_new/ticket.png"/>
+               <img class="wdth5" src="assets/imgs/dashboard_new/ticket.png"/>
 
     <span class="ticket-id">{{ ticket.ticketId }}</span>
   </div>
@@ -525,13 +749,54 @@ ion-select, ion-textarea {
 <ion-icon name="arrow-forward-circle-sharp" [ngClass]="{
   'inpro': ticket.status === 'Inprogress',
   'new': ticket.status === 'New',
-  'open': ticket.status === 'Open'
+  'open': ticket.status === 'Open',
+  'closed': ticket.status === 'Closed',
+   'reopen': ticket.status === 'ReOpen'
 }"></ion-icon>
     <!-- </ion-button> -->
   </div>
 </div>
 </ng-container>
 </ng-container>
+
+
+
+  <!-- Closed Tickets -->
+  <ng-container *ngIf="activeSegment === 'closed'">
+    <ng-container *ngFor="let ticket of ticketslist">
+      <div *ngIf="ticket.status === 'Closed'" class="ticket-card" [ngClass]="ticket.status">
+        <div class="bgdiv" (click)="gotoTicketDetails(ticket)">
+          <div class="ticket-header">
+            <img class="wdth5" src="assets/imgs/dashboard_new/ticket.png"/>
+            <span class="ticket-id">{{ ticket.ticketId }}</span>
+          </div>
+          <div class="ticket-title">{{ ticket.title }}</div>
+          <div class="ticket-dates">
+            <div class="dv">
+              <label style="color:#B4B4B4;">Raised On</label>
+              <span style="color: #717171;">{{ ticket.createdDate | date:'dd/MM/y' }}</span>
+            </div>
+            <div class="dv">
+              <label style="color:#B4B4B4;">Closed On</label>
+              <span style="color: #717171;">{{ ticket.closedDate | date:'dd/MM/y' }}</span>
+            </div>
+          </div>
+        </div>
+        <div class="ticket-status" [ngClass]="ticket.status">
+          <span>{{ ticket.status }}</span>
+          <ion-icon name="arrow-forward-circle-sharp"[ngClass]="{
+  'inpro': ticket.status === 'Inprogress',
+  'new': ticket.status === 'New',
+  'open': ticket.status === 'Open',
+  'closed': ticket.status === 'Closed',
+   'reopen': ticket.status === 'ReOpen'
+}"></ion-icon>
+        </div>
+      </div>
+    </ng-container>
+  </ng-container>
+
+
  <ng-container *ngIf="activeSegment === 'new'">
       <ng-container *ngFor="let ticket of ticketslist" >
 
@@ -539,7 +804,7 @@ ion-select, ion-textarea {
     <div class="bgdiv" (click)="gotoTicketDetails(ticket)">
     <div class="ticket-header">
     <!-- <ion-icon name="bookmark" color="danger"></ion-icon> -->
-               <img class="wdth6" src="assets/imgs/dashboard_new/ticket.png"/>
+               <img class="wdth5" src="assets/imgs/dashboard_new/ticket.png"/>
 
     <span class="ticket-id">{{ ticket.ticketId }}</span>
   </div>
@@ -565,28 +830,29 @@ ion-select, ion-textarea {
 <ion-icon name="arrow-forward-circle-sharp" [ngClass]="{
   'inpro': ticket.status === 'Inprogress',
   'new': ticket.status === 'New',
-  'open': ticket.status === 'Open'
+  'open': ticket.status === 'Open',
+  'closed': ticket.status === 'Closed',
+  'reopen': ticket.status === 'ReOpen'
 }"></ion-icon>
     <!-- </ion-button> -->
   </div>
 </div>
 </ng-container>
 </ng-container>
+</div>
+<!-- Add New Ticket Button -->
+<ion-button (click)="groupmdl()" expand="block" class="add-ticket-btn" shape="round">
+  <ion-icon name="add" slot="start"></ion-icon>
+  Add New Ticket
+</ion-button>
 </ion-content>
-  <!-- Add New Ticket Button -->
-  <ion-footer class="add-ticket-footer">
-    <ion-button (click)="groupmdl()" expand="block" class="add-ticket-btn" shape="round">
-      <ion-icon name="add" slot="start"></ion-icon>
-      Add New Ticket
-    </ion-button>
-  </ion-footer>
 
 
 
 <ion-modal #groupmodal id="groupmodal" class="ion-modal">
 <ng-template>
 
-
+<!-- 
   <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-row style="margin: 10px;width: 352px;">
@@ -606,11 +872,15 @@ ion-select, ion-textarea {
 
     </ion-row>
   </ion-toolbar>
-</ion-header>
+</ion-header> -->
+<app-custom-toolbar [title]="'Raise Ticket'" [showBackButton]="false" (dismiss)="handleDismiss($event)"
+ [showMenuButton]="false" [showThreeDots]="false" [isModal]="true" [modalName]="'groupmodal'"
+></app-custom-toolbar>
+
 
 <ion-content [fullscreen]="true">
-  <ion-grid>
-    <ion-list lines="none" style="width: 98%;margin-left: 1%;margin-right: 1%;">
+  <ion-grid class="ppmt2">
+    <!-- <ion-list lines="none" style="width: 98%;margin-left: 1%;margin-right: 1%;">
       <div style="width: 98%;margin-left: 1%;margin-right: 1%;">
         <span class="spancls">Choose Your Query<span style="color: orangered;">*</span> </span>
         <ion-item fill="outline" class="field-wrapper">
@@ -631,11 +901,11 @@ ion-select, ion-textarea {
           <ion-select placeholder="Choose any one" aria-label="Select Company" style="min-width: 79vw!important;" id="companySelect" value="-1"
             interface="popover" >
             <ion-select-option value="Group">Group</ion-select-option>
-            <!-- <ion-select-option value="Company">Company</ion-select-option> -->
+            <ion-select-option value="Company">Company</ion-select-option>
           </ion-select>
         </ion-item>
       </div>
-    </ion-list>
+    </ion-list> -->
 
     <!-- Group Names Section -->
     
@@ -645,20 +915,24 @@ ion-select, ion-textarea {
     <ion-list lines="none" style="width: 98%; margin-left: 1%; margin-right: 1%;">
       <div style="width: 98%; margin-left: 1%; margin-right: 1%;">
         <span class="spancls">Choose Your Query<span style="color: orangered;">*</span></span>     
-
-      <ion-select [(ngModel)]="purposetype" (ionChange)="purposeChange($event)" style="min-width: 79vw!important;">
+  <ion-item fill="outline" class="field-wrapper">
+      <ion-select placeholder="Choose any one" [(ngModel)]="purposetype" (ionChange)="purposeChange($event)" style="min-width: 79vw!important;">
         <ion-select-option *ngFor="let item of mypurposeres" [value]="item">{{item.ticketMainType}}</ion-select-option>
       </ion-select>
+      </ion-item>
       </div>
       </ion-list>
+
     <ion-list lines="none" style="width: 98%; margin-left: 1%; margin-right: 1%;">
       <div style="width: 98%; margin-left: 1%; margin-right: 1%;">
-        <span class="spancls">Select Specifics<span style="color: orangered;">*</span></span>     
-      <ion-label style="color: gray;font-size: 18px;" floating>Select Specifics</ion-label>
-      <ion-select [(ngModel)]="subpurposetype" (ionChange)="onchange($event)" style="min-width: 79vw!important;">
+        <span class="spancls">Select Specifics<span style="color: orangered;">*</span></span>
+        <ion-item fill="outline" class="field-wrapper">
+
+      <ion-select placeholder="Choose any one" [(ngModel)]="subpurposetype" (ionChange)="onchange($event)" style="min-width: 79vw!important;">
         <ion-select-option *ngFor="let item of mySubPurposeType"
           [value]="item.ticketTypeId+','+item.ticketType+','+item.resolutionDayTime">{{item.ticketType}}</ion-select-option>
       </ion-select>
+      </ion-item>
       </div>
       </ion-list>
 
@@ -672,8 +946,13 @@ ion-select, ion-textarea {
             style="color: orangered;">*</span></span>
         <ion-row>
           <ion-col size="12">
-            <ion-textarea [(ngModel)]="mesag" fill="outline" id="create-textarea" autocomplete="on" autocorrect="on" spellcheck="true"
-            autocapitalize="sentences" placeholder="Describe Your Problem"
+            <ion-textarea [(ngModel)]="mesag"     fill="outline" 
+        id="create-textarea" 
+        autocomplete="on" 
+        autocorrect="on"
+        capitalize="on"
+        spellcheck="true"
+        autocapitalize="sentences" placeholder="Describe Your Problem"
             style="border:none;white-space: pre-wrap;--padding-bottom: 60px;" ></ion-textarea>
           </ion-col>
         </ion-row>
@@ -687,29 +966,72 @@ ion-select, ion-textarea {
 
   <!-- Upload Options -->
   <div class="upload-section pppx5">
-    <div class="upload-box">
-      <ion-icon name="cloud-upload-outline"></ion-icon>
-      <p class="upload-text">Click to upload</p>
+    <div  class="upload-box"  (click)='fileInput.click()'  >
+      <span class="hidden-file">
+          <!-- <input type="file" #fileInput ng2FileSelect [uploader]="uploader" (change)="onFileSelected($event)"
+            accept="'image'" (click)="fileInput.value = ''" /> -->
+            <input type="file"
+       #fileInput
+       (change)="onFileSelected($event)"
+       accept="image/*"
+       multiple
+       (click)="fileInput.value = ''" />
+
+
+        </span>
+      <ion-icon  name="cloud-upload-outline"></ion-icon>
+      <p  class="upload-text">Click to upload</p>
       <small>PNG, JPG (max. 5Mb)</small>
     </div>
-    <div class="upload-box">
+    <div (click)="selectImage('camera')" class="upload-box">
       <ion-icon name="camera-outline"></ion-icon>
       <p class="upload-text">Click Image</p>
     </div>
   </div>
 
 
-    </ion-content>
+    <div *ngIf="maincontroller?.length" class="ppmb30">
+  <div *ngFor="let p of maincontroller; let i = index;"
+       style="border: 1px solid #e0c3c3;
+    border-radius: 6px;
+    width: 89%;
+    padding: 10px;
+    justify-self: center;
+    gap: 10px;
+    display: flex;
+    margin-bottom: 10px;box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);">
+    
+    <!-- Image preview with click to open modal -->
+    <img [src]="p.base64"
+         alt="Selected Image"
+         (click)="openSliderEditor(maincontroller, i, false)"
+         style="width: 40px; height: 30px; object-fit: cover; border-radius: 5px; border: 1px solid #ccc; cursor: pointer;" />
 
-    <ion-footer>
+    <!-- Image name -->
+    <span class="my__textoverflow" style="flex: 1; color: #2C4DB9; font-weight: 500;">
+      {{ p.name }}
+    </span>
+
+    <!-- Remove icon -->
+    <ion-icon name="close-circle"
+              style="font-size: 20px; color: rgb(68, 0, 255); cursor: pointer;"
+              (click)="removeItem1(i)">
+    </ion-icon>
+  </div>
+</div>   
+<ion-button (click)="submitFun()" expand="block" class="add-ticket-btn" shape="round">
+  Submit
+</ion-button>
+</ion-content>
+    <!-- <ion-footer>
       <ion-row class="form-row">
         <ion-col size="12">
-          <ion-button (click)="uploadWebFun()" class="tlbar" expand="block">
+          <ion-button (click)="submitFun()" class="tlbar" expand="block">
             Submit
           </ion-button>
         </ion-col>
       </ion-row>
-  </ion-footer>
+  </ion-footer> -->
 
 
 </ng-template>

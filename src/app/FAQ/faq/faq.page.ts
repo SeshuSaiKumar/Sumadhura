@@ -58,7 +58,7 @@ export class FaqPage implements OnInit {
       headers: { 'Content-Type': 'application/json' },
       data: {
         "deviceToken": this.common.deviceToken,
-        "sessionKey": localStorage.getItem("sessionkey_afterlogin"),
+        "sessionKey": localStorage.getItem("sessionkey"),
       },
     };
 

@@ -234,7 +234,7 @@ export class CreateMpinPage implements OnInit {
       headers: { 'Content-Type': 'application/json' },
       data: {
         deviceToken: this.cmn.deviceToken,
-        sessionKey: localStorage.getItem('session_keys') || "null",
+        sessionKey: localStorage.getItem('sessionKey') || "null",
         mpin: this.totalmpin,
         custId: localStorage.getItem('mycustId'),
         device: {

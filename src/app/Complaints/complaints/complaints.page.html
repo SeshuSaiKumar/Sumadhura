@@ -1,8 +1,87 @@
-
 <app-custom-toolbar [title]="'Complaints'" [showBackButton]="true"
   [showMenuButton]="false" [showThreeDots]="false" [backUrl]="'/dashboard'">
 </app-custom-toolbar>
 
-<ion-content [fullscreen]="true">
+<ion-content>
+  <!-- Segment -->
+  <div class="banner-image"></div>
+  <div class="finance-page pppx2">
 
+  <ion-segment [(ngModel)]="segment" class="custom-segment">
+  <ion-segment-button value="myComplaints">
+    <label>MY COMPLAINTS</label>
+  </ion-segment-button>
+  <ion-segment-button value="raiseComplaint">
+    <label>RAISE A COMPLAINT</label>
+  </ion-segment-button>
+</ion-segment>
+
+ 
+  <div class="segment-bar" [ngStyle]="{left: segment === 'myComplaints' ? '0%' : '50%'}"></div>
+
+  <!-- Segment 1 -->
+  <div *ngIf="segment === 'myComplaints'">
+    <ion-searchbar placeholder="Search..."></ion-searchbar>
+
+    <ion-card *ngFor="let complaint of complaints">
+      <div class="complaint-card" routerLink="/complaints-view">
+        <div class="complaint-icon">
+          <img src="assets/imgs/ticket_icon.png"/>
+        </div>
+        <div class="complaint-details">
+          <div class="complaint-number">Complaint No :{{complaint.no}}</div>
+          <div class="complaint-date">Raised On:{{complaint.raised}}</div>
+          <div class="complaint-date">Escalates On:{{complaint.escalates}}</div>
+        </div>
+        <div class="complaint-actions">
+          <div class="status-btn" [ngClass]="complaint.statusClass">{{complaint.status}}</div>
+        <ion-icon name="arrow-forward-circle-sharp" class="arrow-icon"></ion-icon>
+        </div>
+      </div>
+    </ion-card>
+  </div>
+
+  <!-- Segment 2 -->
+  <div *ngIf="segment === 'raiseComplaint'" class="raise-complaint-form">
+    <div class="form-header">
+      <div class="form-info">*Fill the fields and click on submit to raise a complaint</div>
+    </div>
+    <ion-item>
+      <ion-label position="stacked">Choose Ticket Number</ion-label>
+      <ion-select>
+        <ion-select-option value="403">403</ion-select-option>
+        <ion-select-option value="398">398</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-label position="stacked">Your Query</ion-label>
+      <ion-input></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="stacked">Your Specifics</ion-label>
+      <ion-input></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="stacked">Comment/Message</ion-label>
+      <ion-textarea></ion-textarea>
+    </ion-item>
+    <div class="upload-section">
+      <ion-button expand="block" color="light" class="file-btn">
+        <ion-icon slot="start" name="cloud-upload-outline"></ion-icon>
+        UPLOAD FILE
+      </ion-button>
+      <div class="upload-note">
+        <span class="note-title">Note - </span>
+        <span>If you are not able to attach a file using "Gallery" option.<br>
+        Please try using a different method E.g. file manager, Downloads, Documents, Images etc.</span>
+      </div>
+    </div>
+    <div class="submit-section">
+      <ion-button expand="block" class="submit-btn">
+        SUBMIT
+        <ion-icon slot="end" name="arrow-forward-outline"></ion-icon>
+      </ion-button>
+    </div>
+  </div>
+  </div>
 </ion-content>

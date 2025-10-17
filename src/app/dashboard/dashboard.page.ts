@@ -102,8 +102,8 @@ export class DashboardPage implements OnInit {
     },
 
     "Profile": {
-      icon: "assets/imgs/dashboard_new/Vector (14).png",
-      color: "linear-gradient(135deg, #FFFFFF -30%, #FFB8C9 40%)",
+      icon: "assets/imgs/dashboard_new/accounts.png",
+      color: "linear-gradient(135deg, rgb(255, 255, 255) -30%, rgb(197 197 224) 40%)",
       textColor: "#1A1A1A"
     }
   };
@@ -265,8 +265,8 @@ async openUnitModal() {
       url: url,
       headers: { 'Content-Type': 'application/json' },
       data: {
-        "deviceId": this.cmn.deviceToken,
-        "sessionKey": "" + localStorage.getItem('sessionkey_afterlogin'),
+        "deviceId": localStorage.getItem('deviceTokenId'),
+        "sessionKey": localStorage.getItem('sessionkey'),
         "flatId": localStorage.getItem('Myflat_id')
       }
     };
@@ -295,7 +295,7 @@ async openUnitModal() {
             };
           }).sort((a, b) => a.priority - b.priority);
 
-          this.chunkedCategories = this.chunkArray(this.categories, 9);
+          this.chunkedCategories = this.chunkArray(this.categories, 17);
 
           this.allowedTabs = ["Financials", "Tickets", "Inbox", "Profile"];
 
